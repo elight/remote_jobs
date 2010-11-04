@@ -1,13 +1,15 @@
+- content_for :head do
+  = javascript_include_tag("job_postings/new")
+
 - semantic_form_for @job_posting do |form|
 
   - form.inputs do
     %h3 1. What kind of job is it?
-    = form.input :title, :label => "Job title", :hint => "\"Senior Web Designer\""
+    = form.input :title, :label => "Job title", :input_html => { :placeholder => "Senior Web Designer" }
     = form.input :category, :as => :radio, :collection => ["Design", "Development", "Copywriting", "Management"]
     = form.input :job_type, :as => :radio, :collection => ["Freelancer", "Employee"], :label => "Position"
     = form.input :payment_type, :as => :radio, :collection => ["Hourly", "Salary"], :label => "Payment"
-    = form.input :contract_term_length, :wrapper_html => {:class => "slider"}
-    #term-slider
+    = form.input :contract_term_length, :wrapper_html => {:class => "term-slider"}
     = form.input :description, :label => "Job description"
     
   - form.inputs do
