@@ -286,6 +286,10 @@ form li.radio {
         -moz-border-radius: 5px;
         border-radius: 5px;
         border: 1px solid #cccccc; }
+form .slider {
+  width: 200px;
+  float: left;
+  margin: 10px 0 0 8px; }
 form .inline-hints {
   float: left;
   margin: 0 0 0 10px;
