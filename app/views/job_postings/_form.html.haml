@@ -1,6 +1,6 @@
 - semantic_form_for @job_posting do |form|
   = form.input :title
-  = form.input :category, :as => :radio, :collection => ["Design", "Development", "Copywriting", "Management"]
+  = form.input :category, :as => :radio, :collection => {"Design" => 1, "Development" => 2, "Copywriting" => 3, "Management" => 4}
   = form.input :contractor, :as => :radio
   = form.input :hourly, :as => :radio
   = form.input :company_name
