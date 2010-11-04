@@ -1,0 +1,56 @@
+/* Element styles */
+html, body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 12px;
+  color: #252525;
+  background: #eeeeee url(../images/tile.jpg) repeat; }
+
+h1, h2 {
+  font-weight: normal; }
+
+p {
+  line-height: 1.8em;
+  margin: 20px 0; }
+
+a, a:visited {
+  color: #691313; }
+
+/* Layout */
+header .insides, #mid .insides, #footer .insides {
+  width: 960px;
+  padding: 10px 0;
+  margin: 0 auto;
+  position: relative; }
+
+#main {
+  width: 100%; }
+
+#mid {
+  min-height: 400px; }
+
+#main {
+  padding-bottom: 50px; }
+
+#footer {
+  position: relative;
+  margin-top: -51px;
+  height: 50px;
+  clear: both; }
+
+#ie6_pwnage {
+  display: none; }
+
+/* Theme */
+header {
+  position: relative; }
+  header #logo {
+    height: 43px;
+    background: transparent url(../images/logo.png) no-repeat 0 0;
+    padding: 15px 0 0 65px;
+    font-size: 20px; }
+  header #our-story {
+    position: absolute;
+    top: 30px;
+    left: 200px;
+    font-size: 14px;
+    font-style: italic; }
