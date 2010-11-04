@@ -7,7 +7,7 @@ class JobPostingsController < InheritedResources::Base
   end
 
   def new
-    @job_posting = JobPosting.new(:category => 1, :contractor => true, :hourly => true)
+    @job_posting = JobPosting.new(:category => "Design", :payment_type => "Hourly", :job_type => "Freelancer")
     @credit_card = @job_posting.build_credit_card
   end
 
