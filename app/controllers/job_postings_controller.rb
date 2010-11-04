@@ -1,4 +1,7 @@
-class JobPostingsController < ApplicationController
+class JobPostingsController < InheritedResources::Base
+  actions :all, :except => :destroy
+  respond_to :html
+
   def new
     @job_posting = JobPosting.new
     @credit_card = @job_posting.build_credit_card
