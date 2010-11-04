@@ -1,14 +1,15 @@
 - semantic_form_for @job_posting do |form|
 
   - form.inputs do
-    %h3 What kind of job is it?
-    = form.input :title, :label => "Job title"
+    %h3 1. What kind of job is it?
+    = form.input :title, :label => "Job title", :hint => "\"Ruby on Rails developer\""
     = form.input :category, :as => :radio, :collection => {"Design" => 1, "Development" => 2, "Copywriting" => 3, "Management" => 4}
-    = form.input :contractor, :as => :radio
-    = form.input :hourly, :as => :radio
+    = form.input :contractor, :as => :radio, :collection => {"Contractor" => true, "Employee" => false}, :label => "Job type"
+    = form.input :hourly, :as => :radio, :collection => {"Hourly" => true, "Salary" => false}, :label => "Pay type"
+    = form.input :contract_term_length
     = form.input :description, :label => "Job description"
     
-  -form.inputs do
+  - form.inputs do
     %h3 Tell us about your company
     = form.input :company_name
     = form.input :hiring_criteria

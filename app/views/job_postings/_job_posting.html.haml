@@ -1,0 +1,13 @@
+%li.job
+  %a{:href => job_posting_path(job_posting) }
+    .new
+      - if job_posting.created_at > Time.now - 1.day
+        new
+    .title= job_posting.title
+    .company= job_posting.company_name
+    .tags
+      .job_type= job_type_for job_posting
+      .payment_type= payment_type_for job_posting
+      .term= term_for job_posting
+    .date= created_at_for job_posting
+
