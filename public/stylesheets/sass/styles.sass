@@ -1,6 +1,6 @@
 $background_color: #eee
 $text_color: #252525
-$link_color: #691313
+$link_color: #7c1c1c
 
 /* Element styles */
 
@@ -61,3 +61,173 @@ header
 		left: 200px
 		font-size: 14px
 		font-style: italic
+	#add-a-job
+		position: absolute
+		top: 30px
+		right: 0
+		.price
+			font-size: 16px
+			font-weight: bold
+			color: #7b7b7b
+			float: left
+			padding-top: 10px
+			margin-right: 10px
+		a
+			display: block
+			padding: 0 12px
+			float: left
+			height: 41px
+			width: 98px
+			line-height: 38px
+			text-align: center
+			-webkit-border-radius: 10px
+			-moz-border-radius: 10px
+			border-radius: 10px
+			background: transparent url(../images/add-a-job.png) no-repeat
+			color: #fff
+			font-size: 16px
+			text-shadow: 0 -1px 1px #000
+
+#category-chooser
+	float: left
+	margin: 65px 30px 0 0
+	li
+		width: 127px
+		height: 30px
+		margin: 0 0 5px
+	a
+		display: block
+		color: $text_color
+		font-size: 16px
+		padding: 5px 0 5px 8px
+	a.active
+		width: 127px
+		height: 20px
+		background: transparent url(../images/current-category.png) no-repeat
+		color: #fff
+
+#jobs-list
+	width: 795px
+	height: 805px
+	float: right
+	background: transparent url(../images/pad.png) no-repeat
+	header
+		padding: 10px
+		height: 39px
+		h3
+			font-size: 15px
+			font-weight: normal
+			font-style: italic
+			color: #a7918a
+			text-shadow: 0 -1px 1px #3a251e
+			margin: 7px 0 0 10px
+			float: left
+		.search
+			width: 201px
+			height: 31px
+			background: transparent url(../images/search-input.png) no-repeat
+			margin: 2px 0 0 0
+			position: relative
+			float: right
+			input[type="text"]
+				background-color: transparent
+				border: none
+				width: 158px
+				height: 23px
+				padding: 4px 28px 4px 15px
+				color: #eddad4
+				text-shadow: 0 -1px 1px #3a251e
+			input[type="submit"]
+				background: transparent url(../images/search-submit.png) no-repeat
+				border: none
+				text-indent: -9999px
+				position: absolute
+				top: 9px
+				right: 10px
+				width: 17px
+				height: 15px
+				cursor: pointer
+	
+	.job_type
+		color: #5197d3
+	.payment_type	
+		color: #a451d3
+	.term	
+		color: #d27442
+	
+	.filter
+		height: 50px
+		padding: 10px 10px 10px 80px
+		
+		li
+			display: block
+			height: 20px
+			margin-bottom: 5px
+			label
+				text-transform: lowercase
+				padding: 2px 0 3px 24px
+				line-height: 17px
+				cursor: pointer
+			label.checked
+				background-position: 0 0
+			input[type="checkbox"]
+				padding: 0
+				margin: 0
+				height: 16px
+				width: 16px
+				float: left
+				position: absolute
+				left: 0
+				opacity: 0
+		
+		.job_type
+			float: left
+			width: 100px
+			margin-right: 50px
+			label
+				background: transparent url(../images/blue-checkbox.png) no-repeat 0 -17px
+		.payment_type
+			float: left
+			width: 120px
+			margin-right: 50px
+			label
+				background: transparent url(../images/purple-checkbox.png) no-repeat 0 -17px
+	ul.jobs
+		margin-left: 5px
+		width: 785px
+		li
+			background: transparent url(../images/paper-line.png) no-repeat 0 -4px
+			a
+				color: $text_color
+				padding: 11px 10px 3px 0
+				display: block
+				clear: both
+				height: 23px
+				margin-bottom: 1px
+			a:hover
+				background: #e2e1d7 url(../images/paper-line.png) no-repeat 0 -4px
+			.new, .title, .company, .tags, .date
+				float: left
+				overflow: hidden
+				height: 20px
+			.new, .company, .tags, .date
+				padding-top: 2px
+			.new
+				width: 53px
+				padding-right: 5px
+				text-align: center
+			.title	
+				width: 300px
+				font-size: 14px
+				font-weight: bold
+			.company
+				width: 150px
+			.tags
+				width: 190px
+				div
+					float: left
+					height: 20px
+				.job_type
+					width: 61px
+				.payment_type
+					width: 47px

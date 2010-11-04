@@ -1,2 +1,11 @@
-// Place your application-specific JavaScript functions and classes here
-// This file is automatically included by javascript_include_tag :defaults
+function handleCustomCheckboxes() {
+	$('label.clickable').click(function() {
+		$(this).toggleClass('checked');
+		var $checkbox = $(this).siblings('checkbox');
+		$checkbox.attr('checked', !$checkbox.attr('checked'));
+	});
+}
+
+$(document).ready(function() {
+	handleCustomCheckboxes();
+});

@@ -26,12 +26,8 @@
             %h1#logo remote jobs
             %h2#our-story= link_to("our story", "#")
             
-            #add-a-job
-              .price $75
-              %a{:href => root_path}
-                %strong + add
-                a job
-            
+            = yield :header
+                        
         #mid
           .insides
             = yield

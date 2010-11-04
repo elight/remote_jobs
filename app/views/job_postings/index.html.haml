@@ -1,12 +1,19 @@
+- content_for :header do
+  #add-a-job
+    .price $75
+    %a{:href => root_path}
+      %strong + add
+      a job
+
 %ul#category-chooser
   
   %li.all= link_to_active("all jobs", root_path)
-  %li.design= link_to_active("design", root_path)
-  %li.development= link_to_active("development", root_path)
-  %li.copywriting= link_to_active("copywriting", root_path)
-  %li.management= link_to_active("management", root_path)
+  %li.design= link_to_active("design", "/design")
+  %li.development= link_to_active("development", "/development")
+  %li.copywriting= link_to_active("copywriting", "/copywriting")
+  %li.management= link_to_active("management", "/management")
   
-  %li.missing= link_to_active("missing one?", root_path)
+  %li.missing= link_to_active("missing one?", "/missing")
 
 
 #jobs-list
@@ -16,33 +23,54 @@
     .search
       = form_tag 'search' do
         = text_field_tag :query, "", :placeholder => "search..."
+        = submit_tag "search"
     
   .filter
-    .job_type
-      = check_box_tag :freelancer
-      = check_box_tag :employee
-    .payment_type
-      = check_box_tag :hourly
-      = check_box_tag :salary
+    %ul.job_type
+      %li
+        = label_tag :freelancer, "freelancer", :class => "clickable checked"
+        = check_box_tag :freelancer
+      %li
+        = label_tag :employee, "employee", :class => "clickable checked"
+        = check_box_tag :employee
+    %ul.payment_type
+      %li
+        = label_tag :hourly, "hourly", :class => "clickable checked"
+        = check_box_tag :hourly
+      %li
+        = label_tag :salary, "salary", :class => "clickable checked"
+        = check_box_tag :salary
     .term
       Length of term
   
   %ul.jobs
     %li.job
-      .new new
-      .title Web Design Lead
-      .company Patch Media
-      .tags
-        .job_type freelance
-        .payment_type hourly
-        .term 6m
-      .date Today
+      %a{:href => "#"}
+        .new new
+        .title Web Design Lead
+        .company Patch Media
+        .tags
+          .job_type freelance
+          .payment_type hourly
+          .term 6m
+        .date Today
     %li.job
-      .new
-      .title Ruby on Rails Developer
-      .company Optoro
-      .tags
-        .job_type
-        .payment_type salary
-        .term 12m
-      .date Yesterday
+      %a{:href => "#"}
+        .new
+        .title Ruby on Rails Developer
+        .company Optoro
+        .tags
+          .job_type
+          .payment_type salary
+          .term 12m
+        .date Yesterday
+    %li.job
+      %a{:href => "#"}
+        .new
+        .title Ruby on Rails Developer
+        .company Optoro
+        .tags
+          .job_type
+          .payment_type salary
+          .term 12m
+        .date Yesterday
