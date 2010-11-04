@@ -25,12 +25,12 @@ ActiveRecord::Schema.define(:version => 20101104160518) do
   create_table "job_postings", :force => true do |t|
     t.string   "title"
     t.text     "description"
-    t.boolean  "contractor"
-    t.boolean  "hourly"
+    t.string   "job_type"
+    t.string   "payment_type"
     t.integer  "contract_term_length"
     t.text     "how_to_apply"
     t.text     "hiring_criteria"
-    t.integer  "category"
+    t.string   "category"
     t.string   "company_name"
     t.string   "first_name"
     t.string   "last_name"
@@ -41,8 +41,11 @@ ActiveRecord::Schema.define(:version => 20101104160518) do
     t.string   "state"
     t.string   "country"
     t.string   "phone_number"
+    t.string   "uid"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "job_postings", ["uid"], :name => "index_job_postings_on_uid"
 
 end

@@ -7,15 +7,15 @@
 
   %li.category
     %label Category
-    = @job_posting.category_label
+    = @job_posting.category
 
   %li.position
     %label Position
-    = job_type_for @job_posting
+    = @job_posting.job_type
 
   %li.payment
     %label Payment
-    = payment_type_for @job_posting
+    = @job_posting.payment_type
 
   - if @job_posting.contractor
     %li.contract_term

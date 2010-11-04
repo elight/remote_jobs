@@ -1,22 +1,6 @@
 require 'maruku'
 
 module JobPostingsHelper
-  def job_type_for(job_posting)
-    if job_posting.contractor? 
-      "freelancer"
-    else
-      "employee"
-    end
-  end
-
-  def payment_type_for(job_posting)
-    if job_posting.hourly? 
-      "hourly"
-    else
-      "salary"
-    end
-  end
-
   def term_for(job_posting)
     case job_posting.contract_term_length
     when nil:

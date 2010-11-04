@@ -6,8 +6,8 @@
     .title= job_posting.title
     .company= job_posting.company_name
     .tags
-      .job_type= job_type_for job_posting
-      .payment_type= payment_type_for job_posting
+      .job_type= job_posting.job_type
+      .payment_type= job_posting.payment_type
       .term= term_for job_posting
     .date= created_at_for job_posting
 

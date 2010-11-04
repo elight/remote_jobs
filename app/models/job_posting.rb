@@ -1,5 +1,5 @@
 class JobPosting < ActiveRecord::Base
-  CATEGORIES = {"Design" => 1, "Development" => 2, "Copywriting" => 3, "Management" => 4}
+  CATEGORIES = %w[Design Development Copywriting Management]
 
   validates_presence_of :title, :description, :contractor, :hourly, :how_to_apply, :hiring_criteria, 
                         :category, :company_name, :first_name, :last_name, :email_address, 
@@ -17,9 +17,5 @@ class JobPosting < ActiveRecord::Base
 
   def to_param
     "#{id}_#{title.underscore}"
-  end
-
-  def category_label
-    JobPosting::CATEGORIES.find { |k, v| v == self.category }.first
   end
 end
