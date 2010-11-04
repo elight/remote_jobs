@@ -15,6 +15,6 @@ class JobPosting < ActiveRecord::Base
   end
 
   def to_param
-    "#{title.underscore}_#{id}"
+    "#{id}_#{title.underscore}"
   end
 end
