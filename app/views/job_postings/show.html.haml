@@ -17,7 +17,7 @@
     %label Payment
     = @job_posting.payment_type
 
-  - if @job_posting.contractor
+  - if @job_posting.contract_term_length
     %li.contract_term
       %label Contract Term Length
       = show_term_for @job_posting
