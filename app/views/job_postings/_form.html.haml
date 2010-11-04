@@ -1,0 +1,27 @@
+- semantic_form_for @job_posting do |form|
+  = form.input :title
+  = form.input :category, :as => :radio, :collection => {"Design" => 1, "Development" => 2, "Copywriting" => 3, "Management" => 4}
+  = form.input :contractor, :as => :radio
+  = form.input :hourly, :as => :radio
+  = form.input :company_name
+  = form.input :description
+  = form.input :hiring_criteria
+  = form.input :how_to_apply
+
+  = form.input :first_name
+  = form.input :last_name
+  = form.input :email_address
+  = form.input :street_address1, :label => "Address"
+  = form.input :street_address1, :label => "Address 2"
+  = form.input :city
+  = form.input :state
+  = form.input :country
+  = form.input :phone_number
+
+  = form.semantic_fields_for @credit_card do |cc_form|
+    = cc_form.input :number
+    = cc_form.input :month
+    = cc_form.input :year
+    = cc_form.input :cvv
+
+  = form.buttons
