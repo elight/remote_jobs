@@ -50,11 +50,15 @@ header .insides, #mid .insides, #footer .insides
 
 header
 	position: relative
+	h1
+		margin-bottom: 0
 	#logo
+		display: inline-block
 		height: 43px
 		background: transparent url(../images/logo.png) no-repeat 0 0
 		padding: 15px 0 0 65px
 		font-size: 20px
+		color: $text_color
 	#our-story
 		position: absolute
 		top: 30px
@@ -63,7 +67,7 @@ header
 		font-style: italic
 	#add-a-job
 		position: absolute
-		top: 30px
+		top: 20px
 		right: 0
 		.price
 			font-size: 16px
@@ -247,3 +251,9 @@ header
 					width: 61px
 				.payment_type
 					width: 47px
+
+#footer
+	.insides
+		padding-left: 120px
+		text-align: center
+		color: #999

@@ -23,16 +23,10 @@
       #main.clearfix
         %header
           .insides
-            %h1#logo remote jobs
+            %h1= link_to("remote jobs", root_path, :id => "logo")
             %h2#our-story= link_to("our story", "#")
             
             = yield :header
-
-            #add-a-job
-              .price $75
-              %a{:href => new_job_posting_path}
-                %strong + add
-                a job
             
         #mid
           .insides

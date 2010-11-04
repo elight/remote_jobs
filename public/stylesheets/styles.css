@@ -43,11 +43,15 @@ header .insides, #mid .insides, #footer .insides {
 /* Theme */
 header {
   position: relative; }
+  header h1 {
+    margin-bottom: 0; }
   header #logo {
+    display: inline-block;
     height: 43px;
     background: transparent url(../images/logo.png) no-repeat 0 0;
     padding: 15px 0 0 65px;
-    font-size: 20px; }
+    font-size: 20px;
+    color: #252525; }
   header #our-story {
     position: absolute;
     top: 30px;
@@ -56,7 +60,7 @@ header {
     font-style: italic; }
   header #add-a-job {
     position: absolute;
-    top: 30px;
+    top: 20px;
     right: 0; }
     header #add-a-job .price {
       font-size: 16px;
@@ -235,3 +239,8 @@ header {
         width: 61px; }
       #jobs-list ul.jobs li .tags .payment_type {
         width: 47px; }
+
+#footer .insides {
+  padding-left: 120px;
+  text-align: center;
+  color: #999999; }
