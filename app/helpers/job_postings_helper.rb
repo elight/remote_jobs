@@ -1,3 +1,5 @@
+require 'maruku'
+
 module JobPostingsHelper
   def job_type_for(job_posting)
     if job_posting.contractor? 
@@ -37,5 +39,16 @@ module JobPostingsHelper
     else
       job_posting.created_at.strftime("%m/%d/%Y")
     end
+  end
+
+  def show_term_for(job_posting)
+    term = term_for job_posting
+    return "None specified" if term.blank?
+    term
+  end
+
+  def render_markdown_to_html(markdown)
+    doc = Maruku.new(markdown)
+    doc.to_html
   end
 end
