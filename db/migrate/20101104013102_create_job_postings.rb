@@ -10,6 +10,18 @@ class CreateJobPostings < ActiveRecord::Migration
       t.text :hiring_criteria
       t.integer :category
 
+      t.string :company_name
+
+      t.string :first_name
+      t.string :last_name
+      t.string :email_address
+      t.string :street_address1
+      t.string :street_address2
+      t.string :city
+      t.string :state
+      t.string :country
+      t.string :phone_number
+
       t.timestamps
     end
   end

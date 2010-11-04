@@ -10,18 +10,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101104014808) do
+ActiveRecord::Schema.define(:version => 20101104160518) do
 
-  create_table "customers", :force => true do |t|
-    t.string   "first_name"
-    t.string   "last_name"
-    t.string   "email_address"
-    t.string   "street_address1"
-    t.string   "street_address2"
-    t.string   "city"
-    t.string   "state"
-    t.string   "country"
-    t.string   "phone_number"
+  create_table "credit_cards", :force => true do |t|
+    t.string   "number"
+    t.integer  "month"
+    t.integer  "year"
+    t.integer  "cvv"
+    t.integer  "job_posting_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -35,9 +31,18 @@ ActiveRecord::Schema.define(:version => 20101104014808) do
     t.text     "how_to_apply"
     t.text     "hiring_criteria"
     t.integer  "category"
+    t.string   "company_name"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "email_address"
+    t.string   "street_address1"
+    t.string   "street_address2"
+    t.string   "city"
+    t.string   "state"
+    t.string   "country"
+    t.string   "phone_number"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "customer_id"
   end
 
 end
