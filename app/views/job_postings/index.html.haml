@@ -1,0 +1,48 @@
+%ul#category-chooser
+  
+  %li.all= link_to_active("all jobs", root_path)
+  %li.design= link_to_active("design", root_path)
+  %li.development= link_to_active("development", root_path)
+  %li.copywriting= link_to_active("copywriting", root_path)
+  %li.management= link_to_active("management", root_path)
+  
+  %li.missing= link_to_active("missing one?", root_path)
+
+
+#jobs-list
+
+  %header
+    %h3 Helping you find a job you'll love!
+    .search
+      = form_tag 'search' do
+        = text_field_tag :query, "", :placeholder => "search..."
+    
+  .filter
+    .job_type
+      = check_box_tag :freelancer
+      = check_box_tag :employee
+    .payment_type
+      = check_box_tag :hourly
+      = check_box_tag :salary
+    .term
+      Length of term
+  
+  %ul.jobs
+    %li.job
+      .new new
+      .title Web Design Lead
+      .company Patch Media
+      .tags
+        .job_type freelance
+        .payment_type hourly
+        .term 6m
+      .date Today
+    %li.job
+      .new
+      .title Ruby on Rails Developer
+      .company Optoro
+      .tags
+        .job_type
+        .payment_type salary
+        .term 12m
+      .date Yesterday

@@ -40,6 +40,7 @@ GEM
       actionpack (>= 2.3.0)
       activesupport (>= 2.3.0)
       i18n (>= 0.4.0)
+    haml (3.0.23)
     has_scope (0.5.0)
     i18n (0.4.2)
     inherited_resources (1.1.2)
@@ -84,6 +85,7 @@ PLATFORMS
 DEPENDENCIES
   active_merchant
   formtastic
+  haml
   inherited_resources (= 1.1.2)
   pg
   rails (= 3.0.1)

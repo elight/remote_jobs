@@ -1,0 +1,55 @@
+!!!
+%html{html_attrs('en')}
+  %head
+    %meta{ :content => "text/html; charset=utf-8", "http-equiv" => "Content-Type" }
+    %meta{ :name => "Description", "http-equiv" => "Description", :content => "Jobs for the remote worker." }
+    %meta{ :name => "Keywords", "http-equiv" => "Keywords", :content => "jobs, remote, freelancer, board" }
+    %link{ :id => 'favicon', :href => '/images/favicon.png', :rel => 'icon', :type => 'image/x-icon' }/
+    %title
+      remote jobs
+      
+    = javascript_include_tag "jquery-1.4.3.min", "application"
+    / [if lt IE 9]
+      = javascript_include_tag "http://html5shiv.googlecode.com/svn/trunk/html5.js"
+    
+    = stylesheet_link_tag "fonts", "reset", "styles"    
+    /[if lt IE 7]
+      = stylesheet_link_tag "ie"
+
+    = yield :head
+    
+  %body
+    #wrap
+      #main.clearfix
+        %header
+          .insides
+            %h1#logo remote jobs
+            %h2#our-story= link_to("our story", "#")
+            
+            #add-a-job
+              .price $75
+              %a{:href => root_path}
+                %strong + add
+                a job
+            
+        #mid
+          .insides
+            = yield
+
+    #ie6_pwnage
+      = "We've noticed you're using a pretty old browser and we're sad that you're missing out on so much!"
+      %strong= "Please upgrade to one of these free browsers:"
+      %ul
+        %li
+          %a{:href=>'http://getfirefox.com'} Firefox
+        %li
+          %a{:href=>'http://google.com/chrome'} Chrome
+        %li
+          %a{:href=>'http://www.microsoft.com/windows/internet-explorer/default.aspx'} Internet Explorer
+
+    #footer
+      .insides
+        Copyright © 2010
+
+    =# render "analytics"
+    = yield :javascript
