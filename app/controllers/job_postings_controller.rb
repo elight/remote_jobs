@@ -14,10 +14,11 @@ class JobPostingsController < InheritedResources::Base
   def create
     @credit_card = nil
     cc_params = params["job_posting"].delete "credit_card"
-    @job_posting = JobPosting.new(params["job_posting"])
+    @job_posting = JobPosting.new_with_uuid(params["job_posting"])
     if @job_posting.save
       flash[:notice] = "Posting created"
-      redirect_to :action => "index"
+      JobPostingMailer.new_job_posting_email(@job_posting).deliver
+      redirect_to job_posting_path(@job_posting)
     else
       @credit_card = CreditCard.new(cc_params)
       render :action => "new"

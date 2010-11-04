@@ -9,6 +9,7 @@ gem 'inherited_resources', '1.1.2'
 gem 'active_merchant'
 gem 'haml'
 gem 'maruku'
+gem 'uuid'
 
 # Bundle gems for the local environment. Make sure to
 # put test-only gems in this group so their generators
