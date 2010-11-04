@@ -10,7 +10,11 @@ class JobPosting < ActiveRecord::Base
   
   def format_of_email
     unless email_address =~ /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/
-      errors.add(:email_addres, "Email address is invalid")
+      errors.add(:email_address, "Email address is invalid")
     end
+  end
+
+  def to_param
+    "#{title.underscore}_#{id}"
   end
 end
