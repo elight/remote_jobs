@@ -2,6 +2,10 @@ class JobPostingsController < InheritedResources::Base
   actions :all, :except => :destroy
   respond_to :html
 
+  def index
+    @job_postings = JobPosting.order("created_at DESC")
+  end
+
   def new
     @job_posting = JobPosting.new
     @credit_card = @job_posting.build_credit_card
