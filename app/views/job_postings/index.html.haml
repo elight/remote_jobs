@@ -1,3 +1,6 @@
+- content_for :head do
+  = javascript_include_tag "job_postings/index"
+  
 - content_for :header do
   #add-a-job
     .price $75
@@ -41,7 +44,16 @@
         = label_tag :salary, "salary", :class => "clickable checked"
         = check_box_tag :salary
     .term
-      Length of term
+      .min
+        at least
+        %span#min-value.value
+        long
+        #min-slider
+      .max
+        no more than
+        %span#max-value.value
+        long
+        #max-slider
   
   %ul.jobs
     %li.job

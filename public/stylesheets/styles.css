@@ -178,45 +178,60 @@ header {
     #jobs-list .filter .payment_type {
       float: left;
       width: 120px;
-      margin-right: 50px; }
+      margin-right: 30px; }
       #jobs-list .filter .payment_type label {
         background: transparent url(../images/purple-checkbox.png) no-repeat 0 -17px; }
+    #jobs-list .filter .term {
+      width: 400px;
+      float: left;
+      color: #252525;
+      background: transparent url(../images/arrow.png) no-repeat 164px 24px; }
+      #jobs-list .filter .term .value {
+        color: #d27442; }
+      #jobs-list .filter .term .min, #jobs-list .filter .term .max {
+        width: 160px;
+        float: left;
+        text-align: center; }
+      #jobs-list .filter .term .min {
+        margin-right: 30px; }
+      #jobs-list .filter .term .ui-slider {
+        margin-top: 10px;
+        width: 160px; }
   #jobs-list ul.jobs {
     margin-left: 5px;
     width: 785px; }
-    #jobs-list ul.jobs li {
-      background: transparent url(../images/paper-line.png) no-repeat 0 -4px; }
-      #jobs-list ul.jobs li a {
-        color: #252525;
-        padding: 11px 10px 3px 0;
-        display: block;
-        clear: both;
-        height: 23px;
-        margin-bottom: 1px; }
-      #jobs-list ul.jobs li a:hover {
-        background: #e2e1d7 url(../images/paper-line.png) no-repeat 0 -4px; }
-      #jobs-list ul.jobs li .new, #jobs-list ul.jobs li .title, #jobs-list ul.jobs li .company, #jobs-list ul.jobs li .tags, #jobs-list ul.jobs li .date {
+    #jobs-list ul.jobs li a {
+      background: transparent url(../images/paper-line.png) no-repeat 0 -53px;
+      color: #252525;
+      padding: 11px 10px 3px 0;
+      display: block;
+      clear: both;
+      height: 23px;
+      margin-bottom: 1px; }
+    #jobs-list ul.jobs li a:hover {
+      background-position: 0 -7px; }
+    #jobs-list ul.jobs li .new, #jobs-list ul.jobs li .title, #jobs-list ul.jobs li .company, #jobs-list ul.jobs li .tags, #jobs-list ul.jobs li .date {
+      float: left;
+      overflow: hidden;
+      height: 20px; }
+    #jobs-list ul.jobs li .new, #jobs-list ul.jobs li .company, #jobs-list ul.jobs li .tags, #jobs-list ul.jobs li .date {
+      padding-top: 2px; }
+    #jobs-list ul.jobs li .new {
+      width: 53px;
+      padding-right: 5px;
+      text-align: center; }
+    #jobs-list ul.jobs li .title {
+      width: 300px;
+      font-size: 14px;
+      font-weight: bold; }
+    #jobs-list ul.jobs li .company {
+      width: 150px; }
+    #jobs-list ul.jobs li .tags {
+      width: 190px; }
+      #jobs-list ul.jobs li .tags div {
         float: left;
-        overflow: hidden;
         height: 20px; }
-      #jobs-list ul.jobs li .new, #jobs-list ul.jobs li .company, #jobs-list ul.jobs li .tags, #jobs-list ul.jobs li .date {
-        padding-top: 2px; }
-      #jobs-list ul.jobs li .new {
-        width: 53px;
-        padding-right: 5px;
-        text-align: center; }
-      #jobs-list ul.jobs li .title {
-        width: 300px;
-        font-size: 14px;
-        font-weight: bold; }
-      #jobs-list ul.jobs li .company {
-        width: 150px; }
-      #jobs-list ul.jobs li .tags {
-        width: 190px; }
-        #jobs-list ul.jobs li .tags div {
-          float: left;
-          height: 20px; }
-        #jobs-list ul.jobs li .tags .job_type {
-          width: 61px; }
-        #jobs-list ul.jobs li .tags .payment_type {
-          width: 47px; }
+      #jobs-list ul.jobs li .tags .job_type {
+        width: 61px; }
+      #jobs-list ul.jobs li .tags .payment_type {
+        width: 47px; }
