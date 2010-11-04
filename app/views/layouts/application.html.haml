@@ -26,6 +26,8 @@
             %h1#logo remote jobs
             %h2#our-story= link_to("our story", "#")
             
+            = yield :header
+
             #add-a-job
               .price $75
               %a{:href => new_job_posting_path}
