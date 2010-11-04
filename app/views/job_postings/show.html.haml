@@ -1,0 +1,35 @@
+%p.title= @job_posting.title
+
+%ul
+  %li.company
+    %label Company
+    = @job_posting.company_name
+
+  %li.category
+    %label Category
+    = @job_posting.category
+
+  %li.position
+    %label Position
+    = @job_posting.job_type
+
+  %li.payment
+    %label Payment
+    = @job_posting.payment_type
+
+  - if @job_posting.contractor
+    %li.contract_term
+      %label Contract Term Length
+      = show_term_for @job_posting
+    
+  %li.description
+    %label Description
+    = render_markdown_to_html(@job_posting.description).html_safe
+
+  %li.hiring_criteria
+    %label What we're looking for
+    = render_markdown_to_html(@job_posting.hiring_criteria).html_safe
+
+  %li.how_to_apply
+    %label How to apply
+    = render_markdown_to_html(@job_posting.how_to_apply).html_safe

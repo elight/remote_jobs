@@ -2,11 +2,12 @@
 
   - form.inputs do
     %h3 1. What kind of job is it?
-    = form.input :title, :label => "Job title", :hint => "\"Ruby on Rails developer\""
-    = form.input :category, :as => :radio, :collection => {"Design" => 1, "Development" => 2, "Copywriting" => 3, "Management" => 4}
+    = form.input :title, :label => "Job title", :hint => "\"Senior Web Designer\""
+    = form.input :category, :as => :radio, :collection => ["Design", "Development", "Copywriting", "Management"]
     = form.input :contractor, :as => :radio, :collection => {"Contractor" => true, "Employee" => false}, :label => "Job type"
     = form.input :hourly, :as => :radio, :collection => {"Hourly" => true, "Salary" => false}, :label => "Pay type"
-    = form.input :contract_term_length
+    = form.input :contract_term_length, :wrapper_html => {:class => "slider"}
+    #term-slider
     = form.input :description, :label => "Job description"
     
   - form.inputs do

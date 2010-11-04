@@ -3,12 +3,12 @@ class CreateJobPostings < ActiveRecord::Migration
     create_table :job_postings do |t|
       t.string :title
       t.text :description
-      t.boolean :contractor
-      t.boolean :hourly
+      t.string :job_type
+      t.string :payment_type
       t.integer :contract_term_length
       t.text :how_to_apply
       t.text :hiring_criteria
-      t.integer :category
+      t.string :category
 
       t.string :company_name
 
@@ -22,11 +22,15 @@ class CreateJobPostings < ActiveRecord::Migration
       t.string :country
       t.string :phone_number
 
+      t.string :uid
+
       t.timestamps
     end
+    add_index :job_postings, :uid
   end
 
   def self.down
+    remove_index :job_postings, :uid
     drop_table :job_postings
   end
 end
