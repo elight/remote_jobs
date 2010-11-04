@@ -1,7 +1,7 @@
 class JobPosting < ActiveRecord::Base
   CATEGORIES = %w[Design Development Copywriting Management]
 
-  validates_presence_of :title, :description, :contractor, :hourly, :how_to_apply, :hiring_criteria, 
+  validates_presence_of :title, :description, :job_type, :payment_type, :how_to_apply, :hiring_criteria, 
                         :category, :company_name, :first_name, :last_name, :email_address, 
                         :street_address1, :city, :state, :country, :phone_number
   validate :format_of_email
