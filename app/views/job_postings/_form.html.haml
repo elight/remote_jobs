@@ -28,10 +28,11 @@
   = form.input :country
   = form.input :phone_number
 
-  = form.semantic_fields_for @credit_card do |cc_form|
-    = cc_form.input :number
-    = cc_form.input :month
-    = cc_form.input :year
-    = cc_form.input :cvv
+  - unless edit
+    = form.semantic_fields_for @credit_card do |cc_form|
+      = cc_form.input :number
+      = cc_form.input :month
+      = cc_form.input :year
+      = cc_form.input :cvv
 
   = form.buttons

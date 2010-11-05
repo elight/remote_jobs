@@ -24,4 +24,9 @@ class JobPostingsController < InheritedResources::Base
       render :action => "new"
     end
   end
+
+  def edit
+    @job_posting = JobPosting.where(:uid => params[:uuid]).first
+    Rails.logger.debug @job_posting.inspect
+  end
 end
