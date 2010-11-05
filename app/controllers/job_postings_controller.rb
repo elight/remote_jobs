@@ -42,6 +42,7 @@ class JobPostingsController < InheritedResources::Base
   def disable 
     @job_posting = JobPosting.where(:uid => params[:uuid]).try(:first)
     @job_posting.try(:disable!)
+    flash[:notice] = "Your job posting seeking a '#{@job_posting.title}' has been closed"
     redirect_to job_postings_path
   end
 end
