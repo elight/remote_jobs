@@ -28,7 +28,9 @@
   = form.input :country
   = form.input :phone_number
 
-  - unless edit
+  - if edit
+    = form.input :uid, :as => :hidden
+  - else edit
     = form.semantic_fields_for @credit_card do |cc_form|
       = cc_form.input :number
       = cc_form.input :month

@@ -3,7 +3,7 @@ class JobPostingsController < InheritedResources::Base
   respond_to :html
 
   def index
-    @job_postings = JobPosting.order("created_at DESC")
+    @job_postings = JobPosting.where(:enabled => true).order("created_at DESC")
   end
 
   def new
@@ -27,6 +27,14 @@ class JobPostingsController < InheritedResources::Base
 
   def edit
     @job_posting = JobPosting.where(:uid => params[:uuid]).first
-    Rails.logger.debug @job_posting.inspect
+  end
+
+  def update
+  end
+
+  def disable 
+    @job_posting = JobPosting.where(:uid => params[:uuid]).try(:first)
+    @job_posting.try(:disable!)
+    redirect_to job_postings_path
   end
 end

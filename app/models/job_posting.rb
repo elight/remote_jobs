@@ -24,4 +24,9 @@ class JobPosting < ActiveRecord::Base
   def to_param
     "#{id}_#{title.gsub(' ', '_')}"
   end
+
+  def disable!
+    self.enabled = false
+    self.save!
+  end
 end

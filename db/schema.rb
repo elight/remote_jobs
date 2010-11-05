@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101104160518) do
+ActiveRecord::Schema.define(:version => 20101105005004) do
 
   create_table "credit_cards", :force => true do |t|
     t.string   "number"
@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(:version => 20101104160518) do
     t.string   "uid"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "enabled",              :default => true
   end
 
   add_index "job_postings", ["uid"], :name => "index_job_postings_on_uid"

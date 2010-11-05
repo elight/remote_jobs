@@ -1,1 +1,4 @@
 = render :partial => "form", :locals => { :edit => true }
+
+%li.destroy
+  = link_to "Remove posting", "/disable/#{@job_posting.uid}", :method => :delete
