@@ -8,6 +8,8 @@ $(document).ready(function() {
 			slide: function(event, ui) {
 				if(ui.value == 0)
 					$(".slider-value").text("<1 month");
+				else if(ui.value == 1)
+					$(".slider-value").text("1 month");
 				else if(ui.value == 25)
 					$(".slider-value").text("indefinite");
 				else

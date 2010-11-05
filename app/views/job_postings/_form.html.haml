@@ -4,6 +4,8 @@
 #create-a-job
   #posting-preview
     %h3 Here's a preview of your posting
+    
+  = render "shared/error_messages", :target => @job_posting
 
   - semantic_form_for @job_posting do |form|
 
@@ -22,6 +24,7 @@
     - form.inputs do
       %h3 2. Tell us about your company
       = form.input :company_name, :label => "Name"
+      = form.input :company_url, :label => "URL", :input_html => { :placeholder => "http://yoursite.com" }
       = form.input :hiring_criteria, :wrapper_html => {:class => "textarea"}
       = form.input :how_to_apply, :wrapper_html => {:class => "textarea"}
 
@@ -49,4 +52,5 @@
       - else
         = form.input :uid, :as => :hidden
 
-    = form.buttons
+    = form.buttons do
+      = form.commit_button "Post Job"

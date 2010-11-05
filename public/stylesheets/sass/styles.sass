@@ -284,7 +284,7 @@ form
 		padding-bottom: 5px
 		border-bottom: 1px solid #ccc
 		margin-bottom: 20px
-	fieldset
+	fieldset.inputs
 		margin-bottom: 30px
 		background-color: rgba(0,0,0,0.05)
 		padding: 20px
@@ -313,7 +313,7 @@ form
 		margin-bottom: 10px
 		float: left
 		clear: none
-		margin-right: 80px
+		margin-right: 120px
 		fieldset
 			margin-bottom: 0
 			background: none
@@ -335,11 +335,11 @@ form
 					border: 1px solid transparent
 					cursor: pointer
 				label.selected
-					background-color: #f5d4d4
+					background-color: #d4eef5
 					-webkit-border-radius: 5px
 					-moz-border-radius: 5px
 					border-radius: 5px
-					border: 1px solid #f2c6c6
+					border: 1px solid #c6e0f2
 	.ui-slider
 		border: 1px solid #aaa
 	.slider
@@ -357,7 +357,7 @@ form
 		padding: 7px 0 0 15px
 		font-weight: bold
 		font-size: 1.1em
-	.inline-hints
+	.inline-hints, .inline-errors
 		float: left
 		margin: 0 0 0 10px
 		color: #777
@@ -374,6 +374,24 @@ form
 			display: block
 			width: 550px
 			height: 150px
+	fieldset.buttons
+		input[type="submit"]
+			float: right
+			display: block
+			padding: 0 12px
+			width: 102px
+			height: 41px
+			line-height: 41px
+			text-align: center
+			border: none
+			background: transparent url(../images/post-job-button.png) no-repeat
+			color: #fff
+			font-size: 16px
+			text-shadow: 0 -1px 1px #000
+			cursor: pointer
+			text-indent: -9999px
+		input[type="submit"]:active
+			margin-top: 1px
 	#job_posting_description_input
 		float: left
 		clear: none
@@ -403,6 +421,12 @@ form
 			li
 				margin-bottom: 0
 				min-height: 0
+	#job_posting_company_name_input, #job_posting_company_url_input
+		float: left
+		clear: none
+		width: 460px
+		input[type="text"]
+			width: 392px
 	#job_posting_hiring_criteria_input, #job_posting_how_to_apply_input
 		float: left
 		clear: none
@@ -415,6 +439,30 @@ form
 		width: 460px
 		input[type="text"]
 			width: 250px
+			
+/* Errors */
+#error-explanation
+	background-color: #F5D4D4
+	-webkit-border-radius: 5px
+	-moz-border-radius: 5px
+	border-radius: 5px
+	padding: 10px
+	color: #280909
+	margin-bottom: 10px
+	h3
+		font-size: 18px
+		border-bottom: 1px dotted #280909
+		margin-bottom: 5px
+		padding-bottom: 5px
+	li
+		padding: 3px 0
+form
+	li.error
+		input[type="text"], textarea
+			background-color: #f5d4d4
+			border: 1px solid #c02d2d
+	.inline-errors
+		display: none
 
 #footer
 	.insides

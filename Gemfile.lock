@@ -1,6 +1,6 @@
 GIT
   remote: http://github.com/outoftime/sunspot.git
-  revision: 024c23370db88865f48639753d304b378fbaf934
+  revision: 024c233
   specs:
     sunspot (1.2.rc4)
       escape (= 0.0.4)

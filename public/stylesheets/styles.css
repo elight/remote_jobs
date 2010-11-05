@@ -270,7 +270,7 @@ form h3 {
   padding-bottom: 5px;
   border-bottom: 1px solid #cccccc;
   margin-bottom: 20px; }
-form fieldset {
+form fieldset.inputs {
   margin-bottom: 30px;
   background-color: rgba(0, 0, 0, 0.05);
   padding: 20px;
@@ -299,7 +299,7 @@ form li.radio {
   margin-bottom: 10px;
   float: left;
   clear: none;
-  margin-right: 80px; }
+  margin-right: 120px; }
   form li.radio fieldset {
     margin-bottom: 0;
     background: none;
@@ -321,11 +321,11 @@ form li.radio {
         border: 1px solid transparent;
         cursor: pointer; }
       form li.radio ol li label.selected {
-        background-color: #f5d4d4;
+        background-color: #d4eef5;
         -webkit-border-radius: 5px;
         -moz-border-radius: 5px;
         border-radius: 5px;
-        border: 1px solid #f2c6c6; }
+        border: 1px solid #c6e0f2; }
 form .ui-slider {
   border: 1px solid #aaaaaa; }
 form .slider {
@@ -343,7 +343,7 @@ form .slider-value {
   padding: 7px 0 0 15px;
   font-weight: bold;
   font-size: 1.1em; }
-form .inline-hints {
+form .inline-hints, form .inline-errors {
   float: left;
   margin: 0 0 0 10px;
   color: #777777;
@@ -359,6 +359,23 @@ form .textarea textarea {
   display: block;
   width: 550px;
   height: 150px; }
+form fieldset.buttons input[type="submit"] {
+  float: right;
+  display: block;
+  padding: 0 12px;
+  width: 102px;
+  height: 41px;
+  line-height: 41px;
+  text-align: center;
+  border: none;
+  background: transparent url(../images/post-job-button.png) no-repeat;
+  color: white;
+  font-size: 16px;
+  text-shadow: 0 -1px 1px black;
+  cursor: pointer;
+  text-indent: -9999px; }
+form fieldset.buttons input[type="submit"]:active {
+  margin-top: 1px; }
 form #job_posting_description_input {
   float: left;
   clear: none;
@@ -387,6 +404,12 @@ form #description-formatting-help {
   form #description-formatting-help table li {
     margin-bottom: 0;
     min-height: 0; }
+form #job_posting_company_name_input, form #job_posting_company_url_input {
+  float: left;
+  clear: none;
+  width: 460px; }
+  form #job_posting_company_name_input input[type="text"], form #job_posting_company_url_input input[type="text"] {
+    width: 392px; }
 form #job_posting_hiring_criteria_input, form #job_posting_how_to_apply_input {
   float: left;
   clear: none;
@@ -399,6 +422,29 @@ form .personal-info, form .credit-card-info {
   width: 460px; }
   form .personal-info input[type="text"], form .credit-card-info input[type="text"] {
     width: 250px; }
+
+/* Errors */
+#error-explanation {
+  background-color: #f5d4d4;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  padding: 10px;
+  color: #280909;
+  margin-bottom: 10px; }
+  #error-explanation h3 {
+    font-size: 18px;
+    border-bottom: 1px dotted #280909;
+    margin-bottom: 5px;
+    padding-bottom: 5px; }
+  #error-explanation li {
+    padding: 3px 0; }
+
+form li.error input[type="text"], form li.error textarea {
+  background-color: #f5d4d4;
+  border: 1px solid #c02d2d; }
+form .inline-errors {
+  display: none; }
 
 #footer .insides {
   padding-left: 120px;
