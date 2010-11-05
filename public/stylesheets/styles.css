@@ -56,8 +56,9 @@ header {
     position: absolute;
     top: 30px;
     left: 200px;
-    font-size: 14px;
-    font-style: italic; }
+    font-size: 13px;
+    font-style: italic;
+    color: #777777; }
   header #add-a-job {
     position: absolute;
     top: 20px;
@@ -102,6 +103,9 @@ header {
     height: 20px;
     background: transparent url(../images/current-category.png) no-repeat;
     color: white; }
+  #category-chooser .missing a {
+    margin-top: 20px;
+    color: #aaaaaa; }
 
 #jobs-list {
   width: 795px;
@@ -231,7 +235,8 @@ header {
     #jobs-list ul.jobs li .company {
       width: 150px; }
     #jobs-list ul.jobs li .tags {
-      width: 190px; }
+      width: 190px;
+      text-transform: lowercase; }
       #jobs-list ul.jobs li .tags div {
         float: left;
         height: 20px; }
@@ -240,13 +245,36 @@ header {
       #jobs-list ul.jobs li .tags .payment_type {
         width: 47px; }
 
-/* Forms */
+/* Create a job form */
+#create-a-job {
+  position: relative; }
+  #create-a-job #posting-preview {
+    display: none;
+    width: 300px;
+    padding: 10px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    background-color: white;
+    border: 1px solid #dddddd;
+    position: absolute;
+    right: 0;
+    top: 45px; }
+    #create-a-job #posting-preview h3 {
+      border-bottom: 1px dotted #dddddd;
+      padding-bottom: 5px;
+      margin-bottom: 5px; }
+
 form h3 {
   font-size: 18px;
-  text-shadow: 0 1px 1px white;
   padding-bottom: 5px;
   border-bottom: 1px solid #cccccc;
   margin-bottom: 20px; }
+form fieldset {
+  margin-bottom: 30px;
+  background-color: rgba(0, 0, 0, 0.05);
+  padding: 20px;
+  text-shadow: 0 1px 1px white; }
 form li {
   display: block;
   clear: both;
@@ -255,9 +283,8 @@ form li {
 form legend {
   height: 1em; }
 form label, form legend.label {
-  width: 120px;
+  width: 80px;
   float: left;
-  text-align: right;
   padding: 2px 10px 0 0;
   font-size: 13px;
   height: 30px;
@@ -269,27 +296,53 @@ form input[type="text"] {
   font-size: 13px;
   float: left; }
 form li.radio {
-  margin-bottom: 10px; }
+  margin-bottom: 10px;
+  float: left;
+  clear: none;
+  margin-right: 80px; }
+  form li.radio fieldset {
+    margin-bottom: 0;
+    background: none;
+    padding: 0; }
+  form li.radio legend {
+    display: block;
+    float: none;
+    padding-bottom: 5px; }
   form li.radio ol {
     float: left;
     padding-top: 3px; }
     form li.radio ol li {
       margin-bottom: 5px; }
       form li.radio ol li label {
+        min-width: 150px;
         text-align: left;
         font-weight: normal;
         padding-left: 5px;
-        border: 1px solid transparent; }
+        border: 1px solid transparent;
+        cursor: pointer; }
       form li.radio ol li label.selected {
-        background-color: #dddddd;
+        background-color: #f5d4d4;
         -webkit-border-radius: 5px;
         -moz-border-radius: 5px;
         border-radius: 5px;
-        border: 1px solid #cccccc; }
+        border: 1px solid #f2c6c6; }
+form .ui-slider {
+  border: 1px solid #aaaaaa; }
 form .slider {
   width: 200px;
   float: left;
   margin: 10px 0 0 8px; }
+  form .slider .ui-slider-handle {
+    border: 1px solid #e38181; }
+  form .slider .ui-state-hover, form .slider .ui-state-focus {
+    background: #f2c6c6; }
+  form .slider .ui-state-active {
+    background: #e68f8f; }
+form .slider-value {
+  float: left;
+  padding: 7px 0 0 15px;
+  font-weight: bold;
+  font-size: 1.1em; }
 form .inline-hints {
   float: left;
   margin: 0 0 0 10px;
@@ -297,6 +350,55 @@ form .inline-hints {
   height: 28px;
   line-height: 30px;
   padding-top: 2px; }
+form .textarea label {
+  float: none; }
+form .textarea a {
+  font-size: 0.9em;
+  margin-left: 15px; }
+form .textarea textarea {
+  display: block;
+  width: 550px;
+  height: 150px; }
+form #job_posting_description_input {
+  float: left;
+  clear: none;
+  margin-right: 10px; }
+form #description-formatting-help {
+  float: left;
+  padding-top: 30px;
+  width: 200px; }
+  form #description-formatting-help h3 {
+    font-size: 1em;
+    border-bottom: 1px dotted #cccccc;
+    color: #7c1c1c;
+    margin-bottom: 5px; }
+  form #description-formatting-help .italic {
+    font-style: italic; }
+  form #description-formatting-help .bold {
+    font-weight: bold; }
+  form #description-formatting-help table tr {
+    height: 20px; }
+  form #description-formatting-help table td {
+    padding-right: 20px; }
+  form #description-formatting-help table td.list ul {
+    list-style-type: disc; }
+  form #description-formatting-help table td.list ol, form #description-formatting-help table td.list ol li {
+    list-style: decimal; }
+  form #description-formatting-help table li {
+    margin-bottom: 0;
+    min-height: 0; }
+form #job_posting_hiring_criteria_input, form #job_posting_how_to_apply_input {
+  float: left;
+  clear: none;
+  width: 460px; }
+  form #job_posting_hiring_criteria_input textarea, form #job_posting_how_to_apply_input textarea {
+    width: 400px;
+    height: 100px; }
+form .personal-info, form .credit-card-info {
+  float: left;
+  width: 460px; }
+  form .personal-info input[type="text"], form .credit-card-info input[type="text"] {
+    width: 250px; }
 
 #footer .insides {
   padding-left: 120px;

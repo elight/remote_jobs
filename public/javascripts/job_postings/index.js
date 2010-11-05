@@ -1,7 +1,7 @@
 function initializeSliders() {
 	$("#min-slider").slider({
 		min: 0,
-		max: 25,
+		max: 24,
 		value: 0,
 		slide: function(event, ui) {
 			var max_value = $("#max-slider").slider('value');
@@ -19,7 +19,7 @@ function initializeSliders() {
 	$("#min-value").text("<1 month");
 	
 	$("#max-slider").slider({
-		min: 0,
+		min: 1,
 		max: 25,
 		value: 25,
 		slide: function(event, ui) {

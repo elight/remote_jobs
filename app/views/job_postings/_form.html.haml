@@ -1,40 +1,52 @@
 - content_for :head do
   = javascript_include_tag("job_postings/new")
 
-- semantic_form_for @job_posting do |form|
+#create-a-job
+  #posting-preview
+    %h3 Here's a preview of your posting
 
-  - form.inputs do
-    %h3 1. What kind of job is it?
-    = form.input :title, :label => "Job title", :input_html => { :placeholder => "Senior Web Designer" }
-    = form.input :category, :as => :radio, :collection => ["Design", "Development", "Copywriting", "Management"]
-    = form.input :job_type, :as => :radio, :collection => ["Freelancer", "Employee"], :label => "Position"
-    = form.input :payment_type, :as => :radio, :collection => ["Hourly", "Salary"], :label => "Payment"
-    = form.input :contract_term_length, :wrapper_html => {:class => "term-slider"}
-    = form.input :description, :label => "Job description"
+  - semantic_form_for @job_posting do |form|
+
+    - form.inputs do
+      %h3 1. What kind of job is it?
+      = form.input :title, :label => "Job title", :input_html => { :placeholder => "Senior Web Designer" }
+      = form.input :category, :as => :radio, :collection => ["Development", "Design", "Copywriting", "Management"]
+      = form.input :job_type, :as => :radio, :collection => ["Freelancer", "Employee"], :label => "Position"
+      = form.input :payment_type, :as => :radio, :collection => ["Hourly", "Salary"], :label => "Payment"
+      = form.input :contract_term_length, :wrapper_html => {:class => "term-slider"}, :label => "Term length"
+      = form.input :description, :label => "Job description", :wrapper_html => {:class => "textarea"}
+      #description-formatting-help
+        %h3 Formatting help
+        = render "formatting_help"
     
-  - form.inputs do
-    %h3 Tell us about your company
-    = form.input :company_name
-    = form.input :hiring_criteria
-    = form.input :how_to_apply
+    - form.inputs do
+      %h3 2. Tell us about your company
+      = form.input :company_name, :label => "Name"
+      = form.input :hiring_criteria, :wrapper_html => {:class => "textarea"}
+      = form.input :how_to_apply, :wrapper_html => {:class => "textarea"}
 
-  = form.input :first_name
-  = form.input :last_name
-  = form.input :email_address
-  = form.input :street_address1, :label => "Address"
-  = form.input :street_address2, :label => "Address 2"
-  = form.input :city
-  = form.input :state
-  = form.input :country
-  = form.input :phone_number
+    - form.inputs do
+      .personal-info
+        %h3 3. Personal information
+        = form.input :first_name
+        = form.input :last_name
+        = form.input :email_address, :label => "Email"
+        = form.input :street_address1, :label => "Address"
+        = form.input :street_address2, :label => "Address 2"
+        = form.input :city
+        = form.input :state
+        = form.input :country
+        = form.input :phone_number, :label => "Phone #"
 
-  - if edit
-    = form.input :uid, :as => :hidden
-  - else edit
-    = form.semantic_fields_for @credit_card do |cc_form|
-      = cc_form.input :number
-      = cc_form.input :month
-      = cc_form.input :year
-      = cc_form.input :cvv
+      - if @job_posting.new_record?
+        .credit-card-info
+          = form.semantic_fields_for @credit_card do |cc_form|
+            %h3 4. Credit Card information (SSL secured)
+            = cc_form.input :number, :label => "CC number"
+            = cc_form.input :month, :label => "Exp. month"
+            = cc_form.input :year, :label => "Exp. year"
+            = cc_form.input :cvv, :label => "CVV code"
+      - else
+        = form.input :uid, :as => :hidden
 
-  = form.buttons
+    = form.buttons
