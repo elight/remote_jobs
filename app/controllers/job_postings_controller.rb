@@ -26,10 +26,17 @@ class JobPostingsController < InheritedResources::Base
   end
 
   def edit
-    @job_posting = JobPosting.where(:uid => params[:uuid]).first
+    @job_posting = JobPosting.where(:uid => params[:uuid]).try(:first)
   end
 
   def update
+    @job_posting = JobPosting.where(:uid => params[:job_posting][:uid]).try(:first)
+    if @job_posting.update_attributes(params[:job_posting])
+      flash[:notice] = "Posting updated"
+      redirect_to job_posting_path(@job_posting)
+    else
+      render :action => "edit", :uid => @job_posting.uid
+    end
   end
 
   def disable 
