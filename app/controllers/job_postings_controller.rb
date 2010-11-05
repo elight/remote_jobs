@@ -45,4 +45,24 @@ class JobPostingsController < InheritedResources::Base
     flash[:notice] = "Your job posting seeking a '#{@job_posting.title}' has been closed"
     redirect_to job_postings_path
   end
+
+  def design
+    @job_postings = JobPosting.where(:category => "Design")
+    render :action => "index"
+  end
+
+  def development
+    @job_postings = JobPosting.where(:category => "Development")
+    render :action => "index"
+  end
+
+  def copywriting
+    @job_postings = JobPosting.where(:category => "Copywriting")
+    render :action => "index"
+  end
+
+  def management
+    @job_postings = JobPosting.where(:category => "Management")
+    render :action => "index"
+  end
 end

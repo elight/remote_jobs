@@ -1,4 +1,10 @@
 class JobPosting < ActiveRecord::Base
+  searchable do
+    text    :title, :boost => 2.0, :stored => true
+    text    :description
+    text    :hiring_criteria
+  end
+
   CATEGORIES = %w[Design Development Copywriting Management]
 
   validates_presence_of :title, :description, :job_type, :payment_type, :how_to_apply, :hiring_criteria, 
