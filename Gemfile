@@ -10,6 +10,8 @@ gem 'active_merchant'
 gem 'haml'
 gem 'maruku'
 gem 'uuid'
+gem 'sunspot_rails', :git => 'http://github.com/outoftime/sunspot.git'
+gem 'nokogiri'
 
 # Bundle gems for the local environment. Make sure to
 # put test-only gems in this group so their generators
