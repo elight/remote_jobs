@@ -1,9 +1,9 @@
 class JobPosting < ActiveRecord::Base
-  # searchable do
-  #   text    :title, :boost => 2.0, :stored => true
-  #   text    :description
-  #   text    :hiring_criteria
-  # end
+  searchable do
+    text    :title, :boost => 2.0, :stored => true
+    text    :description
+    text    :hiring_criteria
+  end
 
   CATEGORIES = %w[Design Development Copywriting Management]
 
@@ -21,12 +21,6 @@ class JobPosting < ActiveRecord::Base
   scope :development, where(:category => "Development")
   scope :copywriting, where(:category => "Copywriting")
   scope :management, where(:category => "Management")
-
-  # def self.new_with_uuid(args = {})
-  #   JobPosting.new(args).tap do |jp|
-  #     jp.uid = UUID.new.generate
-  #   end
-  # end
 
   def format_of_email
     unless email_address =~ /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/
