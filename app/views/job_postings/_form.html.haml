@@ -7,9 +7,9 @@
     
   = render "shared/error_messages", :target => @job_posting
 
-  - semantic_form_for @job_posting do |form|
+  = semantic_form_for @job_posting do |form|
 
-    - form.inputs do
+    = form.inputs do
       %h3 1. What kind of job is it?
       = form.input :title, :label => "Job title", :input_html => { :placeholder => "Senior Web Designer" }
       = form.input :category, :as => :radio, :collection => ["Development", "Design", "Copywriting", "Management"]
@@ -21,25 +21,25 @@
         %h3 Formatting help
         = render "formatting_help"
     
-    - form.inputs do
+    = form.inputs do
       %h3 2. Tell us about your company
       = form.input :company_name, :label => "Name"
       = form.input :company_url, :label => "URL", :input_html => { :placeholder => "http://yoursite.com" }
       = form.input :hiring_criteria, :wrapper_html => {:class => "textarea"}
       = form.input :how_to_apply, :wrapper_html => {:class => "textarea"}
 
-    - form.inputs do
+    = form.inputs do
       .personal-info
         %h3 3. Personal information
         = form.input :first_name
         = form.input :last_name
         = form.input :email_address, :label => "Email"
-        = form.input :street_address1, :label => "Address"
-        = form.input :street_address2, :label => "Address 2"
+        = form.input :street_address1, :label => "Street"
+        = form.input :street_address2, :label => "Apt/Suite"
         = form.input :city
-        = form.input :state
+        = form.input :state, :input_html => { :placeholder => "NY" }
         = form.input :country
-        = form.input :phone_number, :label => "Phone #"
+        = form.input :phone_number, :input_html => { :placeholder => "555-555-5555" }, :label => "Phone #"
 
       - if @job_posting.new_record?
         .credit-card-info
@@ -49,6 +49,13 @@
             = cc_form.input :month, :label => "Exp. month"
             = cc_form.input :year, :label => "Exp. year"
             = cc_form.input :cvv, :label => "CVV code"
+          .explanation
+            %h3 Why do we need this information?
+            %p We need your email address so we can send you a secret link to edit/delete this post or renew it if its 30 days runs out.
+            %p We need your name, address and phone number in order to bill your credit card.
+            
+            %h3 We won't store your credit card.
+            %p Don't worry, we securely charge your card a one-time $75 fee and never store the information so it can't be stolen!
       - else
         = form.input :uid, :as => :hidden
 

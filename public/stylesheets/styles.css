@@ -207,17 +207,19 @@ header {
         width: 160px; }
   #jobs-list ul.jobs {
     margin-left: 5px;
-    width: 785px; }
+    width: 784px;
+    background: transparent url(../images/paper-line.png) no-repeat 0 -73px;
+    height: 653px; }
     #jobs-list ul.jobs li a {
-      background: transparent url(../images/paper-line.png) no-repeat 0 -53px;
+      background: transparent url(../images/paper-line.png) no-repeat 0 33px;
       color: #252525;
       padding: 11px 10px 3px 0;
       display: block;
       clear: both;
-      height: 23px;
+      height: 25px;
       margin-bottom: 1px; }
     #jobs-list ul.jobs li a:hover {
-      background-position: 0 -7px; }
+      background-position: 0 -36px; }
     #jobs-list ul.jobs li .new, #jobs-list ul.jobs li .title, #jobs-list ul.jobs li .company, #jobs-list ul.jobs li .tags, #jobs-list ul.jobs li .date {
       float: left;
       overflow: hidden;
@@ -229,19 +231,21 @@ header {
       padding-right: 5px;
       text-align: center; }
     #jobs-list ul.jobs li .title {
-      width: 300px;
+      width: 250px;
       font-size: 14px;
       font-weight: bold; }
     #jobs-list ul.jobs li .company {
       width: 150px; }
     #jobs-list ul.jobs li .tags {
-      width: 190px;
+      width: 260px;
       text-transform: lowercase; }
       #jobs-list ul.jobs li .tags div {
         float: left;
         height: 20px; }
+      #jobs-list ul.jobs li .tags .category {
+        width: 83px; }
       #jobs-list ul.jobs li .tags .job_type {
-        width: 61px; }
+        width: 65px; }
       #jobs-list ul.jobs li .tags .payment_type {
         width: 47px; }
 
@@ -363,7 +367,7 @@ form fieldset.buttons input[type="submit"] {
   float: right;
   display: block;
   padding: 0 12px;
-  width: 102px;
+  width: 132px;
   height: 41px;
   line-height: 41px;
   text-align: center;
@@ -376,6 +380,8 @@ form fieldset.buttons input[type="submit"] {
   text-indent: -9999px; }
 form fieldset.buttons input[type="submit"]:active {
   margin-top: 1px; }
+form #job_posting_title_input input {
+  width: 250px; }
 form #job_posting_description_input {
   float: left;
   clear: none;
@@ -422,6 +428,15 @@ form .personal-info, form .credit-card-info {
   width: 460px; }
   form .personal-info input[type="text"], form .credit-card-info input[type="text"] {
     width: 250px; }
+form .explanation {
+  margin-top: 40px; }
+  form .explanation h3 {
+    font-size: 1.2em;
+    margin-bottom: 5px;
+    border-bottom: 1px dotted #cccccc;
+    color: #7c1c1c; }
+  form .explanation p {
+    margin-top: 0; }
 
 /* Errors */
 #error-explanation {

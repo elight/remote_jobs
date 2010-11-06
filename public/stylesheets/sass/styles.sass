@@ -218,18 +218,20 @@ header
 				width: 160px
 	ul.jobs
 		margin-left: 5px
-		width: 785px
+		width: 784px
+		background: transparent url(../images/paper-line.png) no-repeat 0 -73px
+		height: 653px
 		li
 			a
-				background: transparent url(../images/paper-line.png) no-repeat 0 -53px
+				background: transparent url(../images/paper-line.png) no-repeat 0 33px
 				color: $text_color
 				padding: 11px 10px 3px 0
 				display: block
 				clear: both
-				height: 23px
+				height: 25px
 				margin-bottom: 1px
 			a:hover
-				background-position: 0 -7px
+				background-position: 0 -36px
 			.new, .title, .company, .tags, .date
 				float: left
 				overflow: hidden
@@ -241,19 +243,21 @@ header
 				padding-right: 5px
 				text-align: center
 			.title	
-				width: 300px
+				width: 250px
 				font-size: 14px
 				font-weight: bold
 			.company
 				width: 150px
 			.tags
-				width: 190px
+				width: 260px
 				text-transform: lowercase
 				div
 					float: left
 					height: 20px
+				.category
+					width: 83px
 				.job_type
-					width: 61px
+					width: 65px
 				.payment_type
 					width: 47px
 
@@ -379,7 +383,7 @@ form
 			float: right
 			display: block
 			padding: 0 12px
-			width: 102px
+			width: 132px
 			height: 41px
 			line-height: 41px
 			text-align: center
@@ -392,6 +396,8 @@ form
 			text-indent: -9999px
 		input[type="submit"]:active
 			margin-top: 1px
+	#job_posting_title_input input
+		width: 250px
 	#job_posting_description_input
 		float: left
 		clear: none
@@ -439,6 +445,15 @@ form
 		width: 460px
 		input[type="text"]
 			width: 250px
+	.explanation
+		margin-top: 40px
+		h3
+			font-size: 1.2em
+			margin-bottom: 5px
+			border-bottom: 1px dotted #ccc
+			color: $link_color
+		p
+			margin-top: 0
 			
 /* Errors */
 #error-explanation

@@ -1,5 +1,5 @@
 RemoteJobs::Application.routes.draw do
-  resources :job_postings
+  resources :job_postings, :path => "/jobs"
 
   match '/edit/:uuid',      :to => 'job_postings#edit'
   match '/disable/:uuid',   :to => 'job_postings#disable'
