@@ -17,7 +17,7 @@ $(document).ready(function() {
 				$('#job_posting_contract_term_length').val(ui.value);
 			}
 		});
-		$(this).find('input[type="text"]').hide();
+		$(this).find('input[type="text"]').val('6').hide();
 	});
 	
 	// won't work without JS so we hide with CSS by default to degrade gracefully

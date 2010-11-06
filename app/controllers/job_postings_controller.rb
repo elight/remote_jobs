@@ -7,14 +7,14 @@ class JobPostingsController < InheritedResources::Base
   end
 
   def new
-    @job_posting = JobPosting.new(:category => "Development", :payment_type => "Hourly", :job_type => "Freelancer")
+    @job_posting = JobPosting.new(:category => "Development", :payment_type => "Hourly", :job_type => "Freelancer", :country => "United States")
     @credit_card = @job_posting.build_credit_card
   end
 
   def create
     @credit_card = nil
     cc_params = params["job_posting"].delete "credit_card"
-    @job_posting = JobPosting.new_with_uuid(params["job_posting"])
+    @job_posting = JobPosting.new(params["job_posting"])
     if @job_posting.save
       flash[:notice] = "Posting created"
       JobPostingMailer.new_job_posting_email(@job_posting).deliver
@@ -47,22 +47,22 @@ class JobPostingsController < InheritedResources::Base
   end
 
   def design
-    @job_postings = JobPosting.where(:category => "Design")
+    @job_postings = JobPosting.design
     render :action => "index"
   end
 
   def development
-    @job_postings = JobPosting.where(:category => "Development")
+    @job_postings = JobPosting.development
     render :action => "index"
   end
 
   def copywriting
-    @job_postings = JobPosting.where(:category => "Copywriting")
+    @job_postings = JobPosting.copywriting
     render :action => "index"
   end
 
   def management
-    @job_postings = JobPosting.where(:category => "Management")
+    @job_postings = JobPosting.management
     render :action => "index"
   end
 end
