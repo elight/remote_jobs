@@ -46,23 +46,11 @@ class JobPostingsController < InheritedResources::Base
     redirect_to job_postings_path
   end
 
-  def design
-    @job_postings = JobPosting.design
-    render :action => "index"
-  end
-
-  def development
-    @job_postings = JobPosting.development
-    render :action => "index"
-  end
-
-  def copywriting
-    @job_postings = JobPosting.copywriting
-    render :action => "index"
-  end
-
-  def management
-    @job_postings = JobPosting.management
-    render :action => "index"
+  # Defines 4 methods to apply different scopes to JobPostings
+  %w[design development copywriting management].each do |category_name|
+    define_method(category_name) do
+      @job_postings = JobPosting.__send__(category_name)
+      render :action => "index"
+    end
   end
 end
