@@ -21,7 +21,7 @@ module JobPostingsHelper
     elsif created_date === Date.yesterday
       "Yesterday"
     else
-      job_posting.created_at.strftime("%m/%d/%Y")
+      job_posting.created_at.strftime("%b %d").gsub(/\b0/, "")
     end
   end
 
