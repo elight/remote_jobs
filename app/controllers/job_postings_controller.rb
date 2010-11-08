@@ -39,6 +39,8 @@ class JobPostingsController < InheritedResources::Base
     end
   end
 
+  # members
+
   def disable 
     @job_posting = JobPosting.where(:uid => params[:uuid]).try(:first)
     @job_posting.try(:disable!)
