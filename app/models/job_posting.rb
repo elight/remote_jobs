@@ -5,6 +5,9 @@ class JobPosting < ActiveRecord::Base
     text    :title, :boost => 2.0, :stored => true
     text    :description
     text    :hiring_criteria
+    string  :job_type
+    string  :payment_type
+    integer :contract_term_length
   end
 
   CATEGORIES = %w[Design Development Copywriting Management]

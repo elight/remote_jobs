@@ -17,23 +17,22 @@ class SearchController < ApplicationController
 
   def filtered_job_postings
     Sunspot.search(JobPosting) do
-      if !(params[:employee].present? && params[:freelancer].present?)
-        if params[:employee].present?
-          with :job_type, "Employee"
-        else
-          with :job_type, "Freelancer"
-          with(:contract_term_length).greater_than(params[:min_term].to_i - 1)
-          with(:contract_term_length).less_than(params[:max_term].to_i + 1)
-        end
+      if params[:employee].present?
+        with :job_type, "Employee"
+      elsif params[:freelancer].present?
+        with :job_type, "Freelancer"
+        with(:contract_term_length).greater_than(params[:min_term].to_i - 1)
+        with(:contract_term_length).less_than(params[:max_term].to_i + 1)
+      else
+        Rails.logger.error("WTF? You need employee or freelancer")
       end
 
-      if !(params[:hourly].present? && params[:salary].present?)
-        if params[:hourly].present?
-          with :pay_type, "Hourly"
-        else
-          with :pay_type, "Salary"
-          relation.where(:pay_type => "Salary")
-        end
+      if params[:hourly].present?
+        with :payment_type, "Hourly"
+      elsif params[:salary].present?
+        with :payment_type, "Salary"
+      else
+        Rails.logger.error("WTF? You need hourly or salary.")
       end
     end
   end
