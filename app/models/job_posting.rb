@@ -1,4 +1,6 @@
 class JobPosting < ActiveRecord::Base
+  default_scope :order => "created_at DESC"
+
   searchable do
     text    :title, :boost => 2.0, :stored => true
     text    :description
