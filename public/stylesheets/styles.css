@@ -290,15 +290,19 @@ form label, form legend.label {
   width: 80px;
   float: left;
   padding: 2px 10px 0 0;
-  font-size: 13px;
+  font-size: 14px;
   height: 30px;
   line-height: 30px;
   font-weight: bold;
   text-shadow: 0 1px 1px white; }
+  form label abbr[title="required"], form legend.label abbr[title="required"] {
+    display: none; }
 form input[type="text"] {
   padding: 6px;
   font-size: 13px;
   float: left; }
+form select {
+  margin-top: 8px; }
 form li.radio {
   margin-bottom: 10px;
   float: left;
@@ -335,7 +339,7 @@ form .ui-slider {
 form .slider {
   width: 200px;
   float: left;
-  margin: 10px 0 0 8px; }
+  margin: 12px 0 0 8px; }
   form .slider .ui-slider-handle {
     border: 1px solid #e38181; }
   form .slider .ui-state-hover, form .slider .ui-state-focus {
@@ -429,7 +433,8 @@ form .personal-info, form .credit-card-info {
   form .personal-info input[type="text"], form .credit-card-info input[type="text"] {
     width: 250px; }
 form .explanation {
-  margin-top: 40px; }
+  margin-top: 40px;
+  width: 400px; }
   form .explanation h3 {
     font-size: 1.2em;
     margin-bottom: 5px;
@@ -462,6 +467,5 @@ form .inline-errors {
   display: none; }
 
 #footer .insides {
-  padding-left: 120px;
   text-align: center;
   color: #999999; }

@@ -1,4 +1,4 @@
-function initializeSliders() {
+function initialize_sliders() {
 	$("#min-slider").slider({
 		min: 0,
 		max: 24,
@@ -38,6 +38,14 @@ function initializeSliders() {
 	$("#max-value").text("indefinite");
 }
 
+function mark_filter_checkboxes_as_checked() {
+	$('#freelancer').attr('checked',true);
+	$('#employee').attr('checked',true);
+	$('#hourly').attr('checked',true);
+	$('#salary').attr('checked',true);
+}
+
 $(document).ready(function() {
-	initializeSliders();
+	initialize_sliders();
+	mark_filter_checkboxes_as_checked();
 });
