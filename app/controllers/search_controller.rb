@@ -4,7 +4,11 @@ class SearchController < ApplicationController
   end
 
   def filter
-    render(:partial => "job_postings/job_posting", :collection => filtered_job_postings.results)
+    begin
+      render(:partial => "job_postings/job_posting", :collection => filtered_job_postings.results)
+    rescue Exception => e
+      render :text => e
+    end
   end
 
   private
@@ -19,20 +23,28 @@ class SearchController < ApplicationController
     Sunspot.search(JobPosting) do
       if params[:employee].present?
         with :job_type, "Employee"
-      elsif params[:freelancer].present?
+      end
+      if params[:freelancer].present?
         with :job_type, "Freelancer"
         with(:contract_term_length).greater_than(params[:min_term].to_i - 1)
         with(:contract_term_length).less_than(params[:max_term].to_i + 1)
-      else
-        Rails.logger.error("WTF? You need employee or freelancer")
+      end
+      if !(params[:employee].present? || params[:freelancer].present?)
+        msg = "WTF? You need employee or freelancer"
+        Rails.logger.error(msg)
+        raise msg
       end
 
       if params[:hourly].present?
         with :payment_type, "Hourly"
-      elsif params[:salary].present?
+      end
+      if params[:salary].present?
         with :payment_type, "Salary"
-      else
-        Rails.logger.error("WTF? You need hourly or salary.")
+      end
+      if !(params[:hourly].present? || params[:salary].present?)
+        msg = "WTF? You need hourly or salary"
+        Rails.logger.error(msg)
+        raise msg
       end
     end
   end
