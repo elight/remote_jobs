@@ -88,6 +88,8 @@ class SearchController < ApplicationController
       if params[:category].present?
         with :category, params[:category].capitalize
       end
+      
+      order_by :created_at, :desc
     end
   end
 end

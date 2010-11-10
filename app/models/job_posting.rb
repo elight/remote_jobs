@@ -9,6 +9,7 @@ class JobPosting < ActiveRecord::Base
     string  :payment_type
     string  :category
     integer :contract_term_length
+    time    :created_at
   end
 
   CATEGORIES = %w[Design Development Copywriting Management]
