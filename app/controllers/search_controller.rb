@@ -4,7 +4,11 @@ class SearchController < ApplicationController
   end
 
   def filter
-    render(:partial => "job_postings/job_posting", :collection => filtered_job_postings.results)
+    begin
+      render(:partial => "job_postings/job_posting", :collection => filtered_job_postings.results)
+    rescue Exception => e
+      render :text => e
+    end
   end
 
   private
@@ -17,22 +21,50 @@ class SearchController < ApplicationController
 
   def filtered_job_postings
     Sunspot.search(JobPosting) do
-      if params[:employee].present?
-        with :job_type, "Employee"
-      elsif params[:freelancer].present?
-        with :job_type, "Freelancer"
-        with(:contract_term_length).greater_than(params[:min_term].to_i - 1)
-        with(:contract_term_length).less_than(params[:max_term].to_i + 1)
+      if params[:employee].present? && params[:freelancer].present?
+        any_of do
+          with :job_type, "Employee"
+          all_of do
+            with :job_type, "Freelancer"
+            with(:contract_term_length).greater_than(params[:min_term].to_i - 1)
+            with(:contract_term_length).less_than(params[:max_term].to_i + 1)
+          end
+        end
       else
-        Rails.logger.error("WTF? You need employee or freelancer")
+        if params[:employee].present? && params[:freelancer].blank?
+          with :job_type, "Employee"
+        end
+        if params[:freelancer].present? && params[:employee].blank?
+          all_of do
+            with :job_type, "Freelancer"
+            with(:contract_term_length).greater_than(params[:min_term].to_i - 1)
+            with(:contract_term_length).less_than(params[:max_term].to_i + 1)
+          end
+        end
+        if !(params[:employee].present? || params[:freelancer].present?)
+          msg = "WTF? You need employee or freelancer"
+          Rails.logger.error(msg)
+          raise msg
+        end
       end
 
-      if params[:hourly].present?
-        with :payment_type, "Hourly"
-      elsif params[:salary].present?
-        with :payment_type, "Salary"
+      if params[:hourly].present? && params[:salary].present?
+        any_of do
+          with :payment_type, "Hourly"
+          with :payment_type, "Salary"
+        end
       else
-        Rails.logger.error("WTF? You need hourly or salary.")
+        if params[:hourly].present?
+          with :payment_type, "Hourly"
+        end
+        if params[:salary].present?
+          with :payment_type, "Salary"
+        end
+        if !(params[:hourly].present? || params[:salary].present?)
+          msg = "WTF? You need hourly or salary"
+          Rails.logger.error(msg)
+          raise msg
+        end
       end
     end
   end
