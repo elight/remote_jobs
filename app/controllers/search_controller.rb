@@ -17,6 +17,8 @@ class SearchController < ApplicationController
   def search_job_postings
     Sunspot.search(JobPosting) do
       fulltext params[:search]
+      
+      order_by :created_at, :desc
     end
   end
   
