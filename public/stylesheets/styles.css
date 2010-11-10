@@ -480,7 +480,6 @@ form .inline-errors {
 
 /* Show a job */
 .job-details {
-  position: relative;
   text-shadow: 0 1px 1px white; }
   .job-details .back {
     margin-bottom: 20px; }
@@ -491,25 +490,30 @@ form .inline-errors {
     font-size: 2.5em;
     padding-bottom: 5px;
     border-bottom: 1px solid #cccccc;
-    margin-bottom: 15px; }
-  .job-details .company {
-    font-size: 1.5em;
-    font-weight: bold;
-    color: #7c1c1c;
-    padding-right: 10px;
-    float: left; }
-  .job-details .date {
-    position: absolute;
-    top: 46px;
-    right: 0;
-    font-style: italic;
-    font-size: 1.2em; }
-  .job-details .tags {
-    float: right; }
-    .job-details .tags li {
-      font-size: 1.1em;
+    margin-bottom: 20px; }
+  .job-details .secondary {
+    position: relative; }
+    .job-details .secondary .company {
+      font-size: 1.5em;
+      font-weight: bold;
+      color: #7c1c1c;
+      padding-right: 10px;
+      float: left; }
+    .job-details .secondary .date {
+      position: absolute;
+      top: 15px;
+      left: 760px;
+      font-style: italic;
+      font-size: 1.2em; }
+  .job-details .sidebar {
+    float: right;
+    width: 200px;
+    padding-top: 35px; }
+    .job-details .sidebar .tags li {
       float: left;
-      margin-left: 20px;
+      clear: both;
+      font-size: 1.1em;
+      margin: 0 20px 10px 0;
       text-transform: lowercase;
       -webkit-border-radius: 8px;
       -moz-border-radius: 8px;
@@ -517,18 +521,33 @@ form .inline-errors {
       padding: 4px 8px;
       text-shadow: 0 -1px 1px #777777;
       color: white; }
-      .job-details .tags li a {
+      .job-details .sidebar .tags li a {
         color: white; }
-    .job-details .tags .category {
+    .job-details .sidebar .tags .category {
       background-color: #50b838; }
-    .job-details .tags .job_type {
+    .job-details .sidebar .tags .job_type {
       background-color: #5197d3; }
-    .job-details .tags .payment_type {
+    .job-details .sidebar .tags .payment_type {
       background-color: #a451d3; }
-    .job-details .tags .term {
+    .job-details .sidebar .tags .term {
       background-color: #d27442; }
+    .job-details .sidebar .actions {
+      clear: left;
+      padding-top: 30px; }
+      .job-details .sidebar .actions li {
+        float: left;
+        font-size: 1.2em;
+        margin-bottom: 15px; }
+        .job-details .sidebar .actions li a {
+          padding-left: 25px; }
+      .job-details .sidebar .actions .email {
+        background: transparent url(../images/mail.png) no-repeat 0 50%; }
+      .job-details .sidebar .actions .tweet {
+        background: transparent url(../images/bird.png) no-repeat 0 50%; }
   .job-details .text {
-    padding-top: 20px; }
+    padding-top: 10px;
+    float: left;
+    width: 700px; }
     .job-details .text h3 {
       font-weight: bold;
       font-size: 1.2em;

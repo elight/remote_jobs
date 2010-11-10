@@ -503,7 +503,6 @@ form
 
 /* Show a job */
 .job-details
-	position: relative
 	text-shadow: 0 1px 1px #fff
 	.back
 		margin-bottom: 20px
@@ -514,44 +513,65 @@ form
 		font-size: 2.5em
 		padding-bottom: 5px
 		border-bottom: 1px solid #ccc
-		margin-bottom: 15px
-	.company
-		font-size: 1.5em
-		font-weight: bold
-		color: $link_color
-		padding-right: 10px
-		float: left
-	.date
-		position: absolute
-		top: 46px
-		right: 0
-		font-style: italic
-		font-size: 1.2em
-	.tags
-		float: right
-		li
-			font-size: 1.1em
+		margin-bottom: 20px
+	.secondary
+		position: relative
+		.company
+			font-size: 1.5em
+			font-weight: bold
+			color: $link_color
+			padding-right: 10px
 			float: left
-			margin-left: 20px
-			text-transform: lowercase
-			-webkit-border-radius: 8px
-			-moz-border-radius: 8px
-			border-radius: 8px
-			padding: 4px 8px
-			text-shadow: 0 -1px 1px #777
-			color: #fff
-			a
+		.date
+			position: absolute
+			top: 15px
+			left: 760px
+			font-style: italic
+			font-size: 1.2em
+	.sidebar
+		float: right
+		width: 200px
+		padding-top: 35px
+		.tags
+			li
+				float: left
+				clear: both
+				font-size: 1.1em
+				margin: 0 20px 10px 0
+				text-transform: lowercase
+				-webkit-border-radius: 8px
+				-moz-border-radius: 8px
+				border-radius: 8px
+				padding: 4px 8px
+				text-shadow: 0 -1px 1px #777
 				color: #fff
-		.category
-			background-color: $category_color
-		.job_type
-			background-color: $job_type_color
-		.payment_type
-			background-color: $payment_type_color
-		.term
-			background-color: $term_color
+				a
+					color: #fff
+			.category
+				background-color: $category_color
+			.job_type
+				background-color: $job_type_color
+			.payment_type
+				background-color: $payment_type_color
+			.term
+				background-color: $term_color
+		.actions
+			clear: left
+			padding-top: 30px
+			li
+				float: left
+				font-size: 1.2em
+				margin-bottom: 15px
+				a
+					padding-left: 25px
+			.email
+				background: transparent url(../images/mail.png) no-repeat 0 50%
+			.tweet
+				background: transparent url(../images/bird.png) no-repeat 0 50%
 	.text
-		padding-top: 20px
+		padding-top: 10px
+		float: left
+		width: 700px
 		h3
 			font-weight: bold
 			font-size: 1.2em
