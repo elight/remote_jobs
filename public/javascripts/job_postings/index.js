@@ -86,17 +86,26 @@ var job_searcher = function() {
 		post_params["min_term"] = $("#min-slider").slider('value');
 		post_params["max_term"] = $("#max-slider").slider('value');
 		
+		if (document.URL.match("development$"))
+			post_params["category"] = "development";
+		else if (document.URL.match("design$"))
+			post_params["category"] = "design";
+		else if (document.URL.match("copywriting$"))
+			post_params["category"] = "copywriting";
+		else if (document.URL.match("management$"))
+			post_params["category"] = "management";
+			
 		return post_params;
 	};
 	
 	this.hide_jobs = function() {
-		$('#jobs').fadeOut(400);
+		$('#jobs').children().fadeOut(400);
 		$('#spinner').hide().delay(400).show();
 	}
 	
 	this.show_jobs = function() {
 		$('#spinner').hide();
-		$('#jobs').fadeIn();
+		$('#jobs').children().fadeIn();
 	}
 	
 	this.do_filter = function() {
@@ -113,7 +122,7 @@ var job_searcher = function() {
 	
 	this.update_page = function(data) {
 		if (data.trim() == "")
-			data = '<li class="no-results">Sorry, no jobs matched your filter.</li>';
+			data = '<li class="no-results">Sorry, no jobs were found.</li>';
 		$('#jobs').html(data);
 		searcher.show_jobs();
 	};

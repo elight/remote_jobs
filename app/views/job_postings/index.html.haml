@@ -48,6 +48,15 @@
         #max-slider
   
   %ul#jobs
-    = render :partial => "job_posting", :collection => @job_postings
+    - if @job_postings.empty?
+      %li.no-results Sorry, no jobs were found.
+    - else
+      = render :partial => "job_posting", :collection => @job_postings
 
   #spinner
+
+- content_for :javascript do
+  - ["freelancer", "employee", "hourly", "salary"].each do |filter|
+    - if session["hide_#{filter}".to_sym]
+      :javascript
+        $('#' + '#{filter}').removeClass('checked');

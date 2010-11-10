@@ -5,6 +5,7 @@ class SearchController < ApplicationController
 
   def filter
     begin
+      store_filters_in_session
       render(:partial => "job_postings/job_posting", :collection => filtered_job_postings.results)
     rescue Exception => e
       render :text => e
@@ -18,6 +19,12 @@ class SearchController < ApplicationController
       fulltext params[:search]
     end
   end
+  
+  def store_filters_in_session
+    ["freelancer", "employee", "hourly", "salary"].each do |filter|
+      session["hide_#{filter}".to_sym] = !params[filter.to_sym].present?
+    end
+  end
 
   def filtered_job_postings
     Sunspot.search(JobPosting) do
@@ -26,8 +33,12 @@ class SearchController < ApplicationController
           with :job_type, "Employee"
           all_of do
             with :job_type, "Freelancer"
-            with(:contract_term_length).greater_than(params[:min_term].to_i - 1)
-            with(:contract_term_length).less_than(params[:max_term].to_i + 1)
+            unless params[:min_term].to_i == 0
+              with(:contract_term_length).greater_than(params[:min_term].to_i)
+            end
+            unless params[:max_term].to_i == 25
+              with(:contract_term_length).less_than(params[:max_term].to_i)
+            end
           end
         end
       else
@@ -37,8 +48,12 @@ class SearchController < ApplicationController
         if params[:freelancer].present? && params[:employee].blank?
           all_of do
             with :job_type, "Freelancer"
-            with(:contract_term_length).greater_than(params[:min_term].to_i - 1)
-            with(:contract_term_length).less_than(params[:max_term].to_i + 1)
+            unless params[:min_term].to_i == 0
+              with(:contract_term_length).greater_than(params[:min_term].to_i)
+            end
+            unless params[:max_term].to_i == 25
+              with(:contract_term_length).less_than(params[:max_term].to_i)
+            end
           end
         end
         if !(params[:employee].present? || params[:freelancer].present?)
@@ -65,6 +80,10 @@ class SearchController < ApplicationController
           Rails.logger.error(msg)
           raise msg
         end
+      end
+      
+      if params[:category].present?
+        with :category, params[:category].capitalize
       end
     end
   end

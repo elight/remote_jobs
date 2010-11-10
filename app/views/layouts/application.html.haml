@@ -26,7 +26,7 @@
           .insides
             %h1= link_to("remote jobs", root_path, :id => "logo")
             %h2#our-story
-              great jobs + great people looking for remote work
+              finding great remote jobs and people
             
             = yield :header
             
@@ -47,7 +47,7 @@
 
     #footer
       .insides
-        Copyright © 2010
+        Copyright © 2010 - #{link_to("Triple Dog Dare", "http://tripledogdare.net/")} &amp; #{link_to("Two Guys", "http://twoguys.us")}
 
     =# render "analytics"
     = yield :javascript

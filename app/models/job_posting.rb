@@ -7,6 +7,7 @@ class JobPosting < ActiveRecord::Base
     text    :hiring_criteria
     string  :job_type
     string  :payment_type
+    string  :category
     integer :contract_term_length
   end
 
