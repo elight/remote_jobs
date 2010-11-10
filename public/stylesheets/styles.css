@@ -482,22 +482,28 @@ form .inline-errors {
 .job-details {
   position: relative;
   text-shadow: 0 1px 1px white; }
+  .job-details .back {
+    margin-bottom: 20px; }
+  .job-details .back:before {
+    content: "←";
+    padding-right: 5px; }
   .job-details h1 {
-    font-size: 2em;
+    font-size: 2.5em;
     padding-bottom: 5px;
     border-bottom: 1px solid #cccccc;
-    margin-bottom: 10px; }
+    margin-bottom: 15px; }
   .job-details .company {
-    font-size: 1.3em;
+    font-size: 1.5em;
     font-weight: bold;
     color: #7c1c1c;
     padding-right: 10px;
     float: left; }
   .job-details .date {
     position: absolute;
-    top: 12px;
+    top: 46px;
     right: 0;
-    font-style: italic; }
+    font-style: italic;
+    font-size: 1.2em; }
   .job-details .tags {
     float: right; }
     .job-details .tags li {

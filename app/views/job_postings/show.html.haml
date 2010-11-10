@@ -2,6 +2,8 @@
 
 .job-details
 
+  .back= link_to("Back to all jobs", root_path)
+
   %h1.title= @job_posting.title
   .date= created_at_for @job_posting
   %h2.company
