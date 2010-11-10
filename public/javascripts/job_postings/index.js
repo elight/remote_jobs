@@ -9,10 +9,13 @@ var job_searcher = function() {
 	};
 	
 	this.setup_sliders = function() {
+		var min_preset = $('#min_slider_preset').val();
+		if (min_preset == "")
+			min_preset = 0;
 		$("#min-slider").slider({
 			min: 0,
 			max: 24,
-			value: 0,
+			value: min_preset,
 			slide: function(event, ui) {
 				var max_value = $("#max-slider").slider('value');
 				if(ui.value > max_value)
@@ -28,10 +31,13 @@ var job_searcher = function() {
 		});
 		$("#min-value").text("<1 month");
 
+		var max_preset = $('#max_slider_preset').val();
+		if (max_preset == "")
+			max_preset = 25;
 		$("#max-slider").slider({
 			min: 1,
 			max: 25,
-			value: 25,
+			value: max_preset,
 			slide: function(event, ui) {
 				var min_value = $("#min-slider").slider('value');
 				if(ui.value < min_value)

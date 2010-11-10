@@ -1,0 +1,9 @@
+<script type="text/javascript">
+  $(document).ready(function() {
+  <% ["freelancer", "employee", "hourly", "salary"].each do |filter| %>
+    <% if session["hide_#{filter}".to_sym] %>
+      $('#' + '<%= filter %>').removeClass('checked');
+    <% end %>
+  <% end %>
+  });
+</script>

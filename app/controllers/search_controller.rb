@@ -24,6 +24,9 @@ class SearchController < ApplicationController
     ["freelancer", "employee", "hourly", "salary"].each do |filter|
       session["hide_#{filter}".to_sym] = !params[filter.to_sym].present?
     end
+    
+    session[:min_term] = params[:min_term] if params[:min_term]
+    session[:max_term] = params[:max_term] if params[:max_term]
   end
 
   def filtered_job_postings

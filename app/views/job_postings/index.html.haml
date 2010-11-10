@@ -41,11 +41,13 @@
         %span#min-value.value
         long
         #min-slider
+        = hidden_field_tag :min_slider_preset, session[:min_term]
       .max
         no more than
         %span#max-value.value
         long
         #max-slider
+        = hidden_field_tag :max_slider_preset, session[:max_term]
   
   %ul#jobs
     - if @job_postings.empty?
@@ -55,8 +57,4 @@
 
   #spinner
 
-- content_for :javascript do
-  - ["freelancer", "employee", "hourly", "salary"].each do |filter|
-    - if session["hide_#{filter}".to_sym]
-      :javascript
-        $('#' + '#{filter}').removeClass('checked');
+= render 'set_filter_values'
