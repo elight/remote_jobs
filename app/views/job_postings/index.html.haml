@@ -1,5 +1,5 @@
 - content_for :head do
-  = javascript_include_tag "job_postings/index", "job_postings/search"
+  = javascript_include_tag "job_postings/index"
   
 - content_for :header do
   #add-a-job
@@ -27,22 +27,14 @@
       = form_tag 'search' do
         = text_field_tag :query, "", :placeholder => "search..."
         = submit_tag "search"
-    
+  
   .filter
-    %ul.job_type
-      %li
-        = label_tag :freelancer, "freelancer", :class => "clickable checked"
-        = check_box_tag :freelancer
-      %li
-        = label_tag :employee, "employee", :class => "clickable checked"
-        = check_box_tag :employee
-    %ul.payment_type
-      %li
-        = label_tag :hourly, "hourly", :class => "clickable checked"
-        = check_box_tag :hourly
-      %li
-        = label_tag :salary, "salary", :class => "clickable checked"
-        = check_box_tag :salary
+    .job_type
+      = label_tag :freelancer, "freelancer", :class => "clickable checked", :id => "freelancer"
+      = label_tag :employee, "employee", :class => "clickable checked", :id => "employee"
+    .payment_type
+      = label_tag :hourly, "hourly", :class => "clickable checked", :id => "hourly"
+      = label_tag :salary, "salary", :class => "clickable checked", :id => "salary"
     .term
       .min
         at least
@@ -55,5 +47,7 @@
         long
         #max-slider
   
-  %ul.jobs
+  %ul#jobs
     = render :partial => "job_posting", :collection => @job_postings
+
+  #spinner

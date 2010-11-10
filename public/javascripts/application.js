@@ -1,11 +1,3 @@
-function handle_custom_checkboxes() {
-	$('label.clickable').click(function() {
-		$(this).toggleClass('checked');
-		var $checkbox = $(this).siblings('checkbox');
-		$checkbox.attr('checked', !$checkbox.attr('checked'));
-	});
-}
-
 function handle_selected_radio_buttons() {
 	$('input:radio').click(function() {
 		$(this).parents('ol:eq(0)').find('label.selected').removeClass('selected');
@@ -21,7 +13,6 @@ function setup_input_masking() {
 }
 
 $(document).ready(function() {
-	handle_custom_checkboxes();
 	handle_selected_radio_buttons();
 	setup_input_masking();
 });

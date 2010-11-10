@@ -108,6 +108,7 @@ header {
     color: #aaaaaa; }
 
 #jobs-list {
+  position: relative;
   width: 795px;
   height: 805px;
   float: right;
@@ -157,38 +158,30 @@ header {
   #jobs-list .filter {
     height: 50px;
     padding: 10px 10px 10px 80px; }
-    #jobs-list .filter li {
+    #jobs-list .filter label {
       display: block;
       height: 20px;
-      margin-bottom: 5px; }
-      #jobs-list .filter li label {
-        text-transform: lowercase;
-        padding: 2px 0 3px 24px;
-        line-height: 17px;
-        cursor: pointer; }
-      #jobs-list .filter li label.checked {
-        background-position: 0 0; }
-      #jobs-list .filter li input[type="checkbox"] {
-        padding: 0;
-        margin: 0;
-        height: 16px;
-        width: 16px;
-        float: left;
-        position: absolute;
-        left: 0;
-        opacity: 0; }
+      margin-bottom: 8px;
+      text-transform: lowercase;
+      padding: 1px 0 0 22px;
+      line-height: 17px;
+      cursor: pointer;
+      background-repeat: no-repeat;
+      background-position: 0 -23px; }
     #jobs-list .filter .job_type {
       float: left;
       width: 100px;
       margin-right: 50px; }
       #jobs-list .filter .job_type label {
-        background: transparent url(../images/blue-checkbox.png) no-repeat 0 -17px; }
+        background-image: url(../images/blue-checkbox.png); }
     #jobs-list .filter .payment_type {
       float: left;
       width: 120px;
       margin-right: 30px; }
       #jobs-list .filter .payment_type label {
-        background: transparent url(../images/purple-checkbox.png) no-repeat 0 -17px; }
+        background-image: url(../images/purple-checkbox.png); }
+    #jobs-list .filter label.checked {
+      background-position: 0 0; }
     #jobs-list .filter .term {
       width: 400px;
       float: left;
@@ -205,12 +198,12 @@ header {
       #jobs-list .filter .term .ui-slider {
         margin-top: 10px;
         width: 160px; }
-  #jobs-list ul.jobs {
+  #jobs-list ul#jobs {
     margin-left: 5px;
     width: 784px;
     background: transparent url(../images/paper-line.png) no-repeat 0 -73px;
     height: 653px; }
-    #jobs-list ul.jobs li a {
+    #jobs-list ul#jobs li a {
       background: transparent url(../images/paper-line.png) no-repeat 0 33px;
       color: #252525;
       padding: 11px 10px 3px 0;
@@ -218,36 +211,48 @@ header {
       clear: both;
       height: 25px;
       margin-bottom: 1px; }
-    #jobs-list ul.jobs li a:hover {
+    #jobs-list ul#jobs li a:hover {
       background-position: 0 -36px; }
-    #jobs-list ul.jobs li .new, #jobs-list ul.jobs li .title, #jobs-list ul.jobs li .company, #jobs-list ul.jobs li .tags, #jobs-list ul.jobs li .date {
+    #jobs-list ul#jobs li .new, #jobs-list ul#jobs li .title, #jobs-list ul#jobs li .company, #jobs-list ul#jobs li .tags, #jobs-list ul#jobs li .date {
       float: left;
       overflow: hidden;
       height: 20px; }
-    #jobs-list ul.jobs li .new, #jobs-list ul.jobs li .company, #jobs-list ul.jobs li .tags, #jobs-list ul.jobs li .date {
+    #jobs-list ul#jobs li .new, #jobs-list ul#jobs li .company, #jobs-list ul#jobs li .tags, #jobs-list ul#jobs li .date {
       padding-top: 2px; }
-    #jobs-list ul.jobs li .new {
+    #jobs-list ul#jobs li .new {
       width: 53px;
       padding-right: 5px;
       text-align: center; }
-    #jobs-list ul.jobs li .title {
+    #jobs-list ul#jobs li .title {
       width: 250px;
       font-size: 14px;
       font-weight: bold; }
-    #jobs-list ul.jobs li .company {
+    #jobs-list ul#jobs li .company {
       width: 150px; }
-    #jobs-list ul.jobs li .tags {
+    #jobs-list ul#jobs li .tags {
       width: 260px;
       text-transform: lowercase; }
-      #jobs-list ul.jobs li .tags div {
+      #jobs-list ul#jobs li .tags div {
         float: left;
         height: 20px; }
-      #jobs-list ul.jobs li .tags .category {
+      #jobs-list ul#jobs li .tags .category {
         width: 83px; }
-      #jobs-list ul.jobs li .tags .job_type {
+      #jobs-list ul#jobs li .tags .job_type {
         width: 65px; }
-      #jobs-list ul.jobs li .tags .payment_type {
+      #jobs-list ul#jobs li .tags .payment_type {
         width: 47px; }
+    #jobs-list ul#jobs li.no-results {
+      font-weight: bold;
+      text-align: center;
+      padding: 10px 0; }
+  #jobs-list #spinner {
+    position: absolute;
+    top: 250px;
+    left: 0;
+    display: none;
+    width: 795px;
+    height: 19px;
+    background: transparent url(../images/loading.gif) no-repeat 50% 0; }
 
 /* Create a job form */
 #create-a-job {
