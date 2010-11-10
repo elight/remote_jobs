@@ -1,35 +1,40 @@
-%p.title= @job_posting.title
+= render "add_a_job"
 
-%ul
-  %li.company
-    %label Company
-    = @job_posting.company_name
+.job-details
 
-  %li.category
-    %label Category
-    = @job_posting.category
+  %h1.title= @job_posting.title
+  .date= created_at_for @job_posting
+  %h2.company
+    - if @job_posting.company_url.blank?
+      = @job_posting.company_name
+    - else
+      = link_to(@job_posting.company_name, @job_posting.company_url)
 
-  %li.position
-    %label Position
-    = @job_posting.job_type
+  %ul.tags
 
-  %li.payment
-    %label Payment
-    = @job_posting.payment_type
+    %li.category
+      = link_to(@job_posting.category, polymorphic_path(@job_posting.category.downcase))
 
-  - if @job_posting.contract_term_length
-    %li.contract_term
-      %label Contract Term Length
-      = show_term_for @job_posting
-    
-  %li.description
-    %label Description
-    = render_markdown_to_html(@job_posting.description).html_safe
+    %li.job_type
+      = @job_posting.job_type
 
-  %li.hiring_criteria
-    %label What we're looking for
-    = render_markdown_to_html(@job_posting.hiring_criteria).html_safe
+    %li.payment_type
+      = @job_posting.payment_type
 
-  %li.how_to_apply
-    %label How to apply
-    = render_markdown_to_html(@job_posting.how_to_apply).html_safe
+    - if @job_posting.contract_term_length
+      %li.term
+        = show_term_for @job_posting
+  
+  %ul.text.clear
+
+    %li.description
+      %h3 A little about this job
+      = auto_link(render_markdown_to_html(@job_posting.description).html_safe)
+
+    %li.hiring_criteria
+      %h3 What we're looking for
+      = auto_link(render_markdown_to_html(@job_posting.hiring_criteria).html_safe)
+
+    %li.how_to_apply
+      %h3 How to apply
+      = auto_link(render_markdown_to_html(@job_posting.how_to_apply).html_safe)

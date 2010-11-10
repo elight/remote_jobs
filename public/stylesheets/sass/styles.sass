@@ -2,6 +2,11 @@ $background_color: #e2e6eb
 $text_color: #252525
 $link_color: #7c1c1c
 
+$category_color: #50b838
+$job_type_color: #5197d3
+$payment_type_color: #a451d3
+$term_color: #d27442
+
 /* Element styles */
 
 html, body
@@ -157,11 +162,11 @@ header
 				cursor: pointer
 	
 	.job_type
-		color: #5197d3
-	.payment_type	
-		color: #a451d3
+		color: $job_type_color
+	.payment_type
+		color: $payment_type_color
 	.term	
-		color: #d27442
+		color: $term_color
 	
 	.filter
 		height: 50px
@@ -495,6 +500,58 @@ form
 			border: 1px solid #c02d2d
 	.inline-errors
 		display: none
+
+/* Show a job */
+.job-details
+	position: relative
+	text-shadow: 0 1px 1px #fff
+	h1
+		font-size: 2em
+		padding-bottom: 5px
+		border-bottom: 1px solid #ccc
+		margin-bottom: 10px
+	.company
+		font-size: 1.3em
+		font-weight: bold
+		color: $link_color
+		padding-right: 10px
+		float: left
+	.date
+		position: absolute
+		top: 12px
+		right: 0
+		font-style: italic
+	.tags
+		float: right
+		li
+			font-size: 1.1em
+			float: left
+			margin-left: 20px
+			text-transform: lowercase
+			-webkit-border-radius: 8px
+			-moz-border-radius: 8px
+			border-radius: 8px
+			padding: 4px 8px
+			text-shadow: 0 -1px 1px #777
+			color: #fff
+			a
+				color: #fff
+		.category
+			background-color: $category_color
+		.job_type
+			background-color: $job_type_color
+		.payment_type
+			background-color: $payment_type_color
+		.term
+			background-color: $term_color
+	.text
+		padding-top: 20px
+		h3
+			font-weight: bold
+			font-size: 1.2em
+			border-bottom: 1px dotted #ccc
+			padding-bottom: 5px
+			margin-bottom: 5px
 
 #footer
 	.insides

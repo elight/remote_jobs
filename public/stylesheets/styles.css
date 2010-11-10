@@ -478,6 +478,58 @@ form li.error input[type="text"], form li.error textarea {
 form .inline-errors {
   display: none; }
 
+/* Show a job */
+.job-details {
+  position: relative;
+  text-shadow: 0 1px 1px white; }
+  .job-details h1 {
+    font-size: 2em;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #cccccc;
+    margin-bottom: 10px; }
+  .job-details .company {
+    font-size: 1.3em;
+    font-weight: bold;
+    color: #7c1c1c;
+    padding-right: 10px;
+    float: left; }
+  .job-details .date {
+    position: absolute;
+    top: 12px;
+    right: 0;
+    font-style: italic; }
+  .job-details .tags {
+    float: right; }
+    .job-details .tags li {
+      font-size: 1.1em;
+      float: left;
+      margin-left: 20px;
+      text-transform: lowercase;
+      -webkit-border-radius: 8px;
+      -moz-border-radius: 8px;
+      border-radius: 8px;
+      padding: 4px 8px;
+      text-shadow: 0 -1px 1px #777777;
+      color: white; }
+      .job-details .tags li a {
+        color: white; }
+    .job-details .tags .category {
+      background-color: #50b838; }
+    .job-details .tags .job_type {
+      background-color: #5197d3; }
+    .job-details .tags .payment_type {
+      background-color: #a451d3; }
+    .job-details .tags .term {
+      background-color: #d27442; }
+  .job-details .text {
+    padding-top: 20px; }
+    .job-details .text h3 {
+      font-weight: bold;
+      font-size: 1.2em;
+      border-bottom: 1px dotted #cccccc;
+      padding-bottom: 5px;
+      margin-bottom: 5px; }
+
 #footer .insides {
   text-align: center;
   color: #999999; }

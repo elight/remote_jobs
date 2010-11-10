@@ -1,12 +1,7 @@
 - content_for :head do
   = javascript_include_tag "job_postings/index"
-  
-- content_for :header do
-  #add-a-job
-    .price $75 for 30 days
-    %a{:href => new_job_posting_path}
-      %strong + add
-      a job
+
+= render "add_a_job"
 
 %ul#category-chooser
   
