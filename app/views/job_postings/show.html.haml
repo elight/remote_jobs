@@ -1,8 +1,8 @@
 = render "add_a_job"
 
-.job-details
+.back= link_to("Back to jobs", root_path)
 
-  .back= link_to("Back to jobs", root_path)
+.job-details
 
   %h1.title= @job_posting.title
   .secondary

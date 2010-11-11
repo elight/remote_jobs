@@ -17,9 +17,7 @@
       = form.input :payment_type, :as => :radio, :collection => ["Hourly", "Salary"], :label => "Payment"
       = form.input :contract_term_length, :wrapper_html => {:class => "term-slider"}, :label => "Job term"
       = form.input :description, :label => "Job description", :wrapper_html => {:class => "textarea"}
-      #description-formatting-help
-        %h3 Formatting help
-        = render "formatting_help"
+      = render "formatting_help"
     
     = form.inputs do
       %h3 2. Tell us about your company

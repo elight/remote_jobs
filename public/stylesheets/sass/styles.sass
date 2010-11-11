@@ -2,7 +2,7 @@ $background_color: #e2e6eb
 $text_color: #252525
 $link_color: #7c1c1c
 
-$category_color: #50b838
+$category_color: #d35151
 $job_type_color: #5197d3
 $payment_type_color: #a451d3
 $term_color: #d27442
@@ -118,6 +118,57 @@ header
 		margin-top: 20px
 		color: #aaa
 
+#filters
+	position: absolute
+	top: 73px
+	left: 38px
+	width: 140px
+	text-shadow: 0 1px 1px #fff
+	font-size: 14px
+	
+	h3
+		color: #858585
+		padding: 0 0 10px 8px
+		font-weight: normal
+
+	label
+		display: block
+		height: 31px
+		margin-bottom: 9px
+		padding: 0 0 0 30px
+		font-size: 13px
+		line-height: 30px
+		font-weight: bold
+		cursor: pointer
+		background-repeat: no-repeat
+		background-position: 0 -31px
+	.category, .job_type, .payment_type
+		margin-bottom: 30px
+	.category label
+		background-image: url(../images/red-filter-bg.png)
+	.job_type label
+		background-image: url(../images/blue-filter-bg.png)
+	.payment_type label
+		background-image: url(../images/purple-filter-bg.png)
+	label.checked
+		background-position: 0 0
+	.term
+		width: 400px
+		float: left
+		color: $text_color
+		background: transparent url(../images/arrow.png) no-repeat 164px 24px
+		.value
+			color: #d27442
+		.min, .max
+			width: 160px
+			float: left
+			text-align: center
+		.min
+			margin-right: 30px
+		.ui-slider
+			margin-top: 10px
+			width: 160px
+
 #jobs-list
 	position: relative
 	width: 795px
@@ -161,6 +212,8 @@ header
 				height: 15px
 				cursor: pointer
 	
+	.category
+		color: $category_color
 	.job_type
 		color: $job_type_color
 	.payment_type
@@ -168,59 +221,14 @@ header
 	.term	
 		color: $term_color
 	
-	.filter
-		height: 50px
-		padding: 10px 10px 10px 80px
-		
-		label
-			display: block
-			height: 20px
-			margin-bottom: 8px
-			text-transform: lowercase
-			padding: 1px 0 0 22px
-			line-height: 17px
-			cursor: pointer
-			background-repeat: no-repeat
-			background-position: 0 -23px
-		
-		.job_type
-			float: left
-			width: 100px
-			margin-right: 50px
-			label
-				background-image: url(../images/blue-checkbox.png)
-		.payment_type
-			float: left
-			width: 120px
-			margin-right: 30px
-			label
-				background-image: url(../images/purple-checkbox.png)
-		label.checked
-			background-position: 0 0
-		.term
-			width: 400px
-			float: left
-			color: $text_color
-			background: transparent url(../images/arrow.png) no-repeat 164px 24px
-			.value
-				color: #d27442
-			.min, .max
-				width: 160px
-				float: left
-				text-align: center
-			.min
-				margin-right: 30px
-			.ui-slider
-				margin-top: 10px
-				width: 160px
 	ul#jobs
-		margin-left: 5px
+		margin: 20px 0 0 5px
 		width: 784px
-		background: transparent url(../images/paper-line.png) no-repeat 0 -73px
+		background: transparent url(../images/lines.png) repeat 0 0
 		height: 653px
 		li
 			a
-				background: transparent url(../images/paper-line.png) no-repeat 0 33px
+				background: transparent url(../images/highlighter.png) no-repeat 0 -100px
 				color: $text_color
 				padding: 11px 10px 3px 0
 				display: block
@@ -228,7 +236,7 @@ header
 				height: 25px
 				margin-bottom: 1px
 			a:hover
-				background-position: 0 -36px
+				background-position: 0 3px
 			.new, .title, .company, .tags, .date
 				float: left
 				overflow: hidden
@@ -237,10 +245,11 @@ header
 				padding-top: 2px
 			.new
 				width: 53px
-				padding-right: 5px
+				padding-right: 15px
 				text-align: center
 			.title	
-				width: 250px
+				width: 230px
+				padding-right: 10px
 				font-size: 14px
 				font-weight: bold
 			.company
@@ -260,7 +269,7 @@ header
 		li.no-results
 			font-weight: bold
 			text-align: center
-			padding: 50px 0 0
+			padding: 53px 0 0
 	#spinner
 		position: absolute
 		top: 250px
@@ -360,11 +369,11 @@ form
 					border: 1px solid transparent
 					cursor: pointer
 				label.selected
-					background-color: #d4eef5
+					background-color: #f5f1d4
 					-webkit-border-radius: 5px
 					-moz-border-radius: 5px
 					border-radius: 5px
-					border: 1px solid #c6e0f2
+					border: 1px solid #ced1ad
 	.ui-slider
 		border: 1px solid #aaa
 	.slider
@@ -426,21 +435,29 @@ form
 	#description-formatting-help
 		float: left
 		padding-top: 30px
-		width: 200px
+		width: 350px
 		h3
 			font-size: 1em
-			border-bottom: 1px dotted #ccc
 			color: $link_color
-			margin-bottom: 5px
+			margin-bottom: 2px
+			border: none
 		.italic
 			font-style: italic
 		.bold
 			font-weight: bold
 		table
+			background-color: #ccc
+			padding: 8px
+			-webkit-border-radius: 5px
+			-moz-border-radius: 5px
+			border-radius: 5px
 			tr
 				height: 20px
-			td
-				padding-right: 20px
+			th
+				border-bottom: 1px dotted #999
+			th, td
+				width: 125px
+				text-align: left
 			td.list ul
 				list-style-type: disc
 			td.list ol, td.list ol li
@@ -504,11 +521,6 @@ form
 /* Show a job */
 .job-details
 	text-shadow: 0 1px 1px #fff
-	.back
-		margin-bottom: 20px
-	.back:before
-		content: "←"
-		padding-right: 5px
 	h1
 		font-size: 2.5em
 		padding-bottom: 5px
@@ -578,6 +590,12 @@ form
 			border-bottom: 1px dotted #ccc
 			padding-bottom: 5px
 			margin-bottom: 5px
+
+.back
+	margin-bottom: 20px
+.back:before
+	content: "←"
+	padding-right: 5px
 
 #footer
 	.insides

@@ -3,59 +3,11 @@ var searcher;
 var job_searcher = function() {
 	
 	this.setup = function() {
-		// setup our DOM events
-		searcher.setup_sliders();
 		searcher.handle_label_clicks();
-	};
-	
-	this.setup_sliders = function() {
-		var min_preset = $('#min_slider_preset').val();
-		if (min_preset == "")
-			min_preset = 0;
-		$("#min-slider").slider({
-			min: 0,
-			max: 24,
-			value: min_preset,
-			slide: function(event, ui) {
-				var max_value = $("#max-slider").slider('value');
-				if(ui.value > max_value)
-					return false;
-				if(ui.value == 0)
-					$("#min-value").text("<1 month");
-				else
-					$("#min-value").text(ui.value + " months");
-			},
-			change: function(event, ui) {
-				searcher.do_filter();
-			}
-		});
-		$("#min-value").text("<1 month");
-
-		var max_preset = $('#max_slider_preset').val();
-		if (max_preset == "")
-			max_preset = 25;
-		$("#max-slider").slider({
-			min: 1,
-			max: 25,
-			value: max_preset,
-			slide: function(event, ui) {
-				var min_value = $("#min-slider").slider('value');
-				if(ui.value < min_value)
-					return false;
-				if(ui.value == 25)
-					$("#max-value").text("indefinite");
-				else
-					$("#max-value").text(ui.value + " months");
-			},
-			change: function(event, ui) {
-				searcher.do_filter();
-			}
-		});
-		$("#max-value").text("indefinite");
 	};
 
 	this.handle_label_clicks = function() {
-		$('#freelancer, #employee, #hourly, #salary').click(searcher.check_siblings_and_toggle);
+		$('#filters label').click(searcher.check_siblings_and_toggle);
 	};
 
 	this.toggle_label = function($label) {
@@ -84,22 +36,10 @@ var job_searcher = function() {
 	this.collect_filters = function() {
 		var post_params = {};
 		
-		_.each(["freelancer", "employee", "hourly", "salary"], function(param_name) {
+		_.each(["design", "development", "copywriting", "management", "freelancer", "employee", "hourly", "salary"], function(param_name) {
 			if ($('#'+param_name).hasClass('checked'))
 				post_params[param_name] = "1";
 		});
-		
-		post_params["min_term"] = $("#min-slider").slider('value');
-		post_params["max_term"] = $("#max-slider").slider('value');
-		
-		if (document.URL.match("development$"))
-			post_params["category"] = "development";
-		else if (document.URL.match("design$"))
-			post_params["category"] = "design";
-		else if (document.URL.match("copywriting$"))
-			post_params["category"] = "copywriting";
-		else if (document.URL.match("management$"))
-			post_params["category"] = "management";
 			
 		return post_params;
 	};

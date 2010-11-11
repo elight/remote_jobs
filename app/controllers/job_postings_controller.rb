@@ -4,7 +4,6 @@ class JobPostingsController < InheritedResources::Base
 
   def index
     @job_postings = JobPosting.where(:enabled => true).order("created_at DESC")
-    handle_filters
   end
 
   def new
@@ -47,15 +46,6 @@ class JobPostingsController < InheritedResources::Base
     @job_posting.try(:disable!)
     flash[:notice] = "Your job posting seeking a '#{@job_posting.title}' has been closed"
     redirect_to job_postings_path
-  end
-
-  # Defines 4 methods to apply different scopes to JobPostings
-  %w[design development copywriting management].each do |category_name|
-    define_method(category_name) do
-      @job_postings = JobPosting.__send__(category_name)
-      handle_filters
-      render :action => "index"
-    end
   end
   
   private
