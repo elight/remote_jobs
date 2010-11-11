@@ -1,7 +1,4 @@
 class SearchController < ApplicationController
-  def search
-    render(:partial => "job_postings/job_posting", :collection => search_job_postings.results)
-  end
 
   def filter
     begin
@@ -13,23 +10,6 @@ class SearchController < ApplicationController
   end
 
   private
-
-  def search_job_postings
-    Sunspot.search(JobPosting) do
-      fulltext params[:search]
-      
-      order_by :created_at, :desc
-    end
-  end
-  
-  # def store_filters_in_session
-  #   ["design""freelancer", "employee", "hourly", "salary"].each do |filter|
-  #     session["hide_#{filter}".to_sym] = !params[filter.to_sym].present?
-  #   end
-  #   
-  #   session[:min_term] = params[:min_term] if params[:min_term]
-  #   session[:max_term] = params[:max_term] if params[:max_term]
-  # end
 
   def filtered_job_postings
     Sunspot.search(JobPosting) do
