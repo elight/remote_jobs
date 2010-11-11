@@ -22,7 +22,7 @@
 #jobs-list
   %header
     %h3 Helping you find a job you'll love!
-    .search
+    #search
       = form_tag 'search' do
         = text_field_tag :query, "", :placeholder => "search..."
         = submit_tag "search"

@@ -109,7 +109,7 @@ header {
 #filters {
   position: absolute;
   top: 73px;
-  left: 38px;
+  left: 18px;
   width: 140px;
   text-shadow: 0 1px 1px white;
   font-size: 14px; }
@@ -159,6 +159,7 @@ header {
   position: relative;
   width: 795px;
   height: 805px;
+  margin-right: 20px;
   float: right;
   background: transparent url(../images/pad.png) no-repeat; }
   #jobs-list header {
@@ -172,14 +173,14 @@ header {
       text-shadow: 0 -1px 1px #3a251e;
       margin: 7px 0 0 10px;
       float: left; }
-    #jobs-list header .search {
+    #jobs-list header #search {
       width: 201px;
       height: 31px;
       background: transparent url(../images/search-input.png) no-repeat;
       margin: 2px 0 0 0;
       position: relative;
       float: right; }
-      #jobs-list header .search input[type="text"] {
+      #jobs-list header #search input[type="text"] {
         background-color: transparent;
         border: none;
         width: 158px;
@@ -187,16 +188,18 @@ header {
         padding: 4px 28px 4px 15px;
         color: #eddad4;
         text-shadow: 0 -1px 1px #3a251e; }
-      #jobs-list header .search input[type="submit"] {
-        background: transparent url(../images/search-submit.png) no-repeat;
+      #jobs-list header #search input[type="submit"] {
+        background: transparent url(../images/search-submit.png) no-repeat 1px -22px;
         border: none;
         text-indent: -9999px;
         position: absolute;
-        top: 9px;
-        right: 10px;
-        width: 17px;
-        height: 15px;
+        top: 7px;
+        right: 7px;
+        width: 21px;
+        height: 21px;
         cursor: pointer; }
+      #jobs-list header #search input[type="submit"].clear {
+        background-position: 2px -2px; }
   #jobs-list .category {
     color: #d35151; }
   #jobs-list .job_type {
@@ -252,7 +255,7 @@ header {
     #jobs-list ul#jobs li.no-results {
       font-weight: bold;
       text-align: center;
-      padding: 50px 0 0; }
+      padding: 53px 0 0; }
   #jobs-list #spinner {
     position: absolute;
     top: 250px;

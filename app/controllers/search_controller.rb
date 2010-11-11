@@ -33,6 +33,8 @@ class SearchController < ApplicationController
 
   def filtered_job_postings
     Sunspot.search(JobPosting) do
+      fulltext params[:search] if params[:search].present?
+      
       any_of do
         ["design", "development", "copywriting", "management"].each do |category|
           with :category, category.capitalize if params[category.to_sym].present?

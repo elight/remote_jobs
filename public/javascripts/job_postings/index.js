@@ -4,10 +4,35 @@ var job_searcher = function() {
 	
 	this.setup = function() {
 		searcher.handle_label_clicks();
+		searcher.handle_search_form();
 	};
 
 	this.handle_label_clicks = function() {
 		$('#filters label').click(searcher.check_siblings_and_toggle);
+	};
+	
+	this.handle_search_form = function() {
+		$('#query').keyup(searcher.toggle_search_form_icon);
+		$('#search input[type="submit"].clear').live('click', function(event) {
+			// make sure this was a click (also fires on form enter-key submission)
+			if (event.clientX != 0 && event.clientY != 0) {
+				$('#query').val('').keyup();
+				searcher.do_filter();
+			}
+		});
+		$('#search form').submit(function(event) {
+			searcher.do_filter();
+			event.preventDefault();
+		});
+	};
+	
+	this.toggle_search_form_icon = function() {
+		var $input = $(this);
+		var $button = $('#search input[type="submit"]');
+		if ($input.val() != "")
+			$button.addClass('clear');
+		else
+			$button.removeClass('clear');
 	};
 
 	this.toggle_label = function($label) {
@@ -40,6 +65,10 @@ var job_searcher = function() {
 			if ($('#'+param_name).hasClass('checked'))
 				post_params[param_name] = "1";
 		});
+		
+		var search_query = $('#query').val();
+		if (search_query != "")
+			post_params["search"] = search_query
 			
 		return post_params;
 	};
@@ -62,8 +91,8 @@ var job_searcher = function() {
 	
 	this.do_search = function() {
 		var search_query = $('#query').val();
-		if (search_query != "")
-			post_params["search"] = search_query;
+		searcher.hide_jobs();
+		$.get("/search?search=" + search_query, searcher.update_page);
 	};
 	
 	this.update_page = function(data) {

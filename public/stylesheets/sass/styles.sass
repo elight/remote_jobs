@@ -121,7 +121,7 @@ header
 #filters
 	position: absolute
 	top: 73px
-	left: 38px
+	left: 18px
 	width: 140px
 	text-shadow: 0 1px 1px #fff
 	font-size: 14px
@@ -173,6 +173,7 @@ header
 	position: relative
 	width: 795px
 	height: 805px
+	margin-right: 20px
 	float: right
 	background: transparent url(../images/pad.png) no-repeat
 	header
@@ -186,7 +187,7 @@ header
 			text-shadow: 0 -1px 1px #3a251e
 			margin: 7px 0 0 10px
 			float: left
-		.search
+		#search
 			width: 201px
 			height: 31px
 			background: transparent url(../images/search-input.png) no-repeat
@@ -202,15 +203,17 @@ header
 				color: #eddad4
 				text-shadow: 0 -1px 1px #3a251e
 			input[type="submit"]
-				background: transparent url(../images/search-submit.png) no-repeat
+				background: transparent url(../images/search-submit.png) no-repeat 1px -22px
 				border: none
 				text-indent: -9999px
 				position: absolute
-				top: 9px
-				right: 10px
-				width: 17px
-				height: 15px
+				top: 7px
+				right: 7px
+				width: 21px
+				height: 21px
 				cursor: pointer
+			input[type="submit"].clear
+				background-position: 2px -2px
 	
 	.category
 		color: $category_color
