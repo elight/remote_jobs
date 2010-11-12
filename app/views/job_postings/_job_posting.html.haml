@@ -3,8 +3,8 @@
     .new
       - if job_posting.created_at > Time.now - 1.day
         new
-    .title= job_posting.title
-    .company= job_posting.company_name
+    .title= truncate(job_posting.title, :length => 35)
+    .company= truncate(job_posting.company_name, :length => 25)
     .tags
       .category= job_posting.category
       .job_type= job_posting.job_type

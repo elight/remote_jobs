@@ -514,7 +514,8 @@ form .inline-errors {
       font-weight: bold;
       color: #7c1c1c;
       padding-right: 10px;
-      float: left; }
+      float: left;
+      width: 700px; }
     .job-details .secondary .date {
       position: absolute;
       top: 15px;
