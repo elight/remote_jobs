@@ -14,7 +14,7 @@ class SearchController < ApplicationController
   def filtered_job_postings
     job_postings = JobPosting.where(:enabled => true).order("created_at DESC")
     
-    categories = []
+    categories = []    
     ["design", "development", "copywriting", "management"].each do |category|
       categories << "'#{category.capitalize}'" if params[category.to_sym].present?
     end
