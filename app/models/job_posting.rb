@@ -1,17 +1,6 @@
 class JobPosting < ActiveRecord::Base
   default_scope :order => "created_at DESC"
 
-  searchable do
-    text    :title, :boost => 2.0, :stored => true
-    text    :description
-    text    :hiring_criteria
-    string  :job_type
-    string  :payment_type
-    string  :category
-    integer :contract_term_length
-    time    :created_at
-  end
-
   CATEGORIES = %w[Design Development Copywriting Management]
 
   validates_presence_of :title, :description, :job_type, :payment_type, :how_to_apply, :hiring_criteria, 
