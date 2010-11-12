@@ -11,7 +11,7 @@
         = @job_posting.company_name
       - else
         = link_to(@job_posting.company_name, @job_posting.company_url)
-    .date Posted on #{created_at_for @job_posting}
+    .date= created_at_for @job_posting
     
   .clear
 
@@ -33,7 +33,7 @@
     %ul.tags
 
       %li.category
-        = link_to(@job_posting.category, polymorphic_path(@job_posting.category.downcase))
+        = @job_posting.category
 
       %li.job_type
         = @job_posting.job_type
