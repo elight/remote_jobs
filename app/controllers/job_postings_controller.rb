@@ -21,13 +21,18 @@ class JobPostingsController < InheritedResources::Base
       render :action => "new" and return
     end
 
+    if !@job_posting.valid?
+      render :action => "new" and return
+    end
+
+    credit_card = @job_posting.credit_card
     @job_posting.credit_card = nil
     if @job_posting.save
       flash[:notice] = "Posting created"
       JobPostingMailer.new_job_posting_email(@job_posting).deliver
       redirect_to job_posting_path(@job_posting)
     else
-      @credit_card = CreditCard.new(params["job_posting"]["credit_card"])
+      @job_posting.credit_card = credit_card
       render :action => "new"
     end
   end
