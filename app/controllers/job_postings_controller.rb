@@ -2,6 +2,8 @@ class JobPostingsController < InheritedResources::Base
   actions :all, :except => :destroy
   respond_to :html
 
+  filter_parameter_logging :number, :cvv
+
   def index
     @job_postings = JobPosting.where(:enabled => true).order("created_at DESC")
   end
@@ -12,15 +14,20 @@ class JobPostingsController < InheritedResources::Base
   end
 
   def create
-    @credit_card = nil
-    cc_params = params["job_posting"].delete "credit_card"
     @job_posting = JobPosting.new(params["job_posting"])
+
+    if credit_card_charge_fails?
+      flash[:error] = @failure_reason
+      render :action => "new" and return
+    end
+
+    @job_posting.credit_card = nil
     if @job_posting.save
       flash[:notice] = "Posting created"
       JobPostingMailer.new_job_posting_email(@job_posting).deliver
       redirect_to job_posting_path(@job_posting)
     else
-      @credit_card = CreditCard.new(cc_params)
+      @credit_card = CreditCard.new(params["job_posting"]["credit_card"])
       render :action => "new"
     end
   end
@@ -56,6 +63,40 @@ class JobPostingsController < InheritedResources::Base
       end
       ["salary", "hourly"].each do |filter|
         @job_postings = @job_postings.where("payment_type <> ?", filter.capitalize) if session["hide_#{filter}".to_sym]
+      end
+    end
+
+    def credit_card_charge_fails?
+      result = false
+      temp_card = @job_posting.credit_card
+      credit_card = ActiveMerchant::Billing::CreditCard.new(
+        :number     => temp_card.number,
+        :month      => temp_card.month,
+        :year       => temp_card.year,
+        :first_name => @job_posting.first_name,
+        :last_name  => @job_posting.last_name,
+        :verification_value  => temp_card.cvv
+      )
+
+      if credit_card.valid?
+        # Create a gateway object to the TrustCommerce service
+        gateway = ActiveMerchant::Billing::BraintreeGateway.new(
+          :merchant_id => ENV["BRAINTREE_MERCHANT"],
+          :public_key => ENV["BRAINTREE_PUBLIC"],
+          :private_key => ENV["BRAINTREE_PRIVATE"]
+        )
+
+        # Authorize for $10 dollars (1000 cents) 
+        @response = gateway.purchase(7500, credit_card)
+
+        result = !@response.success?
+          
+        unless @response.success?
+          @failure_reason = @response.message
+          @failure_reason ||= "Sorry, but your credit card information does not appear to be valid"
+          Rails.logger.debug(@response.inspect)
+        end
+        result
       end
     end
 end
