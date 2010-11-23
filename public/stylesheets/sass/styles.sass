@@ -340,10 +340,16 @@ form
 		text-shadow: 0 1px 1px #fff
 		abbr[title="required"]
 			display: none
-	input[type="text"]
+	input[type="text"], input[type="url"], input[type="email"], input[type="tel"]
 		padding: 6px
 		font-size: 13px
 		float: left
+		background-image: -webkit-gradient(linear, 0% 0%, 0% 12%, from(#999), to (#fff))
+	input[type="text"]:focus, textarea:focus
+		outline: none
+		-webkit-box-shadow: 0 0 12px rgba(51, 204, 255, 0.5)
+		-moz-box-shadow: 0 0 12px rgba(51, 204, 255, 0.5)
+		box-shadow: 0 0 12px rgba(51, 204, 255, 0.5)
 	select
 		margin-top: 8px
 	li.radio
@@ -472,7 +478,7 @@ form
 		float: left
 		clear: none
 		width: 460px
-		input[type="text"]
+		input[type="text"], input[type="url"], input[type="email"]
 			width: 392px
 	#job_posting_hiring_criteria_input, #job_posting_how_to_apply_input
 		float: left

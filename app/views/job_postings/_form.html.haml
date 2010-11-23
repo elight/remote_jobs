@@ -1,6 +1,3 @@
-- content_for :head do
-  = javascript_include_tag("job_postings/new")
-
 #create-a-job
   #posting-preview
     %h3 Here's a preview of your posting
@@ -15,8 +12,8 @@
       = form.input :category, :as => :radio, :collection => ["Development", "Design", "Copywriting", "Management"]
       = form.input :job_type, :as => :radio, :collection => ["Freelancer", "Employee"], :label => "Position"
       = form.input :payment_type, :as => :radio, :collection => ["Hourly", "Salary"], :label => "Payment"
-      = form.input :contract_term_length, :wrapper_html => {:class => "term-slider"}, :label => "Job term"
-      = form.input :description, :label => "Job description", :wrapper_html => {:class => "textarea"}
+      = form.input :contract_term_length, :label => "Job term", :input_html => { :placeholder => "6 months" }
+      = form.input :description, :label => "Job description", :wrapper_html => { :class => "textarea" }
       = render "formatting_help"
     
     = form.inputs do

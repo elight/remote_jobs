@@ -255,7 +255,7 @@ header {
     #jobs-list ul#jobs li.no-results {
       font-weight: bold;
       text-align: center;
-      padding: 53px 0 0; }
+      padding: 13px 0 0; }
   #jobs-list #spinner {
     position: absolute;
     top: 250px;
@@ -321,10 +321,16 @@ form label, form legend.label {
   text-shadow: 0 1px 1px white; }
   form label abbr[title="required"], form legend.label abbr[title="required"] {
     display: none; }
-form input[type="text"] {
+form input[type="text"], form input[type="url"], form input[type="email"], form input[type="tel"] {
   padding: 6px;
   font-size: 13px;
-  float: left; }
+  float: left;
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 12%, from(#999999), to white); }
+form input[type="text"]:focus, form textarea:focus {
+  outline: none;
+  -webkit-box-shadow: 0 0 12px rgba(51, 204, 255, 0.5);
+  -moz-box-shadow: 0 0 12px rgba(51, 204, 255, 0.5);
+  box-shadow: 0 0 12px rgba(51, 204, 255, 0.5); }
 form select {
   margin-top: 8px; }
 form li.radio {
@@ -451,7 +457,7 @@ form #job_posting_company_name_input, form #job_posting_company_url_input {
   float: left;
   clear: none;
   width: 460px; }
-  form #job_posting_company_name_input input[type="text"], form #job_posting_company_url_input input[type="text"] {
+  form #job_posting_company_name_input input[type="text"], form #job_posting_company_name_input input[type="url"], form #job_posting_company_name_input input[type="email"], form #job_posting_company_url_input input[type="text"], form #job_posting_company_url_input input[type="url"], form #job_posting_company_url_input input[type="email"] {
     width: 392px; }
 form #job_posting_hiring_criteria_input, form #job_posting_how_to_apply_input {
   float: left;
