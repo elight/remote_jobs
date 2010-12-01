@@ -28,10 +28,10 @@
         %h3 3. Payment information (SSL secured)
         .credit-card-info
           = form.semantic_fields_for :credit_card do |cc_form|
-            = cc_form.input :number, :label => "CC number", :input_html => {:class => "cc-number"}
-            = cc_form.input :month, :label => "Exp. month", :as => "select", :collection => ["01","02","03","04","05","06","07","08","09","10","11","12"]
+            = cc_form.input :number, :label => "CC number"
+            = cc_form.input :month, :label => "Exp. month", :as => "select", :collection => (1..12)
             = cc_form.input :year, :label => "Exp. year", :as => "select", :collection => (Date.today.year..Date.today.year+10).to_a
-            = cc_form.input :cvv, :label => "CVV code", :input_html => {:class => "cc-cvv"}
+            = cc_form.input :cvv, :label => "CVV code"
           .explanation
             %h3 Why do we need this information?
             %p We need your email address so we can send you a secret link to edit/delete this job listing or renew it if its 30 days runs out.

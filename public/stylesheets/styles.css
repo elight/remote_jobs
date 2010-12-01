@@ -469,7 +469,7 @@ form #job_posting_hiring_criteria_input, form #job_posting_how_to_apply_input {
 form .personal-info, form .credit-card-info {
   float: left;
   width: 460px; }
-  form .personal-info input[type="text"], form .credit-card-info input[type="text"] {
+  form .personal-info input[type="text"], form .personal-info input[type="email"], form .credit-card-info input[type="text"], form .credit-card-info input[type="email"] {
     width: 250px; }
 form .explanation {
   margin-top: 40px;

@@ -18,6 +18,8 @@ class JobPostingsController < InheritedResources::Base
 
     if credit_card_charge_fails?
       flash[:error] = @failure_reason
+      Rails.logger.info "HIHIHIHIHI"
+      Rails.logger.info @job_posting.credit_card.month
       render :action => "new" and return
     end
 
@@ -72,7 +74,7 @@ class JobPostingsController < InheritedResources::Base
     end
 
     def credit_card_charge_fails?
-      result = false
+      result = true
       temp_card = @job_posting.credit_card
       credit_card = ActiveMerchant::Billing::CreditCard.new(
         :number     => temp_card.number,
@@ -101,7 +103,7 @@ class JobPostingsController < InheritedResources::Base
           @failure_reason ||= "Sorry, but your credit card information does not appear to be valid"
           Rails.logger.debug(@response.inspect)
         end
-        result
       end
+      result
     end
 end
