@@ -1,4 +1,8 @@
 class JobPostingsController < InheritedResources::Base
+  include SslRequirement
+
+  ssl_required :new, :create if RAILS_ENV == "production"
+
   actions :all, :except => :destroy
   respond_to :html
 
