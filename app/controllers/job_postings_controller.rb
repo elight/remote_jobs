@@ -99,8 +99,10 @@ class JobPostingsController < InheritedResources::Base
         unless @response.success?
           @failure_reason = @response.message
           @failure_reason ||= "Sorry, but your credit card information does not appear to be valid"
-          Rails.logger.debug(@response.inspect)
+          Rails.logger.info(@response.inspect)
         end
+      else
+        @failure_reason = credit_card.errors.inspect
       end
       result
     end
