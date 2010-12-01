@@ -18,8 +18,6 @@ class JobPostingsController < InheritedResources::Base
 
     if credit_card_charge_fails?
       flash[:error] = @failure_reason
-      Rails.logger.info "HIHIHIHIHI"
-      Rails.logger.info @job_posting.credit_card.month
       render :action => "new" and return
     end
 
