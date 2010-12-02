@@ -47,7 +47,10 @@
 
     #footer
       .insides
-        Copyright © 2010 - #{link_to("Triple Dog Dare", "http://tripledogdare.net/")} &amp; #{link_to("Two Guys", "http://twoguys.us")}
+        .copyright Copyright © 2010 - #{link_to("Triple Dog Dare", "http://tripledogdare.net/")} &amp; #{link_to("Two Guys", "http://twoguys.us")}
+        .links
+          = link_to("Privacy Policy", privacy_path)
+          = link_to("Refunds", refunds_path)
 
     =# render "analytics"
     = yield :javascript

@@ -8,6 +8,9 @@ html, body {
 h1, h2 {
   font-weight: normal; }
 
+h1 {
+  font-size: 20px; }
+
 p {
   line-height: 1.8em;
   margin: 20px 0; }
@@ -300,6 +303,7 @@ form h3 {
   margin-bottom: 20px; }
 form fieldset.inputs {
   margin-bottom: 30px;
+  background-color: #d9dde1;
   background-color: rgba(0, 0, 0, 0.05);
   padding: 20px;
   text-shadow: 0 1px 1px white; }
@@ -588,3 +592,13 @@ form .inline-errors {
 #footer .insides {
   text-align: center;
   color: #999999; }
+  #footer .insides .links {
+    margin-top: 10px; }
+    #footer .insides .links a {
+      margin: 0 5px; }
+
+.privacy h1, .refunds h1 {
+  margin-top: 20px; }
+
+.strong {
+  font-weight: bold; }
