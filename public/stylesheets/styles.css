@@ -191,6 +191,10 @@ header {
         padding: 4px 28px 4px 15px;
         color: #eddad4;
         text-shadow: 0 -1px 1px #3a251e; }
+      #jobs-list header #search input[type="text"]:focus {
+        -webkit-box-shadow: none;
+        -moz-box-shadow: none;
+        box-shadow: none; }
       #jobs-list header #search input[type="submit"] {
         background: transparent url(../images/search-submit.png) no-repeat 1px -22px;
         border: none;
@@ -331,7 +335,7 @@ form input[type="text"], form input[type="url"], form input[type="email"], form 
   font-size: 13px;
   float: left;
   background-image: -webkit-gradient(linear, 0% 0%, 0% 12%, from(#999999), to white); }
-form input[type="text"]:focus, form textarea:focus {
+form input[type="text"]:focus, form input[type="email"]:focus, form input[type="phone"]:focus, form input[type="tel"]:focus, form textarea:focus {
   outline: none;
   -webkit-box-shadow: 0 0 12px rgba(51, 204, 255, 0.5);
   -moz-box-shadow: 0 0 12px rgba(51, 204, 255, 0.5);
