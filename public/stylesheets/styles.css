@@ -620,3 +620,6 @@ form .inline-errors {
 
 .strong {
   font-weight: bold; }
+
+.hidden {
+  display: none; }

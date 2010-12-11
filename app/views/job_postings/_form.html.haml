@@ -22,9 +22,9 @@
       = form.input :company_url, :label => "URL", :input_html => { :placeholder => "http://yoursite.com" }
       = form.input :hiring_criteria, :wrapper_html => {:class => "textarea"}
       = form.input :how_to_apply, :wrapper_html => {:class => "textarea"}
-
-    = form.inputs do
-      - if @job_posting.new_record?
+    
+    - if @job_posting.new_record?
+      = form.inputs do
         %h3 3. Payment information (SSL secured)
         .credit-card-info
           = form.semantic_fields_for :credit_card do |cc_form|
@@ -36,10 +36,10 @@
             %h3 Why do we need this information?
             %p We need your email address so we can send you a secret link to edit/delete this job listing or renew it if its 30 days runs out.
             %p We need your name, address and phone number in order to bill your credit card.
-          
+        
             %h3 We don't store your credit card.
             %p Don't worry!  We securely charge your card a one-time $75 fee.  We don't retain your credit card information so it can't be stolen!
-      
+    
         .personal-info
           = form.input :first_name
           = form.input :last_name
@@ -50,8 +50,8 @@
           = form.input :state, :input_html => { :placeholder => "NY" }
           = form.input :country
           = form.input :phone_number, :input_html => { :placeholder => "555-555-5555", :class => "phone-mask" }, :label => "Phone #"
-      - else
-        = form.input :uid, :as => :hidden
+    - else
+      = form.input :uid, :as => :hidden
 
     = form.buttons do
       - if @job_posting.new_record?
