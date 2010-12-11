@@ -406,25 +406,36 @@ form .textarea textarea {
   display: block;
   width: 550px;
   height: 150px; }
-form fieldset.buttons input[type="submit"] {
-  float: right;
-  display: block;
-  padding: 0 12px;
-  width: 132px;
-  height: 41px;
-  line-height: 41px;
-  text-align: center;
-  border: none;
-  background: transparent url(../images/post-job-button.png) no-repeat;
-  color: white;
-  font-size: 16px;
-  text-shadow: 0 -1px 1px black;
-  cursor: pointer;
-  text-indent: -9999px; }
-form fieldset.buttons .update input[type="submit"] {
-  background-image: url(../images/save-job-button.png); }
-form fieldset.buttons input[type="submit"]:active {
-  margin-top: 1px; }
+form fieldset.buttons {
+  position: static; }
+  form fieldset.buttons input[type="submit"] {
+    float: right;
+    display: block;
+    padding: 0 12px;
+    width: 132px;
+    height: 41px;
+    line-height: 41px;
+    text-align: center;
+    border: none;
+    background: transparent url(../images/post-job-button.png) no-repeat;
+    color: white;
+    font-size: 16px;
+    text-shadow: 0 -1px 1px black;
+    cursor: pointer;
+    text-indent: -9999px; }
+  form fieldset.buttons .update input[type="submit"] {
+    background-image: url(../images/save-job-button.png); }
+  form fieldset.buttons input[type="submit"]:active {
+    margin-top: 1px; }
+  form fieldset.buttons a.remove {
+    font-size: 1.2em;
+    font-weight: bold;
+    position: absolute;
+    display: block;
+    width: 132px;
+    height: 41px;
+    background: transparent url(../images/remove-job-button.png) no-repeat;
+    text-indent: -9999px; }
 form #job_posting_title_input input {
   width: 250px; }
 form #job_posting_description_input {
