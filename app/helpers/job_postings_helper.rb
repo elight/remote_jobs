@@ -6,11 +6,11 @@ module JobPostingsHelper
     when nil:
       ""
     when 0:
-      "< 1m"
+      "<1 mo."
     when 25:
       "indefinite"
     else
-      "#{job_posting.contract_term_length}m"
+      "#{job_posting.contract_term_length} mo."
     end
   end
 

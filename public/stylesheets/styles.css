@@ -508,7 +508,7 @@ form .explanation {
   #error-explanation li {
     padding: 3px 0; }
 
-form li.error input[type="text"], form li.error textarea {
+form li.error input[type="text"], form li.error textarea, form li.error select {
   background-color: #f5d4d4;
   border: 1px solid #c02d2d; }
 form .inline-errors {
@@ -550,7 +550,7 @@ form .inline-errors {
       -webkit-border-radius: 8px;
       -moz-border-radius: 8px;
       border-radius: 8px;
-      padding: 4px 8px;
+      padding: 6px 8px 2px;
       text-shadow: 0 -1px 1px #777777;
       color: white; }
       .job-details .sidebar .tags li a {

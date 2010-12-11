@@ -20,12 +20,13 @@ class JobPostingsController < InheritedResources::Base
   def create
     @job_posting = JobPosting.new(params["job_posting"])
 
-    if credit_card_charge_fails?
-      flash[:error] = @failure_reason
+    # validating this first also validates the credit card nested object!
+    if !@job_posting.valid?
       render :action => "new" and return
     end
-
-    if !@job_posting.valid?
+    
+    if credit_card_charge_fails?
+      @job_posting.errors.add(:base, @failure_reason) if @failure_reason.is_a?(String)
       render :action => "new" and return
     end
 
@@ -76,7 +77,7 @@ class JobPostingsController < InheritedResources::Base
     end
 
     def credit_card_charge_fails?
-      result = true
+      fails = true
       temp_card = @job_posting.credit_card
       credit_card = ActiveMerchant::Billing::CreditCard.new(
         :number     => temp_card.number,
@@ -95,19 +96,19 @@ class JobPostingsController < InheritedResources::Base
           :private_key => ENV["BRAINTREE_PRIVATE"]
         )
 
-        # Authorize for $10 dollars (1000 cents) 
+        # Authorize for $75 dollars (7500 cents) 
         @response = gateway.purchase(7500, credit_card)
 
-        result = !@response.success?
+        fails = !@response.success?
           
-        unless @response.success?
+        if fails
           @failure_reason = @response.message
-          @failure_reason ||= "Sorry, but your credit card information does not appear to be valid"
-          Rails.logger.info(@response.inspect)
+          @failure_reason ||= "Sorry, but your credit card information does not appear to be valid."
         end
       else
-        @failure_reason = credit_card.errors.inspect
+        @job_posting.errors.add(:base, credit_card.errors.full_messages)
       end
-      result
+      
+      fails
     end
 end
