@@ -421,6 +421,8 @@ form fieldset.buttons input[type="submit"] {
   text-shadow: 0 -1px 1px black;
   cursor: pointer;
   text-indent: -9999px; }
+form fieldset.buttons .update input[type="submit"] {
+  background-image: url(../images/save-job-button.png); }
 form fieldset.buttons input[type="submit"]:active {
   margin-top: 1px; }
 form #job_posting_title_input input {
