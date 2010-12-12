@@ -6,8 +6,6 @@ class JobPostingsController < InheritedResources::Base
   actions :all, :except => :destroy
   respond_to :html
 
-  filter_parameter_logging :number, :cvv
-
   def index
     @job_postings = JobPosting.where(:enabled => true).order("created_at DESC")
   end
@@ -17,49 +15,74 @@ class JobPostingsController < InheritedResources::Base
     @credit_card = @job_posting.build_credit_card
   end
 
-  def create
+  def preview
+    cc_params = params["job_posting"].delete("credit_card_attributes")
+    @credit_card = CreditCard.new(cc_params)
     @job_posting = JobPosting.new(params["job_posting"])
 
     # validating this first also validates the credit card nested object!
     if !@job_posting.valid?
+      @job_posting.build_credit_card(cc_params)
       render :action => "new" and return
     end
+
+    if !@job_posting.save
+      @job_posting.build_credit_card(cc_params)
+      render :action => new and return
+    end
+
+    @job_posting.build_credit_card(cc_params)
+  end
+
+  def publish
+    @job_posting = JobPosting.where(:uid => params[:uid], :enabled => false).first
+    cc_params = params[:job_posting][:credit_card_attributes]
+    @credit_card = CreditCard.new(params[:job_posting][:credit_card_attributes])
     
+    if @job_posting.nil? 
+      flash[:error] = "It looks like you've already posted that job"
+      redirect_to root_path and return
+    end
+    if @credit_card.nil?
+      flash[:error] = "We appear to be missing your credit card details. If this problem persists, contact support"
+      render :action => :new and return
+    end
+
+    if !@job_posting.save
+      @job_posting.build_credit_card(cc_params)
+      render :action => :new and return
+    end
+
+    @job_posting.build_credit_card(cc_params)
     if credit_card_charge_fails?
       @job_posting.errors.add(:base, @failure_reason) if @failure_reason.is_a?(String)
       render :action => "new" and return
     end
-
-    credit_card = @job_posting.credit_card
+    Rails.logger.debug(CreditCard.all.inspect)
     @job_posting.credit_card = nil
-    if @job_posting.save
-      flash[:notice] = "Posting created"
-      JobPostingMailer.new_job_posting_email(@job_posting).deliver
-      redirect_to job_posting_path(@job_posting)
-    else
-      @job_posting.credit_card = credit_card
-      render :action => "new"
-    end
+
+    @job_posting.update_attribute(:enabled, true)
+    flash[:notice] = "Job created"
+    JobPostingMailer.new_job_posting_email(@job_posting).deliver
+    redirect_to job_posting_path(@job_posting)
   end
 
   def edit
-    @job_posting = JobPosting.where(:uid => params[:uuid]).try(:first)
+    @job_posting = JobPosting.where(:uid => params[:uid]).try(:first)
   end
 
   def update
     @job_posting = JobPosting.where(:uid => params[:job_posting][:uid]).try(:first)
     if @job_posting.update_attributes(params[:job_posting])
-      flash[:notice] = "Posting updated"
+      flash[:notice] = "Job updated"
       redirect_to job_posting_path(@job_posting)
     else
       render :action => "edit", :uid => @job_posting.uid
     end
   end
 
-  # members
-
   def disable 
-    @job_posting = JobPosting.where(:uid => params[:uuid]).try(:first)
+    @job_posting = JobPosting.where(:uid => params[:uid]).try(:first)
     @job_posting.try(:disable!)
     flash[:notice] = "Your job posting seeking a '#{@job_posting.title}' has been closed"
     redirect_to job_postings_path

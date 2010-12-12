@@ -1,0 +1,18 @@
+= render "add_a_job"
+
+.back= link_to("Back to jobs", root_path)
+
+.job-preview
+  = render :partial => "details", :object => @job_posting
+
+= semantic_form_for @job_posting, :method => :put, :url => "/publish/#{@job_posting.uid}" do |job_form|
+  = job_form.input :uid, :as => :hidden
+  = job_form.semantic_fields_for :credit_card do |cc_form|
+    = cc_form.input :number, :as => :hidden
+    = cc_form.input :month, :as => :hidden
+    = cc_form.input :year, :as => :hidden
+    = cc_form.input :cvv, :as => :hidden
+
+  = job_form.commit_button "Post Job"
+
+
