@@ -80,9 +80,6 @@ header {
       width: 98px;
       line-height: 38px;
       text-align: center;
-      -webkit-border-radius: 10px;
-      -moz-border-radius: 10px;
-      border-radius: 10px;
       background: transparent url(../images/add-a-job.png) no-repeat;
       color: white;
       font-size: 16px;
@@ -330,6 +327,8 @@ form label, form legend.label {
   text-shadow: 0 1px 1px white; }
   form label abbr[title="required"], form legend.label abbr[title="required"] {
     display: none; }
+form .full-width-label label {
+  width: auto; }
 form input[type="text"], form input[type="url"], form input[type="email"], form input[type="tel"] {
   padding: 6px;
   font-size: 13px;
@@ -411,20 +410,17 @@ form fieldset.buttons {
   form fieldset.buttons input[type="submit"] {
     float: right;
     display: block;
-    padding: 0 12px;
-    width: 132px;
+    padding-top: 2px;
     height: 41px;
-    line-height: 41px;
+    width: 125px;
+    line-height: 38px;
     text-align: center;
-    border: none;
-    background: transparent url(../images/post-job-button.png) no-repeat;
+    background: transparent url(../images/add-a-job.png) no-repeat;
     color: white;
     font-size: 16px;
     text-shadow: 0 -1px 1px black;
-    cursor: pointer;
-    text-indent: -9999px; }
-  form fieldset.buttons .update input[type="submit"] {
-    background-image: url(../images/save-job-button.png); }
+    border: none;
+    cursor: pointer; }
   form fieldset.buttons input[type="submit"]:active {
     margin-top: 1px; }
   form fieldset.buttons a.remove {
@@ -488,6 +484,8 @@ form #job_posting_hiring_criteria_input, form #job_posting_how_to_apply_input {
   form #job_posting_hiring_criteria_input textarea, form #job_posting_how_to_apply_input textarea {
     width: 400px;
     height: 100px; }
+form #job_posting_email_address {
+  width: 250px; }
 form .personal-info, form .credit-card-info {
   float: left;
   width: 460px; }
@@ -521,7 +519,7 @@ form .explanation {
   #error-explanation li {
     padding: 3px 0; }
 
-form li.error input[type="text"], form li.error textarea, form li.error select {
+form li.error input[type="text"], form li.error input[type="email"], form li.error input[type="tel"], form li.error textarea, form li.error select {
   background-color: #f5d4d4;
   border: 1px solid #c02d2d; }
 form .inline-errors {
@@ -617,6 +615,17 @@ form .inline-errors {
 
 .privacy h1, .refunds h1 {
   margin-top: 20px; }
+
+.important {
+  background-color: #f5d4d4;
+  padding: 8px;
+  font-size: 1.3em;
+  -webkit-border-radius: 5px;
+  margin: 10px 0; }
+
+.edit-link {
+  margin: 10px 0;
+  font-size: 1.1em; }
 
 .strong {
   font-weight: bold; }

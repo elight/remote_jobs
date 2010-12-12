@@ -17,12 +17,13 @@ module JobPostingsHelper
   def created_at_for(job_posting)
     created_date = Date.parse job_posting.created_at.to_s
     if created_date === Date.today
-      "Today"
+      date = "Today"
     elsif created_date === Date.yesterday
-      "Yesterday"
+      date = "Yesterday"
     else
-      job_posting.created_at.strftime("%b %d").gsub(/\b0/, "")
+      date = job_posting.created_at.strftime("%b %d").gsub(/\b0/, "")
     end
+    date
   end
 
   def show_term_for(job_posting)

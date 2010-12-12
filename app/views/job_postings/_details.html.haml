@@ -39,8 +39,9 @@
       %li.term
         = show_term_for @job_posting
 
-  %ul.actions
-    %li
-      = link_to("Email this job", "mailto:?subject=#{@job_posting.title}", :class => "email")
-    %li
-      = link_to("Tweet this job", "http://twitter.com/home?status=#{@job_posting.title} - #{job_posting_url(@job_posting)}", :class => "tweet")
+  - if @job_posting.enabled
+    %ul.actions
+      %li
+        = link_to("Email this job", "mailto:?subject=#{@job_posting.title}", :class => "email")
+      %li
+        = link_to("Tweet this job", "http://twitter.com/home?status=#{@job_posting.title} - #{job_posting_url(@job_posting)}", :class => "tweet")

@@ -1,13 +1,12 @@
 RemoteJobs::Application.routes.draw do
-  resources :job_postings,  :path => "/jobs" 
+  resources :job_postings,  :path => "/jobs"
 
-  match '/preview',         :to => 'job_postings#preview', :method => :post
-  match '/publish/:uid',    :to => 'job_postings#publish', :method => :put
+  match '/preview/:uid',    :to => 'job_postings#preview', :as => :preview
+  match '/publish/:uid',    :to => 'job_postings#publish', :method => :put, :as => :publish
+  match '/edit/:uid',       :to => 'job_postings#edit', :as => :edit
+  match '/disable/:uid',    :to => 'job_postings#disable', :as => :disable
 
   match '/filter',          :to => 'search#filter'
-
-  match '/edit/:uid',       :to => 'job_postings#edit'
-  match '/disable/:uid',    :to => 'job_postings#disable'
   
   match '/privacy',         :to => 'pages#privacy'
   match '/refunds',         :to => 'pages#refunds'

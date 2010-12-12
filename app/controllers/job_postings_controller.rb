@@ -12,58 +12,54 @@ class JobPostingsController < InheritedResources::Base
 
   def new
     @job_posting = JobPosting.new(:category => "Development", :payment_type => "Hourly", :job_type => "Freelancer", :country => "United States")
-    @credit_card = @job_posting.build_credit_card
   end
 
-  def preview
-    cc_params = params["job_posting"].delete("credit_card_attributes")
-    @credit_card = CreditCard.new(cc_params)
+  def create
     @job_posting = JobPosting.new(params["job_posting"])
 
-    # validating this first also validates the credit card nested object!
-    if !@job_posting.valid?
-      @job_posting.build_credit_card(cc_params)
+    if @job_posting.save
+      JobPostingMailer.new_job_posting_email(@job_posting).deliver
+      redirect_to preview_path(@job_posting.uid)
+    else
       render :action => "new" and return
     end
-
-    if !@job_posting.save
-      @job_posting.build_credit_card(cc_params)
-      render :action => new and return
-    end
-
-    @job_posting.build_credit_card(cc_params)
+  end
+  
+  def preview
+    @job_posting = JobPosting.find_by_uid(params[:uid])
+    @job_posting.build_credit_card
   end
 
   def publish
     @job_posting = JobPosting.where(:uid => params[:uid], :enabled => false).first
-    cc_params = params[:job_posting][:credit_card_attributes]
-    @credit_card = CreditCard.new(params[:job_posting][:credit_card_attributes])
-    
     if @job_posting.nil? 
       flash[:error] = "It looks like you've already posted that job"
       redirect_to root_path and return
     end
-    if @credit_card.nil?
-      flash[:error] = "We appear to be missing your credit card details. If this problem persists, contact support"
-      render :action => :new and return
+    
+    # this builds the nested credit card object as well
+    @job_posting.attributes = params[:job_posting]
+    
+    if @job_posting.credit_card.nil?
+      flash[:error] = "We appear to be missing your credit card details. If this problem persists, please contact us at help@remote.jobs"
+      render :action => :preview and return
     end
 
-    if !@job_posting.save
-      @job_posting.build_credit_card(cc_params)
-      render :action => :new and return
+    unless @job_posting.valid?
+      render :action => :preview and return
     end
 
-    @job_posting.build_credit_card(cc_params)
     if credit_card_charge_fails?
       @job_posting.errors.add(:base, @failure_reason) if @failure_reason.is_a?(String)
-      render :action => "new" and return
+      render :action => :preview and return
     end
-    Rails.logger.debug(CreditCard.all.inspect)
+    
+    # we have to nil this out because update_attribute saves the credit card (dirty attributes)
     @job_posting.credit_card = nil
-
     @job_posting.update_attribute(:enabled, true)
-    flash[:notice] = "Job created"
-    JobPostingMailer.new_job_posting_email(@job_posting).deliver
+
+    flash[:notice] = "Yay! Your job is now public."
+    JobPostingMailer.job_posting_receipt(@job_posting).deliver
     redirect_to job_posting_path(@job_posting)
   end
 

@@ -1,18 +1,36 @@
-= render "add_a_job"
+= render "shared/error_messages", :target => @job_posting
 
-.back= link_to("Back to jobs", root_path)
+- unless @job_posting.enabled?
 
-.job-preview
+  = semantic_form_for @job_posting, :method => :put, :url => "/publish/#{@job_posting.uid}" do |job_form|
+    = job_form.input :uid, :as => :hidden
+
+    = job_form.inputs do
+      %h3 Check your post below. Happy with it? Publish it for $75!
+      .credit-card-info
+        = job_form.semantic_fields_for :credit_card do |cc_form|
+          = cc_form.input :number, :label => "CC number"
+          = cc_form.input :month, :label => "Exp. month", :as => "select", :collection => (1..12)
+          = cc_form.input :year, :label => "Exp. year", :as => "select", :collection => (Date.today.year..Date.today.year+10).to_a
+          = cc_form.input :cvv, :label => "CVV code"
+        .explanation
+          %h3 We will charge $75 to your credit card
+          %p But don't worry!  We don't retain your credit card information so it can't be stolen.
+        
+          %h3 Why do we need your name, address, phone #?
+          %p We need your name, address and phone number in order to bill your credit card.        
+      .personal-info
+        = job_form.input :first_name
+        = job_form.input :last_name
+        = job_form.input :street_address1, :label => "Street"
+        = job_form.input :street_address2, :label => "Apt/Suite"
+        = job_form.input :city
+        = job_form.input :state, :input_html => { :placeholder => "NY" }
+        = job_form.input :country
+        = job_form.input :phone_number, :input_html => { :placeholder => "555-555-5555" }, :label => "Phone #"
+
+    = job_form.buttons do
+      = job_form.commit_button "Publish Job"
+
+.job-details
   = render :partial => "details", :object => @job_posting
-
-= semantic_form_for @job_posting, :method => :put, :url => "/publish/#{@job_posting.uid}" do |job_form|
-  = job_form.input :uid, :as => :hidden
-  = job_form.semantic_fields_for :credit_card do |cc_form|
-    = cc_form.input :number, :as => :hidden
-    = cc_form.input :month, :as => :hidden
-    = cc_form.input :year, :as => :hidden
-    = cc_form.input :cvv, :as => :hidden
-
-  = job_form.commit_button "Post Job"
-
-
