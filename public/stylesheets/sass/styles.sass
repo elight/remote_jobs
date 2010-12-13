@@ -427,7 +427,7 @@ form
 			height: 150px
 	fieldset.buttons
 		position: static
-		input[type="submit"]
+		input[type="submit"], a.remove
 			float: right
 			display: block
 			padding-top: 2px
@@ -441,17 +441,12 @@ form
 			text-shadow: 0 -1px 1px #000
 			border: none
 			cursor: pointer
-		input[type="submit"]:active
+		input[type="submit"]:active, a.remove:active
 			margin-top: 1px
 		a.remove
-			font-size: 1.2em
-			font-weight: bold
-			position: absolute
-			display: block
-			width: 132px
-			height: 41px
-			background: transparent url(../images/remove-job-button.png) no-repeat
-			text-indent: -9999px
+			float: left
+		.save-job
+			clear: none
 	#job_posting_title_input input
 		width: 250px
 	#job_posting_description_input

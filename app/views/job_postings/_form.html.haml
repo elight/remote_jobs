@@ -31,9 +31,9 @@
       = form.input :email_address, :label => "Your Email"
 
     = form.buttons do
-      - if @job_posting.new_record? || !@job_posting.enabled?
+      - if !@job_posting.enabled?
         = form.commit_button "Preview Job"
       - else    
         = form.input :uid, :as => :hidden
-        = link_to "Remove posting", "/disable/#{@job_posting.uid}", :method => :delete, :class => "remove", :confirm => "Are you sure you want to remove this posting?"
-        = form.commit_button "Save Job"
+        = link_to "Remove job", "/disable/#{@job_posting.uid}", :method => :delete, :class => "remove", :confirm => "Are you sure you want to remove this posting?"
+        = form.commit_button "Save Job", :wrapper_html => { :class => 'save-job' }

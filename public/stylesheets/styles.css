@@ -407,7 +407,7 @@ form .textarea textarea {
   height: 150px; }
 form fieldset.buttons {
   position: static; }
-  form fieldset.buttons input[type="submit"] {
+  form fieldset.buttons input[type="submit"], form fieldset.buttons a.remove {
     float: right;
     display: block;
     padding-top: 2px;
@@ -421,17 +421,12 @@ form fieldset.buttons {
     text-shadow: 0 -1px 1px black;
     border: none;
     cursor: pointer; }
-  form fieldset.buttons input[type="submit"]:active {
+  form fieldset.buttons input[type="submit"]:active, form fieldset.buttons a.remove:active {
     margin-top: 1px; }
   form fieldset.buttons a.remove {
-    font-size: 1.2em;
-    font-weight: bold;
-    position: absolute;
-    display: block;
-    width: 132px;
-    height: 41px;
-    background: transparent url(../images/remove-job-button.png) no-repeat;
-    text-indent: -9999px; }
+    float: left; }
+  form fieldset.buttons .save-job {
+    clear: none; }
 form #job_posting_title_input input {
   width: 250px; }
 form #job_posting_description_input {
