@@ -27,7 +27,7 @@ module JobPostingsHelper
   end
 
   def show_term_for(job_posting)
-    term = term_for job_posting
+    term = job_posting.contract_term_length
     return "None specified" if term.blank?
     term
   end

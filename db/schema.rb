@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101212172622) do
+ActiveRecord::Schema.define(:version => 20101213000348) do
 
   create_table "credit_cards", :force => true do |t|
     t.string   "number"
@@ -27,7 +27,6 @@ ActiveRecord::Schema.define(:version => 20101212172622) do
     t.text     "description"
     t.string   "job_type"
     t.string   "payment_type"
-    t.integer  "contract_term_length"
     t.text     "how_to_apply"
     t.text     "hiring_criteria"
     t.string   "category"
@@ -46,6 +45,7 @@ ActiveRecord::Schema.define(:version => 20101212172622) do
     t.datetime "updated_at"
     t.string   "company_url"
     t.boolean  "enabled",              :default => false
+    t.string   "contract_term_length"
   end
 
   add_index "job_postings", ["uid"], :name => "index_job_postings_on_uid"

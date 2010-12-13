@@ -5,7 +5,7 @@
       = @job_posting.company_name
     - else
       = link_to(@job_posting.company_name, @job_posting.company_url)
-  .date= created_at_for @job_posting
+  .date Posted #{created_at_for @job_posting}
   
 .clear
 
