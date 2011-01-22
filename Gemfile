@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.1'
+gem 'rails', '3.0.3'
 
 gem 'pg'
 
@@ -17,4 +17,5 @@ group :test do
   gem 'shoulda'
   gem 'coulda_web_steps'
   gem 'factory_girl'
+  gem 'launchy'
 end

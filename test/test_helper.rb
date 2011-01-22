@@ -8,6 +8,7 @@ require 'capybara/rails'
 require 'shoulda'
 require 'coulda'
 require 'factory_girl'
+require 'factories'
 
 Coulda.default_testcase_class = ActionController::IntegrationTest
 

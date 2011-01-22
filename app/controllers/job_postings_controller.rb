@@ -19,7 +19,7 @@ class JobPostingsController < InheritedResources::Base
 
     if @job_posting.save
       JobPostingMailer.new_job_posting_email(@job_posting).deliver
-      redirect_to preview_path(@job_posting.uid)
+      redirect_to preview_path(@job_posting.uid, :only_path => false, :host => "secure.#{request.host}", :protocol => "https")
     else
       render :action => "new" and return
     end
