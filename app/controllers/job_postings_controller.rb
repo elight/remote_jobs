@@ -60,7 +60,7 @@ class JobPostingsController < InheritedResources::Base
     @job_posting.attributes = params[:job_posting]
     
     if @job_posting.credit_card.nil?
-      @job_posting.errors.add(:job_posting, "We appear to be missing your credit card details. If this problem persists, please contact us at help@remote.jobs")
+      @job_posting.errors.add(:job_posting, "We appear to be missing your credit card details. If this problem persists, please contact us at help@remote-jobs.com")
       render :action => :preview and return
     end
 
