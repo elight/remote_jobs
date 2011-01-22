@@ -6,7 +6,12 @@
     = job_form.input :uid, :as => :hidden
 
     = job_form.inputs do
-      %h3 Check your post below. Happy with it? Publish it for $75!
+      %h3 Check your post below. Happy with it?
+      .coupon-info
+        = job_form.input :coupon_code
+      .or-separator
+        %span
+          OR
       .credit-card-info
         = job_form.semantic_fields_for :credit_card do |cc_form|
           = cc_form.input :number, :label => "CC number"

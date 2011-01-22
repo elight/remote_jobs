@@ -23,3 +23,6 @@ Factory.define :credit_card do |c|
   c.year                  { (Date.today.year + 10).to_s }
   c.cvv                   "123"
 end
+
+Factory.define(:coupon) {}
+Factory.define(:unused_coupon, :parent => :coupon) {}

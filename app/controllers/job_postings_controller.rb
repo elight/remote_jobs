@@ -31,12 +31,29 @@ class JobPostingsController < InheritedResources::Base
   end
 
   def publish
-    @job_posting = JobPosting.where(:uid => params[:uid], :enabled => false).first
+    @job_posting = JobPosting.find_by_uid(params[:uid])
     if @job_posting.nil? 
-      flash[:error] = "It looks like you've already posted that job"
+      flash[:error] = "Sorry but we couldn't find your job posting with id #{params[:uid]}"
+      redirect_to root_path and return
+    elsif @job_posting.enabled?
+      flash[:error] = "Your job posting has already been published"
       redirect_to root_path and return
     end
-    
+
+    coupon_code = params[:job_posting][:coupon_code]
+    if coupon_code.present?
+      coupon = Coupon.find_by_code(coupon_code)
+      if coupon.nil?
+        flash[:error] = "Sorry but we couldn't find a coupon with code '#{coupon_code}'"
+        render :action => :preview and return
+      elsif coupon.job_posting_id
+        flash[:error] = "Sorry but coupon code '#{coupon_code}' has already been used"
+        render :action => :preview and return
+      end
+      @job_posting.coupon = coupon
+      handle_successful_job_creation and return
+    end
+
     # this builds the nested credit card object as well
     @job_posting.attributes = params[:job_posting]
     
@@ -56,11 +73,8 @@ class JobPostingsController < InheritedResources::Base
     
     # we have to nil this out because update_attribute saves the credit card (dirty attributes)
     @job_posting.credit_card = nil
-    @job_posting.update_attribute(:enabled, true)
 
-    flash[:notice] = "Yay! Your job is now public."
-    JobPostingMailer.job_posting_receipt(@job_posting).deliver
-    redirect_to job_posting_path(@job_posting)
+    handle_successful_job_creation
   end
 
   def edit
@@ -129,5 +143,12 @@ class JobPostingsController < InheritedResources::Base
       end
       
       fails
+    end
+
+    def handle_successful_job_creation
+      @job_posting.update_attribute(:enabled, true)
+      flash[:notice] = "Yay! Your job is now public."
+      JobPostingMailer.job_posting_receipt(@job_posting).deliver
+      redirect_to job_posting_path(@job_posting)
     end
 end
