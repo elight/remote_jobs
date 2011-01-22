@@ -2,7 +2,7 @@ require 'test_helper'
 
 Feature "Create new job" do
   
-  def self.scenario_where_customer_adds_job_with(payment_type, &payment_step)
+  def self.scenario_where_customer_adds_job_with(payment_type, args = {}, &payment_step)
     Scenario "Customer successfully adds a new job with a valid #{payment_type}" do
       when_i_visit :root_path
 
@@ -44,20 +44,30 @@ Feature "Create new job" do
         assert_match /\/secure\./, current_url
       end
 
-      When "I enter valid #{payment_type}information" do
+      When "I enter #{payment_type} information" do
         instance_eval &payment_step
       end
 
       when_i_click_button "Publish Job"
 
-      Then "I should be on the job show page" do
-        save_and_open_page
-        assert_equal job_posting_path(@job), current_path
-      end
+      if args[:should] == :fail_on_payment 
+        Then "I should be on the preview page" do
+          assert_equal publish_path(@job.uid), current_path
+        end
 
-      And "it should be in the published state" do
-        @job.reload
-        assert @job.enabled?
+        And "it should not be in the published state" do
+          @job.reload
+          assert !@job.enabled?
+        end
+      else 
+        Then "I should be on the job show page" do
+          assert_equal job_posting_path(@job), current_path
+        end
+
+        And "it should be in the published state" do
+          @job.reload
+          assert @job.enabled?
+        end
       end
     end
   end
@@ -80,6 +90,32 @@ Feature "Create new job" do
 
   scenario_where_customer_adds_job_with("coupon") do
     coupon = Factory(:unused_coupon)
+    fill_in "job_posting_coupon_code", :with => coupon.code
+  end
+
+  scenario_where_customer_adds_job_with("invalid credit card", :should => :fail_on_payment) do
+    card = Factory.build(:credit_card)
+    # not the Braintree happy credit number
+    fill_in "job_posting_credit_card_attributes_number", :with => "1111222233334444"
+    select card.month.to_s, :from => "job_posting_credit_card_attributes_month"
+    select card.year.to_s, :from => "job_posting_credit_card_attributes_year"
+    fill_in "job_posting_credit_card_attributes_cvv", :with => card.cvv
+    fill_in "job_posting_first_name", :with => @job_template.first_name
+    fill_in "job_posting_last_name", :with => @job_template.last_name
+    fill_in "job_posting_street_address1", :with => @job_template.street_address1
+    fill_in "job_posting_street_address2", :with => @job_template.street_address2
+    fill_in "job_posting_city", :with => @job_template.city
+    fill_in "job_posting_state", :with => @job_template.state
+    select "United States", :from => "job_posting_country"
+    fill_in "job_posting_phone_number", :with => @job_template.phone_number
+  end
+
+  scenario_where_customer_adds_job_with("absent coupon code", :should => :fail_on_payment) do
+    fill_in "job_posting_coupon_code", :with => UUID.new.generate(:compact)
+  end
+
+  scenario_where_customer_adds_job_with("used coupon code", :should => :fail_on_payment) do
+    coupon = Factory(:used_coupon)
     fill_in "job_posting_coupon_code", :with => coupon.code
   end
 end

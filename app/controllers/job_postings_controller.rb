@@ -33,10 +33,10 @@ class JobPostingsController < InheritedResources::Base
   def publish
     @job_posting = JobPosting.find_by_uid(params[:uid])
     if @job_posting.nil? 
-      flash[:error] = "Sorry but we couldn't find your job posting with id #{params[:uid]}"
+      @job_posting.errors.add(:job_posting, "Sorry but we couldn't find your job posting with id #{params[:uid]}")
       redirect_to root_path and return
     elsif @job_posting.enabled?
-      flash[:error] = "Your job posting has already been published"
+      @job_posting.errors.add(:job_posting, "Your job posting has already been published")
       redirect_to root_path and return
     end
 
@@ -44,10 +44,12 @@ class JobPostingsController < InheritedResources::Base
     if coupon_code.present?
       coupon = Coupon.find_by_code(coupon_code)
       if coupon.nil?
-        flash[:error] = "Sorry but we couldn't find a coupon with code '#{coupon_code}'"
+        @job_posting.errors.add(:coupon_code, "Sorry but we couldn't find a coupon with code '#{coupon_code}'")
+        @job_posting.build_credit_card
         render :action => :preview and return
       elsif coupon.job_posting_id
-        flash[:error] = "Sorry but coupon code '#{coupon_code}' has already been used"
+        @job_posting.errors.add(:coupon_code, "Sorry but coupon code '#{coupon_code}' has already been used")
+        @job_posting.build_credit_card
         render :action => :preview and return
       end
       @job_posting.coupon = coupon
@@ -58,7 +60,7 @@ class JobPostingsController < InheritedResources::Base
     @job_posting.attributes = params[:job_posting]
     
     if @job_posting.credit_card.nil?
-      flash[:error] = "We appear to be missing your credit card details. If this problem persists, please contact us at help@remote.jobs"
+      @job_posting.errors.add(:job_posting, "We appear to be missing your credit card details. If this problem persists, please contact us at help@remote.jobs")
       render :action => :preview and return
     end
 

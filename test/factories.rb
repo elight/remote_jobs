@@ -26,3 +26,6 @@ end
 
 Factory.define(:coupon) {}
 Factory.define(:unused_coupon, :parent => :coupon) {}
+Factory.define(:used_coupon, :parent => :unused_coupon) do |c|
+  c.job_posting           { Factory(:job_posting) }
+end
