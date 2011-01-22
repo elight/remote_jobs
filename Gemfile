@@ -12,3 +12,9 @@ gem 'haml'
 gem 'maruku'
 gem 'uuid'
 gem 'nokogiri'
+
+group :test do
+  gem 'shoulda'
+  gem 'coulda_web_steps'
+  gem 'factory_girl'
+end
