@@ -65,11 +65,9 @@ Feature "Create new job" do
     end
 
     And "it should be in the published state" do
-      save_and_open_page
       @job.reload
       assert @job.enabled?
     end
-
   end
 
   Scenario "Customer successfully adds a new job with a valid coupon code" 
