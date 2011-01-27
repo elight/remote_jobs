@@ -6,9 +6,10 @@
     = job_form.input :uid, :as => :hidden
 
     = job_form.inputs do
-      %h3 Check your post below. Happy with it?
+      %h3 Check your post below. Happy with it? Publish it!
       .coupon-info
-        = job_form.input :coupon_code
+        = job_form.input :coupon_code, :label => "Enter a coupon code"
+        = job_form.commit_button "Publish Job"
       .or-separator
         %span
           OR
