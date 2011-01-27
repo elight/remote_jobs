@@ -19,7 +19,7 @@ class JobPostingsController < InheritedResources::Base
 
     if @job_posting.save
       JobPostingMailer.new_job_posting_email(@job_posting).deliver
-      redirect_to preview_path(@job_posting.uid)
+      redirect_to preview_path(@job_posting.uid, :only_path => false, :host => "secure.#{request.host}", :protocol => "https")
     else
       render :action => "new" and return
     end
@@ -31,17 +31,36 @@ class JobPostingsController < InheritedResources::Base
   end
 
   def publish
-    @job_posting = JobPosting.where(:uid => params[:uid], :enabled => false).first
+    @job_posting = JobPosting.find_by_uid(params[:uid])
     if @job_posting.nil? 
-      flash[:error] = "It looks like you've already posted that job"
+      @job_posting.errors.add(:job_posting, "Sorry but we couldn't find your job posting with id #{params[:uid]}")
+      redirect_to root_path and return
+    elsif @job_posting.enabled?
+      @job_posting.errors.add(:job_posting, "Your job posting has already been published")
       redirect_to root_path and return
     end
-    
+
+    coupon_code = params[:job_posting][:coupon_code]
+    if coupon_code.present?
+      coupon = Coupon.find_by_code(coupon_code)
+      if coupon.nil?
+        @job_posting.errors.add(:coupon_code, "Sorry but we couldn't find a coupon with code '#{coupon_code}'")
+        @job_posting.build_credit_card
+        render :action => :preview and return
+      elsif coupon.job_posting_id
+        @job_posting.errors.add(:coupon_code, "Sorry but coupon code '#{coupon_code}' has already been used")
+        @job_posting.build_credit_card
+        render :action => :preview and return
+      end
+      @job_posting.coupon = coupon
+      handle_successful_job_creation and return
+    end
+
     # this builds the nested credit card object as well
     @job_posting.attributes = params[:job_posting]
     
     if @job_posting.credit_card.nil?
-      flash[:error] = "We appear to be missing your credit card details. If this problem persists, please contact us at help@remote.jobs"
+      @job_posting.errors.add(:job_posting, "We appear to be missing your credit card details. If this problem persists, please contact us at help@remote-jobs.com")
       render :action => :preview and return
     end
 
@@ -56,11 +75,8 @@ class JobPostingsController < InheritedResources::Base
     
     # we have to nil this out because update_attribute saves the credit card (dirty attributes)
     @job_posting.credit_card = nil
-    @job_posting.update_attribute(:enabled, true)
 
-    flash[:notice] = "Yay! Your job is now public."
-    JobPostingMailer.job_posting_receipt(@job_posting).deliver
-    redirect_to job_posting_path(@job_posting)
+    handle_successful_job_creation
   end
 
   def edit
@@ -129,5 +145,12 @@ class JobPostingsController < InheritedResources::Base
       end
       
       fails
+    end
+
+    def handle_successful_job_creation
+      @job_posting.update_attribute(:enabled, true)
+      flash[:notice] = "Yay! Your job is now public."
+      JobPostingMailer.job_posting_receipt(@job_posting).deliver
+      redirect_to job_posting_path(@job_posting)
     end
 end

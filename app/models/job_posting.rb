@@ -10,6 +10,8 @@ class JobPosting < ActiveRecord::Base
   validates_format_of :email_address, :with => /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/
   
   has_one :credit_card
+  has_one :coupon
+  attr_accessor :coupon_code
   accepts_nested_attributes_for :credit_card
   
   before_create :set_uuid
@@ -31,6 +33,6 @@ class JobPosting < ActiveRecord::Base
   private
   
     def set_uuid
-      self.uid = UUID.new.generate
+      self.uid = UUID.new.generate(:compact)
     end
 end

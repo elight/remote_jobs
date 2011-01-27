@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.1'
+gem 'rails', '3.0.3'
 
 gem 'pg'
 
@@ -12,3 +12,10 @@ gem 'haml'
 gem 'maruku'
 gem 'uuid'
 gem 'nokogiri'
+
+group :test do
+  gem 'shoulda'
+  gem 'coulda_web_steps'
+  gem 'factory_girl'
+  gem 'launchy'
+end

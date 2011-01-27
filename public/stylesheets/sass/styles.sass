@@ -425,7 +425,7 @@ form
 			display: block
 			width: 550px
 			height: 150px
-	fieldset.buttons
+	fieldset.buttons, .coupon-info
 		position: static
 		input[type="submit"], a.remove
 			float: right
@@ -447,6 +447,27 @@ form
 			float: left
 		.save-job
 			clear: none
+	.coupon-info
+		height: 60px
+		label
+			width: auto
+		li
+			float: left
+			clear: none
+		input[type="submit"]
+			float: left
+			margin: -3px 0 0 20px
+	.or-separator
+		border-top: 1px dashed #aaa
+		margin: 15px 0 40px 40px
+		position: relative
+		span
+			position: absolute
+			top: -0.7em
+			left: -40px
+			font-size: 1.5em
+			font-weight: bold
+			color: #555
 	#job_posting_title_input input
 		width: 250px
 	#job_posting_description_input
