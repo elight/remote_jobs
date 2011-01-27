@@ -3,14 +3,11 @@
     %meta{:content =>"text/html; charset=UTF-8", :http_equiv => "Content-Type"}
   %body
     %p
-      Your job posting for 
-      = @title
-      was created.
+      Your job posting for #{@title} was created.
     %p
       %strong We need your payment information before it's published.
-      %div 
-        You can publish it here: 
-        = @url
+      %div
+        You can publish it here: #{@url}
     %p
       Sincerely,
     %p
