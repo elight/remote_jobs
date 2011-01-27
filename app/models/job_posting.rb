@@ -6,7 +6,7 @@ class JobPosting < ActiveRecord::Base
   validates_presence_of :title, :description, :job_type, :payment_type, :how_to_apply, :hiring_criteria, 
                         :category, :company_name, :email_address
   validates_presence_of :first_name, :last_name,  :street_address1, :city, :state,
-                        :country, :phone_number, :unless => Proc.new { |posting| posting.new_record? }
+                        :country, :phone_number, :if => Proc.new { |posting| !posting.new_record? && posting.coupon.nil? }
   validates_format_of :email_address, :with => /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/
   
   has_one :credit_card
