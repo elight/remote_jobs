@@ -56,6 +56,9 @@ class JobPostingsController < InheritedResources::Base
       handle_successful_job_creation and return
     end
 
+    # This feels like such a hack....
+    @job.should_validate_address = true
+
     # this builds the nested credit card object as well
     @job_posting.attributes = params[:job_posting]
     
