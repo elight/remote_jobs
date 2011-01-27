@@ -5,7 +5,7 @@ class JobPostingMailer < ActionMailer::Base
     @title = job_posting.title
     @url = "http://remote-jobs.com/edit/#{job_posting.uid}"
     mail :to => job_posting.email_address,
-         :subject => "[Remote Jobs] Your job has been created"
+         :subject => "Your job is waiting to be published"
   end
   
   def job_posting_receipt(job_posting)
@@ -14,6 +14,6 @@ class JobPostingMailer < ActionMailer::Base
     @edit_url = "http://remote-jobs.com/edit/#{job_posting.uid}"
     @did_use_coupon = job_posting.coupon.present?
     mail :to => job_posting.email_address,
-         :subject => "[Remote Jobs] Your receipt"
+         :subject => "Your receipt"
   end
 end
