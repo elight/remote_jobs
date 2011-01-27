@@ -48,7 +48,7 @@ class JobPostingsController < InheritedResources::Base
         @job_posting.build_credit_card
         render :action => :preview and return
       elsif coupon.job_posting_id
-        @job_posting.errors.add(:coupon_code, "Sorry but coupon code '#{coupon_code}' has already been used")
+        @job_posting.errors.add(:coupon_code, " '#{coupon_code}' has already been used")
         @job_posting.build_credit_card
         render :action => :preview and return
       end
