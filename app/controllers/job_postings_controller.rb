@@ -90,7 +90,7 @@ class JobPostingsController < InheritedResources::Base
     @job_posting = JobPosting.where(:uid => params[:job_posting][:uid]).try(:first)
     if @job_posting.update_attributes(params[:job_posting])
       flash[:notice] = "Job updated"
-      redirect_to job_posting_path(@job_posting)
+      redirect_to preview_job_posting_path(@job_posting)
     else
       render :action => "edit", :uid => @job_posting.uid
     end
