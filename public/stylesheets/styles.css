@@ -434,6 +434,8 @@ form .coupon-info {
   form .coupon-info li {
     float: left;
     clear: none; }
+  form .coupon-info input[type="text"] {
+    width: 350px; }
   form .coupon-info input[type="submit"] {
     float: left;
     margin: -3px 0 0 20px; }
