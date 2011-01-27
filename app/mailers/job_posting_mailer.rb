@@ -1,5 +1,5 @@
 class JobPostingMailer < ActionMailer::Base
-  default :from => "Remote Jobs <notification@remote.jobs>"
+  default :from => "Remote Jobs <notification@remote-jobs.com>"
 
   def new_job_posting_email(job_posting)
     @title = job_posting.title
