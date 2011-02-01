@@ -5,6 +5,8 @@ module JobPostingsHelper
     case job_posting.contract_term_length
     when nil:
       ""
+    when "":
+      ""
     when 0:
       "<1 mo."
     when 25:
