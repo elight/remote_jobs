@@ -56,6 +56,9 @@ class JobPostingsController < InheritedResources::Base
       handle_successful_job_creation and return
     end
 
+    # This feels like such a hack....
+    @job_posting.should_validate_address = true
+
     # this builds the nested credit card object as well
     @job_posting.attributes = params[:job_posting]
     
@@ -87,7 +90,7 @@ class JobPostingsController < InheritedResources::Base
     @job_posting = JobPosting.where(:uid => params[:job_posting][:uid]).try(:first)
     if @job_posting.update_attributes(params[:job_posting])
       flash[:notice] = "Job updated"
-      redirect_to job_posting_path(@job_posting)
+      redirect_to preview_path(@job_posting.uid)
     else
       render :action => "edit", :uid => @job_posting.uid
     end
