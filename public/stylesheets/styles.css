@@ -581,7 +581,7 @@ form .inline-errors {
       -webkit-border-radius: 8px;
       -moz-border-radius: 8px;
       border-radius: 8px;
-      padding: 6px 8px 2px;
+      padding: 4px 8px;
       text-shadow: 0 -1px 1px #777777;
       color: white; }
       .job-details .sidebar .tags li a {
