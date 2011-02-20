@@ -161,7 +161,7 @@ header {
   height: 805px;
   margin-right: 20px;
   float: right;
-  background: transparent url(../images/pad.png) no-repeat; }
+  background: transparent url(http://remotejobs.s3.amazonaws.com/pad.png) no-repeat; }
   #jobs-list header {
     padding: 10px;
     height: 39px; }
