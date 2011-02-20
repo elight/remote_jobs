@@ -78,10 +78,8 @@ class JobPostingsController < InheritedResources::Base
       elsif result.message == "Gateway Rejected: cvv"
         @job_posting.errors.add(:base, "Invalid security code (CVV)")
       elsif result.errors.size == 0
-        @job_posting.errors.add(:base, result.message)
-      end
-      if result.errors.size == 0
         Rails.logger.error "[Remote Jobs] Braintree failure, but no errors... #{result.message}, #{result.inspect}"
+        @job_posting.errors.add(:base, result.message)
       end
       result.errors.each do |error|
         Rails.logger.info "[Remote Jobs] Braintree transaction error: #{error.code} - #{error.message}"
