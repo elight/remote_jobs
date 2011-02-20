@@ -19,7 +19,7 @@ class JobPostingsController < InheritedResources::Base
 
     if @job_posting.save
       JobPostingMailer.new_job_posting_email(@job_posting).deliver
-      redirect_to preview_path(@job_posting.uid, :only_path => false, :host => "secure.#{request.host}", :protocol => "https")
+      redirect_to_secure_preview_path_for @job_posting
     else
       render :action => "new" and return
     end
@@ -102,7 +102,7 @@ class JobPostingsController < InheritedResources::Base
     @job_posting = JobPosting.where(:uid => params[:job_posting][:uid]).try(:first)
     if @job_posting.update_attributes(params[:job_posting])
       flash[:notice] = "Job updated"
-      redirect_to preview_path(@job_posting.uid)
+      redirect_to_secure_preview_path_for @job_posting
     else
       render :action => "edit", :uid => @job_posting.uid
     end
@@ -194,5 +194,9 @@ class JobPostingsController < InheritedResources::Base
       flash[:notice] = "Yay! Your job is now public."
       JobPostingMailer.job_posting_receipt(@job_posting).deliver
       redirect_to job_posting_path(@job_posting)
+    end
+
+    def redirect_to_secure_preview_path_for(job_posting)
+      redirect_to preview_path(job_posting.uid, :only_path => false, :host => "secure.#{request.host}", :protocol => "https")
     end
 end
