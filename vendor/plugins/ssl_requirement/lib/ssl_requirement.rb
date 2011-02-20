@@ -54,7 +54,7 @@ module SslRequirement
         flash.keep
         return false
       elsif request.ssl? && !ssl_required?
-        redirect_to "http://" + request.host + request.request_uri
+        redirect_to "http://" + request.host + request.fullpath
         flash.keep
         return false
       end

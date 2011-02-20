@@ -71,9 +71,23 @@ class JobPostingsController < InheritedResources::Base
       render :action => :preview and return
     end
 
-    if credit_card_charge_fails?
-      @job_posting.errors.add(:base, @failure_reason) if @failure_reason.is_a?(String)
-      render :action => :preview and return
+    result = charge_credit_card(@job_posting)
+    if !result.success?
+      if result.message == "Gateway Rejected: avs"
+        @job_posting.errors.add(:base, "Invalid postal code")
+      elsif result.message == "Gateway Rejected: cvv"
+        @job_posting.errors.add(:base, "Invalid security code (CVV)")
+      elsif result.errors.size == 0
+        @job_posting.errors.add(:base, result.message)
+      end
+      if result.errors.size == 0
+        Rails.logger.error "[Remote Jobs] Braintree failure, but no errors... #{result.message}, #{result.inspect}"
+      end
+      result.errors.each do |error|
+        Rails.logger.info "[Remote Jobs] Braintree transaction error: #{error.code} - #{error.message}"
+        @job_posting.errors.add(:base, error.message)
+      end
+      render "preview" and return
     end
     
     # we have to nil this out because update_attribute saves the credit card (dirty attributes)
@@ -112,6 +126,33 @@ class JobPostingsController < InheritedResources::Base
       ["salary", "hourly"].each do |filter|
         @job_postings = @job_postings.where("payment_type <> ?", filter.capitalize) if session["hide_#{filter}".to_sym]
       end
+    end
+    
+    def charge_credit_card(posting)
+      Braintree::Transaction.sale(
+        :amount => ENV["POSTING_COST"],
+        :customer => {
+          :first_name => posting.first_name,
+          :last_name => posting.last_name,
+          :email => posting.email_address
+        },
+        :credit_card => {
+          :number => posting.credit_card.number,
+          :expiration_date => "#{posting.credit_card.month}/#{posting.credit_card.year}",
+          :cvv => posting.credit_card.cvv
+        },
+        :billing => {
+          :street_address => posting.street_address1,
+          :locality => posting.city,
+          :region => posting.state,
+          :postal_code => posting.zipcode
+        },
+        :options => {
+          #:store_in_vault => true,
+          :add_billing_address_to_payment_method => true,
+          :submit_for_settlement => true
+        }
+      )
     end
 
     def credit_card_charge_fails?

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110122222748) do
+ActiveRecord::Schema.define(:version => 20110220194728) do
 
   create_table "coupons", :force => true do |t|
     t.string   "code"
@@ -53,6 +53,7 @@ ActiveRecord::Schema.define(:version => 20110122222748) do
     t.string   "company_url"
     t.boolean  "enabled",              :default => false
     t.string   "contract_term_length"
+    t.string   "zipcode"
   end
 
   add_index "job_postings", ["uid"], :name => "index_job_postings_on_uid"

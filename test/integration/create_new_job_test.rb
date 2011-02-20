@@ -84,6 +84,7 @@ Feature "Create new job" do
     fill_in "job_posting_street_address2", :with => @job_template.street_address2
     fill_in "job_posting_city", :with => @job_template.city
     fill_in "job_posting_state", :with => @job_template.state
+    fill_in "job_posting_zipcode", :with => @job_template.zipcode
     select "United States", :from => "job_posting_country"
     fill_in "job_posting_phone_number", :with => @job_template.phone_number
   end

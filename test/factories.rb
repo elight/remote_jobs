@@ -13,6 +13,7 @@ Factory.define :job_posting do |j|
   j.street_address1       "1 Dumb Fuck Way"
   j.city                  "Fuck You"
   j.state                 "DE"
+  j.zipcode               "12345"
   j.country               "United States"
   j.phone_number          "555-555-5555"
 end
