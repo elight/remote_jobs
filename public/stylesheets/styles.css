@@ -623,6 +623,23 @@ form .inline-errors {
   content: "←";
   padding-right: 5px; }
 
+.story .text {
+  float: left;
+  width: 430px;
+  margin-right: 60px; }
+.story .images {
+  float: left; }
+  .story .images .image {
+    float: left;
+    margin-right: 20px; }
+    .story .images .image img {
+      width: 160px;
+      padding: 5px;
+      background-color: white; }
+    .story .images .image div {
+      text-align: center;
+      padding: 5px 0; }
+
 #footer .insides {
   text-align: center;
   color: #999999; }

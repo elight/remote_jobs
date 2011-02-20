@@ -10,6 +10,7 @@ RemoteJobs::Application.routes.draw do
   
   match '/privacy',         :to => 'pages#privacy'
   match '/refunds',         :to => 'pages#refunds'
+  match '/story',           :to => 'pages#story'
 
   match '/',                :to => 'job_postings#index',              :as => 'root'
 end

@@ -27,7 +27,7 @@
           .insides
             %h1= link_to("remote jobs", root_path, :id => "logo")
             %h2#our-story
-              finding great remote jobs and people
+              = link_to("the story behind remote jobs", story_path)
             
             = yield :header
             
