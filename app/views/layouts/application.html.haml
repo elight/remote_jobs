@@ -3,7 +3,7 @@
   %head
     %meta{ :content => "text/html; charset=utf-8", "http-equiv" => "Content-Type" }
     %meta{ :name => "Description", "http-equiv" => "Description", :content => "Jobs for the remote worker." }
-    %meta{ :name => "Keywords", "http-equiv" => "Keywords", :content => "jobs, remote, freelancer, board" }
+    %meta{ :name => "Keywords", "http-equiv" => "Keywords", :content => "jobs, remote, freelance, board, design, development, employee, hourly, salary" }
     %link{ :id => 'favicon', :href => '/images/favicon.png', :rel => 'icon', :type => 'image/x-icon' }
     = csrf_meta_tag
     %title
@@ -15,8 +15,10 @@
     
     = stylesheet_link_tag "jquery-ui-1.8.6", "fonts", "reset", "styles"
     
-    /[if lt IE 7]
+    /[if lt IE 8]
       = stylesheet_link_tag "ie"
+    /[if lt IE 7]
+      = stylesheet_link_tag "ie6"
 
     = yield :head
     

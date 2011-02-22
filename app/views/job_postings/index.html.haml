@@ -25,14 +25,16 @@
     #search
       = form_tag 'search' do
         = text_field_tag :query, "", :placeholder => "search..."
-        = submit_tag "search"
-  
+        = submit_tag ""
+  #paper
   %ul#jobs
     - if @job_postings.empty?
       %li.no-results Sorry, no jobs were found.
     - else
       = render :partial => "job_posting", :collection => @job_postings
 
+  #coffee-stain
+  #pad-bottom
   #spinner
   #pencil
   

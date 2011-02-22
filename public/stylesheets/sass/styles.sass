@@ -175,10 +175,11 @@ header
 	height: 805px
 	margin-right: 20px
 	float: right
-	background: transparent url(http://remotejobs.s3.amazonaws.com/pad.png) no-repeat
 	header
 		padding: 10px
-		height: 39px
+		height: 44px
+		background: transparent url(../images/pad-top.png) no-repeat
+		position: relative
 		h3
 			font-size: 15px
 			font-weight: normal
@@ -230,20 +231,33 @@ header
 	.term	
 		color: $term_color
 	
+	#paper
+		width: 100%
+		height: 705px
+		position: absolute
+		top: 64px
+		left: 0
+		z-index: 1
+		background: transparent url(../images/pad-mid.png) repeat-y
+	
 	ul#jobs
 		margin: 20px 0 0 5px
 		width: 784px
 		background: transparent url(../images/lines.png) repeat 0 0
 		height: 685px
+		position: absolute
+		top: 64px
+		left: 0
+		z-index: 2
 		li
+			height: 40px
 			a
 				background: transparent url(../images/highlighter.png) no-repeat 0 -100px
 				color: $text_color
-				padding: 12px 10px 2px 0
+				padding: 12px 10px 0 0
 				display: block
 				clear: both
 				height: 25px
-				margin-bottom: 1px
 			a:hover
 				background-position: 0 3px
 			.new, .title, .company, .tags, .date
@@ -269,17 +283,36 @@ header
 				text-transform: lowercase
 				div
 					float: left
-					height: 20px
+					height: 15px
+					overflow: hidden
 				.category
 					width: 83px
 				.job_type
 					width: 65px
 				.payment_type
 					width: 47px
+				.term
+					width: 55px
 		li.no-results
 			font-weight: bold
 			text-align: center
 			padding: 13px 0 0
+	#coffee-stain
+		width: 200px
+		height: 219px
+		position: absolute
+		top: 530px
+		left: 600px
+		background: transparent url(../images/coffee-stain.png) no-repeat 0 0
+		z-index: 3
+	#pad-bottom	
+		width: 100%
+		height: 27px
+		background: transparent url(../images/pad-bottom.png) no-repeat 0 0
+		position: absolute
+		top: 769px
+		left: 0
+		z-index: 3
 	#spinner
 		position: absolute
 		top: 91px
