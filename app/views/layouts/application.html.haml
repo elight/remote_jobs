@@ -19,7 +19,8 @@
       = stylesheet_link_tag "ie"
     /[if lt IE 7]
       = stylesheet_link_tag "ie6"
-
+      
+    = auto_discovery_link_tag :rss, "/jobs.rss"
     = yield :head
     
   %body
@@ -54,6 +55,7 @@
         .links
           = link_to("Privacy Policy", privacy_path)
           = link_to("Refunds", refunds_path)
+          = link_to("RSS", job_postings_path(:format => :rss))
 
     =# render "analytics"
     = yield :javascript
