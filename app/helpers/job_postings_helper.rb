@@ -12,7 +12,7 @@ module JobPostingsHelper
     when 25:
       "indefinite"
     else
-      "#{job_posting.contract_term_length} mo."
+      job_posting.contract_term_length
     end
   end
 

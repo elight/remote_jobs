@@ -74,7 +74,7 @@ header {
       margin-right: 10px; }
     header #add-a-job a {
       display: block;
-      padding: 2px 12px 0 12px;
+      padding: 1px 12px 0 12px;
       float: left;
       height: 41px;
       width: 98px;
@@ -121,7 +121,7 @@ header {
     display: block;
     height: 31px;
     margin-bottom: 9px;
-    padding: 2px 0 0 30px;
+    padding: 0 0 0 30px;
     font-size: 13px;
     line-height: 30px;
     font-weight: bold;
@@ -160,11 +160,12 @@ header {
   width: 795px;
   height: 805px;
   margin-right: 20px;
-  float: right;
-  background: transparent url(../images/pad.png) no-repeat; }
+  float: right; }
   #jobs-list header {
     padding: 10px;
-    height: 39px; }
+    height: 44px;
+    background: transparent url(../images/pad-top.png) no-repeat;
+    position: relative; }
     #jobs-list header h3 {
       font-size: 15px;
       font-weight: normal;
@@ -180,12 +181,14 @@ header {
       margin: 2px 0 0 0;
       position: relative;
       float: right; }
+      #jobs-list header #search form {
+        padding-top: 4px; }
       #jobs-list header #search input[type="text"] {
         background-color: transparent;
         border: none;
         width: 158px;
         height: 23px;
-        padding: 4px 28px 4px 15px;
+        padding: 2px 28px 0 15px;
         color: #eddad4;
         text-shadow: 0 -1px 1px #3a251e; }
       #jobs-list header #search input[type="text"]:focus {
@@ -212,58 +215,90 @@ header {
     color: #a451d3; }
   #jobs-list .term {
     color: #d27442; }
+  #jobs-list #paper {
+    width: 100%;
+    height: 705px;
+    position: absolute;
+    top: 64px;
+    left: 0;
+    z-index: 1;
+    background: transparent url(../images/pad-mid.png) repeat-y; }
   #jobs-list ul#jobs {
     margin: 20px 0 0 5px;
     width: 784px;
     background: transparent url(../images/lines.png) repeat 0 0;
-    height: 685px; }
-    #jobs-list ul#jobs li a {
-      background: transparent url(../images/highlighter.png) no-repeat 0 -100px;
-      color: #252525;
-      padding: 12px 10px 2px 0;
-      display: block;
-      clear: both;
-      height: 25px;
-      margin-bottom: 1px; }
-    #jobs-list ul#jobs li a:hover {
-      background-position: 0 3px; }
-    #jobs-list ul#jobs li .new, #jobs-list ul#jobs li .title, #jobs-list ul#jobs li .company, #jobs-list ul#jobs li .tags, #jobs-list ul#jobs li .date {
-      float: left;
-      overflow: hidden;
-      height: 20px; }
-    #jobs-list ul#jobs li .new, #jobs-list ul#jobs li .company, #jobs-list ul#jobs li .tags, #jobs-list ul#jobs li .date {
-      padding-top: 2px; }
-    #jobs-list ul#jobs li .new {
-      width: 53px;
-      padding-right: 15px;
-      text-align: center; }
-    #jobs-list ul#jobs li .title {
-      width: 230px;
-      padding-top: 2px;
-      padding-right: 10px;
-      font-size: 14px;
-      font-weight: bold; }
-    #jobs-list ul#jobs li .company {
-      width: 150px; }
-    #jobs-list ul#jobs li .tags {
-      width: 260px;
-      text-transform: lowercase; }
-      #jobs-list ul#jobs li .tags div {
+    height: 685px;
+    position: absolute;
+    top: 64px;
+    left: 0;
+    z-index: 2; }
+    #jobs-list ul#jobs li {
+      height: 40px; }
+      #jobs-list ul#jobs li a {
+        background: transparent url(../images/highlighter.png) no-repeat 0 -100px;
+        color: #252525;
+        padding: 12px 10px 0 0;
+        display: block;
+        clear: both;
+        height: 25px; }
+      #jobs-list ul#jobs li a:hover {
+        background-position: 0 3px; }
+      #jobs-list ul#jobs li .new, #jobs-list ul#jobs li .title, #jobs-list ul#jobs li .company, #jobs-list ul#jobs li .tags, #jobs-list ul#jobs li .date {
         float: left;
+        overflow: hidden;
         height: 20px; }
-      #jobs-list ul#jobs li .tags .category {
-        width: 83px; }
-      #jobs-list ul#jobs li .tags .job_type {
-        width: 65px; }
-      #jobs-list ul#jobs li .tags .payment_type {
-        width: 47px; }
+      #jobs-list ul#jobs li .new, #jobs-list ul#jobs li .company, #jobs-list ul#jobs li .tags, #jobs-list ul#jobs li .date {
+        padding-top: 2px; }
+      #jobs-list ul#jobs li .new {
+        width: 53px;
+        padding-right: 15px;
+        text-align: center; }
+      #jobs-list ul#jobs li .title {
+        width: 230px;
+        padding-top: 0;
+        padding-right: 10px;
+        font-size: 14px;
+        font-weight: bold; }
+      #jobs-list ul#jobs li .company {
+        width: 150px; }
+      #jobs-list ul#jobs li .tags {
+        width: 260px;
+        text-transform: lowercase; }
+        #jobs-list ul#jobs li .tags div {
+          float: left;
+          height: 15px;
+          overflow: hidden; }
+        #jobs-list ul#jobs li .tags .category {
+          width: 83px; }
+        #jobs-list ul#jobs li .tags .job_type {
+          width: 65px; }
+        #jobs-list ul#jobs li .tags .payment_type {
+          width: 47px; }
+        #jobs-list ul#jobs li .tags .term {
+          width: 55px; }
     #jobs-list ul#jobs li.no-results {
       font-weight: bold;
       text-align: center;
       padding: 13px 0 0; }
+  #jobs-list #coffee-stain {
+    width: 200px;
+    height: 219px;
+    position: absolute;
+    top: 530px;
+    left: 600px;
+    background: transparent url(../images/coffee-stain.png) no-repeat 0 0;
+    z-index: 3; }
+  #jobs-list #pad-bottom {
+    width: 100%;
+    height: 27px;
+    background: transparent url(../images/pad-bottom.png) no-repeat 0 0;
+    position: absolute;
+    top: 769px;
+    left: 0;
+    z-index: 3; }
   #jobs-list #spinner {
     position: absolute;
-    top: 250px;
+    top: 91px;
     left: 0;
     display: none;
     width: 795px;
@@ -579,7 +614,7 @@ form .inline-errors {
       -webkit-border-radius: 8px;
       -moz-border-radius: 8px;
       border-radius: 8px;
-      padding: 6px 8px 2px;
+      padding: 4px 8px;
       text-shadow: 0 -1px 1px #777777;
       color: white; }
       .job-details .sidebar .tags li a {
@@ -616,12 +651,37 @@ form .inline-errors {
       padding-bottom: 5px;
       margin-bottom: 5px; }
 
+#coupons {
+  position: relative;
+  z-index: 3;
+  margin-left: 73px;
+  font-style: italic; }
+
 .back {
   margin-bottom: 20px; }
 
 .back:before {
   content: "←";
   padding-right: 5px; }
+
+.story {
+  margin-left: 65px; }
+  .story .text {
+    float: left;
+    width: 430px;
+    margin-right: 60px; }
+  .story .images {
+    float: left; }
+    .story .images .image {
+      float: left;
+      margin-right: 20px; }
+      .story .images .image img {
+        width: 160px;
+        padding: 5px;
+        background-color: white; }
+      .story .images .image div {
+        text-align: center;
+        padding: 5px 0; }
 
 #footer .insides {
   text-align: center;

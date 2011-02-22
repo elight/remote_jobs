@@ -3,7 +3,7 @@
   %head
     %meta{ :content => "text/html; charset=utf-8", "http-equiv" => "Content-Type" }
     %meta{ :name => "Description", "http-equiv" => "Description", :content => "Jobs for the remote worker." }
-    %meta{ :name => "Keywords", "http-equiv" => "Keywords", :content => "jobs, remote, freelancer, board" }
+    %meta{ :name => "Keywords", "http-equiv" => "Keywords", :content => "jobs, remote, freelance, board, design, development, employee, hourly, salary" }
     %link{ :id => 'favicon', :href => '/images/favicon.png', :rel => 'icon', :type => 'image/x-icon' }
     = csrf_meta_tag
     %title
@@ -15,9 +15,12 @@
     
     = stylesheet_link_tag "jquery-ui-1.8.6", "fonts", "reset", "styles"
     
-    /[if lt IE 7]
+    /[if lt IE 8]
       = stylesheet_link_tag "ie"
-
+    /[if lt IE 7]
+      = stylesheet_link_tag "ie6"
+      
+    = auto_discovery_link_tag :rss, "/jobs.rss"
     = yield :head
     
   %body
@@ -27,7 +30,7 @@
           .insides
             %h1= link_to("remote jobs", root_path, :id => "logo")
             %h2#our-story
-              finding great remote jobs and people
+              = link_to("the story behind remote jobs", story_path)
             
             = yield :header
             
@@ -52,6 +55,8 @@
         .links
           = link_to("Privacy Policy", privacy_path)
           = link_to("Refunds", refunds_path)
+          = link_to("RSS", job_postings_path(:format => :rss))
 
     =# render "analytics"
     = yield :javascript
+    = render "shared/analytics"

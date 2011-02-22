@@ -1,0 +1,12 @@
+#wrap, #footer {
+	display: none;
+}
+#ie6_pwnage {
+	display: block;
+	width: 500px;
+	margin: 100px auto 0;
+	font-size: 16px;
+}
+ul {
+	margin-top: 20px;
+}

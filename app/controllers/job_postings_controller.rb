@@ -8,6 +8,10 @@ class JobPostingsController < InheritedResources::Base
 
   def index
     @job_postings = JobPosting.where(:enabled => true).order("created_at DESC")
+    respond_to do |format|
+      format.html
+      format.rss { render :layout => false }
+    end
   end
 
   def new

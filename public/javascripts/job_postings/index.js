@@ -13,11 +13,13 @@ var job_searcher = function() {
 	
 	this.handle_search_form = function() {
 		$('#query').keyup(searcher.toggle_search_form_icon);
-		$('#search input[type="submit"].clear').live('click', function(event) {
-			// make sure this was a click (also fires on form enter-key submission)
-			if (event.clientX != 0 && event.clientY != 0) {
-				$('#query').val('').keyup();
-				searcher.do_filter();
+		$('#search input[type="submit"]').click(function(event) {
+			if ($(this).hasClass('clear')) {
+				// make sure this was a click (also fires on form enter-key submission)
+				if (event.clientX != 0 && event.clientY != 0) {
+					$('#query').val('').keyup();
+					searcher.do_filter();
+				}				
 			}
 		});
 		$('#search form').submit(function(event) {
@@ -96,7 +98,7 @@ var job_searcher = function() {
 	};
 	
 	this.update_page = function(data) {
-		if (data.trim() == "")
+		if ($.trim(data) == "")
 			data = '<li class="no-results">Sorry, no jobs were found.</li>';
 		$('#jobs').html(data);
 		searcher.show_jobs();
