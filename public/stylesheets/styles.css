@@ -644,6 +644,8 @@ form .inline-errors {
     padding-top: 10px;
     float: left;
     width: 700px; }
+    .job-details .text li.description {
+      margin-bottom: 10px; }
     .job-details .text h3 {
       font-weight: bold;
       font-size: 1.2em;
