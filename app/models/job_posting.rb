@@ -22,7 +22,7 @@ class JobPosting < ActiveRecord::Base
   scope :management, where(:category => "Management")
 
   def to_param
-    "#{id}_#{title.gsub(' ', '_')}"
+    "#{id}_#{title.gsub(/[^\d\w]/, '_')}"
   end
 
   def disable!
