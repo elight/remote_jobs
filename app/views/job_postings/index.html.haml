@@ -27,6 +27,9 @@
         = text_field_tag :query, "", :placeholder => "search..."
         = submit_tag ""
   #paper
+  #coupons
+    Early adopters get a coupon code for a free post! Email
+    = mail_to("evan@remote-jobs.com","evan@remote-jobs.com")
   %ul#jobs
     - if @job_postings.empty?
       %li.no-results Sorry, no jobs were found.

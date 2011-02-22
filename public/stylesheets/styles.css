@@ -651,6 +651,12 @@ form .inline-errors {
       padding-bottom: 5px;
       margin-bottom: 5px; }
 
+#coupons {
+  position: relative;
+  z-index: 3;
+  margin-left: 73px;
+  font-style: italic; }
+
 .back {
   margin-bottom: 20px; }
 
