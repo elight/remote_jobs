@@ -644,6 +644,11 @@ form .inline-errors {
     padding-top: 10px;
     float: left;
     width: 700px; }
+    .job-details .text .description, .job-details .text .hiring_criteria, .job-details .text .how_to_apply {
+      margin-bottom: 20px; }
+      .job-details .text .description li, .job-details .text .hiring_criteria li, .job-details .text .how_to_apply li {
+        list-style-type: disc;
+        margin-left: 1.2em; }
     .job-details .text h3 {
       font-weight: bold;
       font-size: 1.2em;
