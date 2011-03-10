@@ -12,8 +12,7 @@ class JobPostingMailer < ActionMailer::Base
     @title = job_posting.title
     @show_url = "http://remote-jobs.com/jobs/#{job_posting.to_param}"
     @edit_url = "http://remote-jobs.com/edit/#{job_posting.uid}"
-    @did_use_coupon = job_posting.coupon.present?
     mail :to => job_posting.email_address,
-         :subject => "Your receipt"
+         :subject => "Your job has been published"
   end
 end

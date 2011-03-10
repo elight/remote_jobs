@@ -3,16 +3,10 @@
     %meta{:content =>"text/html; charset=UTF-8", :http_equiv => "Content-Type"}
   %body
     %p
-      Thank you so much for your business!
+      Thank you so much for posting a job!
     %p
       %strong Your job, #{@title}, is now published at #{@show_url}
       %div If you ever need to edit it you can use this secret link: #{@edit_url}
-    - if @did_use_coupon
-      %p
-        Thanks for redeeming your Remote Jobs coupon!
-    - else
-      %p
-        We have charged your card $75.
     %p
       Sincerely,
     %p
