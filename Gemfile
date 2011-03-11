@@ -12,6 +12,7 @@ gem 'haml'
 gem 'maruku'
 gem 'uuid'
 gem 'nokogiri'
+gem 'will_paginate'
 
 group :test do
   gem 'shoulda'

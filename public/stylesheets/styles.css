@@ -382,12 +382,43 @@ header {
     bottom: 10px;
     right: -40px;
     background: transparent url(../images/pencil.png) no-repeat 0 0; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003332}}
+  #jobs-list #pagination {
+    position: absolute;
+    bottom: -11px;
+    z-index: 3;
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+    color: #999999;
+    font-size: 11px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003341}}
+    #jobs-list #pagination .pagination {
+      padding-top: 26px;
+      text-shadow: 0 1px 1px white;
+      background: transparent url(../images/pagination-background.png) no-repeat 50% 0;
+      height: 66px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003346}}
+      #jobs-list #pagination .pagination .current {
+        color: #252525; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003348}}
+      #jobs-list #pagination .pagination .disabled {
+        color: #aaaaaa; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003350}}
+      #jobs-list #pagination .pagination a, #jobs-list #pagination .pagination span {
+        padding: 2px 4px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003352}}
+      #jobs-list #pagination .pagination a:hover {
+        background: #dddddd;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        border-radius: 3px; }
 
 /* Create a job form */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003335}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003360}}
 #create-a-job {
   position: relative; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003337}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003362}}
   #create-a-job #posting-preview {
     display: none;
     width: 300px;
@@ -400,35 +431,35 @@ header {
     position: absolute;
     right: 0;
     top: 45px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003349}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003374}}
     #create-a-job #posting-preview h3 {
       border-bottom: 1px dotted #dddddd;
       padding-bottom: 5px;
       margin-bottom: 5px; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003355}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003380}}
 form h3 {
   font-size: 18px;
   padding-bottom: 5px;
   border-bottom: 1px solid #cccccc;
   margin-bottom: 20px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003360}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003385}}
 form fieldset.inputs {
   margin-bottom: 30px;
   background-color: #d9dde1;
   background-color: rgba(0, 0, 0, 0.05);
   padding: 20px;
   text-shadow: 0 1px 1px white; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003366}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003391}}
 form li {
   display: block;
   clear: both;
   min-height: 30px;
   margin-bottom: 20px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003371}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003396}}
 form legend {
   height: 1em; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003373}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003398}}
 form label, form legend.label {
   width: 80px;
   float: left;
@@ -438,51 +469,51 @@ form label, form legend.label {
   line-height: 30px;
   font-weight: bold;
   text-shadow: 0 1px 1px white; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003382}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003407}}
   form label abbr[title="required"], form legend.label abbr[title="required"] {
     display: none; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003384}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003409}}
 form .full-width-label label {
   width: auto; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003386}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003411}}
 form input[type="text"], form input[type="url"], form input[type="email"], form input[type="tel"] {
   padding: 6px;
   font-size: 13px;
   float: left;
   background-image: -webkit-gradient(linear, 0% 0%, 0% 12%, from(#999999), to white); }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003391}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003416}}
 form input[type="text"]:focus, form input[type="email"]:focus, form input[type="phone"]:focus, form input[type="tel"]:focus, form textarea:focus {
   outline: none;
   -webkit-box-shadow: 0 0 12px rgba(51, 204, 255, 0.5);
   -moz-box-shadow: 0 0 12px rgba(51, 204, 255, 0.5);
   box-shadow: 0 0 12px rgba(51, 204, 255, 0.5); }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003396}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003421}}
 form select {
   margin-top: 8px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003398}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003423}}
 form li.radio {
   margin-bottom: 10px;
   float: left;
   clear: none;
   margin-right: 120px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003403}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003428}}
   form li.radio fieldset {
     margin-bottom: 0;
     background: none;
     padding: 0; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003407}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003432}}
   form li.radio legend {
     display: block;
     float: none;
     padding-bottom: 5px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003411}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003436}}
   form li.radio ol {
     float: left;
     padding-top: 3px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003414}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003439}}
     form li.radio ol li {
       margin-bottom: 5px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003416}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003441}}
       form li.radio ol li label {
         min-width: 150px;
         text-align: left;
@@ -490,37 +521,37 @@ form li.radio {
         padding-left: 5px;
         border: 1px solid transparent;
         cursor: pointer; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003423}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003448}}
       form li.radio ol li label.selected {
         background-color: #f5f1d4;
         -webkit-border-radius: 5px;
         -moz-border-radius: 5px;
         border-radius: 5px;
         border: 1px solid #ced1ad; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003429}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003454}}
 form .ui-slider {
   border: 1px solid #aaaaaa; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003431}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003456}}
 form .slider {
   width: 200px;
   float: left;
   margin: 12px 0 0 8px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003435}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003460}}
   form .slider .ui-slider-handle {
     border: 1px solid #e38181; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003437}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003462}}
   form .slider .ui-state-hover, form .slider .ui-state-focus {
     background: #f2c6c6; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003439}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003464}}
   form .slider .ui-state-active {
     background: #e68f8f; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003441}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003466}}
 form .slider-value {
   float: left;
   padding: 7px 0 0 15px;
   font-weight: bold;
   font-size: 1.1em; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003446}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003471}}
 form .inline-hints, form .inline-errors {
   float: left;
   margin: 0 0 0 10px;
@@ -528,22 +559,22 @@ form .inline-hints, form .inline-errors {
   height: 28px;
   line-height: 30px;
   padding-top: 2px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003454}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003479}}
 form .textarea label {
   float: none; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003456}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003481}}
 form .textarea a {
   font-size: 0.9em;
   margin-left: 15px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003459}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003484}}
 form .textarea textarea {
   display: block;
   width: 550px;
   height: 150px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003463}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003488}}
 form fieldset.buttons, form .coupon-info, form .publish-it {
   position: static; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003465}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003490}}
   form fieldset.buttons input[type="submit"], form fieldset.buttons a.remove, form .coupon-info input[type="submit"], form .coupon-info a.remove, form .publish-it input[type="submit"], form .publish-it a.remove {
     float: right;
     display: block;
@@ -557,46 +588,46 @@ form fieldset.buttons, form .coupon-info, form .publish-it {
     text-shadow: 0 -1px 1px black;
     border: none;
     cursor: pointer; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003478}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003503}}
   form fieldset.buttons input[type="submit"]:active, form fieldset.buttons a.remove:active, form .coupon-info input[type="submit"]:active, form .coupon-info a.remove:active, form .publish-it input[type="submit"]:active, form .publish-it a.remove:active {
     margin-top: 1px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003480}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003505}}
   form fieldset.buttons a.remove, form .coupon-info a.remove, form .publish-it a.remove {
     float: left; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003482}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003507}}
   form fieldset.buttons .save-job, form .coupon-info .save-job, form .publish-it .save-job {
     clear: none; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003484}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003509}}
 form .publish-it {
   display: block; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003486}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003511}}
   form .publish-it h3 {
     float: left;
     border: none;
     padding-top: 7px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003490}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003515}}
 form .coupon-info {
   height: 60px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003492}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003517}}
   form .coupon-info label {
     width: auto; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003494}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003519}}
   form .coupon-info li {
     float: left;
     clear: none; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003497}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003522}}
   form .coupon-info input[type="text"] {
     width: 350px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003499}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003524}}
   form .coupon-info input[type="submit"] {
     float: left;
     margin: -3px 0 0 20px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003502}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003527}}
 form .or-separator {
   border-top: 1px dashed #aaaaaa;
   margin: 15px 0 40px 40px;
   position: relative; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003506}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003531}}
   form .or-separator span {
     position: absolute;
     top: -0.7em;
@@ -604,101 +635,101 @@ form .or-separator {
     font-size: 1.5em;
     font-weight: bold;
     color: #555555; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003513}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003538}}
 form #job_posting_title_input input {
   width: 250px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003515}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003540}}
 form #job_posting_description_input {
   float: left;
   clear: none;
   margin-right: 10px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003519}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003544}}
 form #description-formatting-help {
   float: left;
   padding-top: 30px;
   width: 350px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003523}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003548}}
   form #description-formatting-help h3 {
     font-size: 1em;
     color: #7c1c1c;
     margin-bottom: 2px;
     border: none; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003528}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003553}}
   form #description-formatting-help .italic {
     font-style: italic; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003530}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003555}}
   form #description-formatting-help .bold {
     font-weight: bold; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003532}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003557}}
   form #description-formatting-help table {
     background-color: #cccccc;
     padding: 8px;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     border-radius: 5px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003538}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003563}}
     form #description-formatting-help table tr {
       height: 20px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003540}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003565}}
     form #description-formatting-help table th {
       border-bottom: 1px dotted #999999; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003542}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003567}}
     form #description-formatting-help table th, form #description-formatting-help table td {
       width: 125px;
       text-align: left; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003545}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003570}}
     form #description-formatting-help table td.list ul {
       list-style-type: disc; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003547}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003572}}
     form #description-formatting-help table td.list ol, form #description-formatting-help table td.list ol li {
       list-style: decimal; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003549}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003574}}
     form #description-formatting-help table li {
       margin-bottom: 0;
       min-height: 0; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003552}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003577}}
 form #job_posting_company_name_input, form #job_posting_company_url_input {
   float: left;
   clear: none;
   width: 460px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003556}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003581}}
   form #job_posting_company_name_input input[type="text"], form #job_posting_company_name_input input[type="url"], form #job_posting_company_name_input input[type="email"], form #job_posting_company_url_input input[type="text"], form #job_posting_company_url_input input[type="url"], form #job_posting_company_url_input input[type="email"] {
     width: 392px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003558}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003583}}
 form #job_posting_hiring_criteria_input, form #job_posting_how_to_apply_input {
   float: left;
   clear: none;
   width: 460px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003562}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003587}}
   form #job_posting_hiring_criteria_input textarea, form #job_posting_how_to_apply_input textarea {
     width: 400px;
     height: 100px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003565}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003590}}
 form #job_posting_email_address {
   width: 250px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003567}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003592}}
 form .personal-info, form .credit-card-info {
   float: left;
   width: 460px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003570}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003595}}
   form .personal-info input[type="text"], form .personal-info input[type="email"], form .credit-card-info input[type="text"], form .credit-card-info input[type="email"] {
     width: 250px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003572}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003597}}
 form .explanation {
   margin-top: 40px;
   width: 400px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003575}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003600}}
   form .explanation h3 {
     font-size: 1.2em;
     margin-bottom: 5px;
     border-bottom: 1px dotted #cccccc;
     color: #7c1c1c; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003580}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003605}}
   form .explanation p {
     margin-top: 0; }
 
 /* Errors */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003584}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003609}}
 #error-explanation {
   background-color: #f5d4d4;
   -webkit-border-radius: 5px;
@@ -707,38 +738,38 @@ form .explanation {
   padding: 10px;
   color: #280909;
   margin-bottom: 10px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003592}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003617}}
   #error-explanation h3 {
     font-size: 18px;
     border-bottom: 1px dotted #280909;
     margin-bottom: 5px;
     padding-bottom: 5px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003597}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003622}}
   #error-explanation li {
     padding: 3px 0; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003601}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003626}}
 form li.error input[type="text"], form li.error input[type="email"], form li.error input[type="tel"], form li.error textarea, form li.error select {
   background-color: #f5d4d4;
   border: 1px solid #c02d2d; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003604}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003629}}
 form .inline-errors {
   display: none; }
 
 /* Show a job */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003608}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003633}}
 .job-details {
   text-shadow: 0 1px 1px white; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003610}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003635}}
   .job-details h1 {
     font-size: 2.5em;
     padding-bottom: 5px;
     border-bottom: 1px solid #cccccc;
     margin-bottom: 20px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003615}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003640}}
   .job-details .secondary {
     position: relative; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003617}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003642}}
     .job-details .secondary .company {
       font-size: 1.5em;
       font-weight: bold;
@@ -746,19 +777,19 @@ form .inline-errors {
       padding-right: 10px;
       float: left;
       width: 700px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003624}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003649}}
     .job-details .secondary .date {
       position: absolute;
       top: 15px;
       left: 760px;
       font-style: italic;
       font-size: 1.2em; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003630}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003655}}
   .job-details .sidebar {
     float: right;
     width: 200px;
     padding-top: 35px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003635}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003660}}
     .job-details .sidebar .tags li {
       float: left;
       clear: both;
@@ -771,52 +802,52 @@ form .inline-errors {
       padding: 4px 8px;
       text-shadow: 0 -1px 1px #777777;
       color: white; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003647}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003672}}
       .job-details .sidebar .tags li a {
         color: white; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003649}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003674}}
     .job-details .sidebar .tags .category {
       background-color: #d35151; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003651}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003676}}
     .job-details .sidebar .tags .job_type {
       background-color: #5197d3; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003653}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003678}}
     .job-details .sidebar .tags .payment_type {
       background-color: #a451d3; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003655}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003680}}
     .job-details .sidebar .tags .term {
       background-color: #d27442; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003657}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003682}}
     .job-details .sidebar .actions {
       clear: left;
       padding-top: 30px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003660}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003685}}
       .job-details .sidebar .actions li {
         float: left;
         font-size: 1.2em;
         margin-bottom: 15px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003664}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003689}}
         .job-details .sidebar .actions li a {
           padding-left: 25px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003666}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003691}}
       .job-details .sidebar .actions .email {
         background: transparent url(../images/mail.png) no-repeat 0 50%; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003668}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003693}}
       .job-details .sidebar .actions .tweet {
         background: transparent url(../images/bird.png) no-repeat 0 50%; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003670}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003695}}
   .job-details .text {
     padding-top: 10px;
     float: left;
     width: 700px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003674}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003699}}
     .job-details .text .description, .job-details .text .hiring_criteria, .job-details .text .how_to_apply {
       margin-bottom: 20px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003676}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003701}}
       .job-details .text .description li, .job-details .text .hiring_criteria li, .job-details .text .how_to_apply li {
         list-style-type: disc;
         margin-left: 1.2em; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003679}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003704}}
     .job-details .text h3 {
       font-weight: bold;
       font-size: 1.2em;
@@ -824,63 +855,63 @@ form .inline-errors {
       padding-bottom: 5px;
       margin-bottom: 5px; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003686}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003711}}
 #coupons {
   position: relative;
   z-index: 3;
   margin-left: 73px;
   font-style: italic; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003692}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003717}}
 .back {
   margin-bottom: 20px; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003694}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003719}}
 .back:before {
   content: "←";
   padding-right: 5px; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003698}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003723}}
 .story {
   margin-left: 65px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003700}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003725}}
   .story .text {
     float: left;
     width: 430px;
     margin-right: 60px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003704}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003729}}
   .story .images {
     float: left; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003706}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003731}}
     .story .images .image {
       float: left;
       margin-right: 20px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003709}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003734}}
       .story .images .image img {
         width: 160px;
         padding: 5px;
         background-color: white; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003713}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003738}}
       .story .images .image div {
         text-align: center;
         padding: 5px 0; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003718}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003743}}
 #footer .insides {
   text-align: center;
   color: #999999; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003721}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003746}}
   #footer .insides .links {
     margin-top: 10px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003723}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003748}}
     #footer .insides .links a {
       margin: 0 5px; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003727}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003752}}
 .privacy h1, .refunds h1 {
   margin-top: 20px; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003730}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003755}}
 .important {
   background-color: #f5d4d4;
   padding: 8px;
@@ -888,15 +919,15 @@ form .inline-errors {
   -webkit-border-radius: 5px;
   margin: 10px 0; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003736}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003761}}
 .edit-link {
   margin: 10px 0;
   font-size: 1.1em; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003739}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003764}}
 .strong {
   font-weight: bold; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003741}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/djbrowning\/projects\/remote-jobs\/repo\/public\/stylesheets\/sass\/styles\.sass}line{font-family:\00003766}}
 .hidden {
   display: none; }

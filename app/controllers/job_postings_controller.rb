@@ -4,7 +4,7 @@ class JobPostingsController < InheritedResources::Base
   respond_to :html
 
   def index
-    @job_postings = JobPosting.where(:enabled => true).order("created_at DESC")
+    @job_postings = JobPosting.where(:enabled => true).order("created_at DESC").paginate(:page => params[:page], :per_page => 16)
     respond_to do |format|
       format.html
       format.rss { render :layout => false }
