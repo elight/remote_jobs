@@ -5,10 +5,9 @@
   = semantic_form_for @job_posting, :method => :put, :url => "/publish/#{@job_posting.uid}" do |job_form|
     = job_form.input :uid, :as => :hidden
       
-
-    = job_form.buttons do
+    .publish-it.clearfix
       %h3 Check your post below. Happy with it? Publish it!
-      = job_form.commit_button "Publish Job"
+      = submit_tag "Publish Job"
 
 .job-details
   = render :partial => "details", :object => @job_posting

@@ -24,3 +24,4 @@ RemoteJobs::Application.configure do
   config.action_dispatch.best_standards_support = :builtin
 end
 
+Sass::Plugin.options[:debug_info] = true
